@@ -34,28 +34,26 @@ const navItems = {
 export default function Index() {
   return (
     <aside className="tracking-tight ">
-      <div className="w-full fixed top-0 z-50">
+      <div className=" h-24 w-full fixed top-0 z-50 flex items-center justify-center backdrop-blur-sm   bg-neutral-50 bg-opacity-10 ">
         <nav
-          className="backdrop-blur-sm  h-24 flex flex-row items-start   fade md:overflow-auto scroll-pr-6 "
+          className="h-full w-[90%] flex items-center justify-start gap-4   fade md:overflow-auto px-3 sm:px-6"
           id="nav"
         >
-          <div className="flex flex-row space-x-0 p-5">
-            {Object.entries(navItems).map(([path, { name, icn, target }]) => {
-              return (
-                <Link
-                  scroll={false}
-                  key={path}
-                  href={path}
-                  target={target}
-                  className="transition-all flex align-middle items-center gap-2  py-1 px-2 m-1 cursor-pointer uppercase text-xs sm:text-[1rem]"
-                >
-                  <ScrambleEffect tInput={name} />
+          {Object.entries(navItems).map(([path, { name, icn, target }]) => {
+            return (
+              <Link
+                scroll={false}
+                key={path}
+                href={path}
+                target={target}
+                className="transition-all flex  items-center gap-1   cursor-pointer uppercase text-sm sm:text-[1.2rem] "
+              >
+                <ScrambleEffect tInput={name} />
 
-                  {icn && <ArrowIcon />}
-                </Link>
-              );
-            })}
-          </div>
+                {icn && <ArrowIcon />}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </aside>

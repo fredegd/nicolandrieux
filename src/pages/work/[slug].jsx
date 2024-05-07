@@ -73,7 +73,6 @@ export default function Page(props) {
   );
 
   const router = useRouter();
-  // console.log("PROPS", props.specificCaseData.metadata.slides);
 
   useEffect(() => {
     const gallery = document.querySelector(".gallery");
@@ -82,17 +81,16 @@ export default function Page(props) {
     const pinTrigger = ScrollTrigger.create({
       trigger: galleryContainer,
       pin: true,
-      start: "top 0px",
+      start: "top top",
       end: "+=" + gallery.offsetWidth,
       scrub: 1,
     });
 
-    let amoutToScroll = gallery.offsetWidth - window.innerWidth;
+    let amoutToScroll = (gallery.offsetWidth - window.innerWidth) * 0.9;
     let tl = gsap.timeline();
     tl.to(gallery, {
       x: -amoutToScroll,
       ease: "none",
-
       scrollTrigger: {
         trigger: galleryContainer,
         start: "top 0px",
@@ -126,25 +124,17 @@ export default function Page(props) {
             return (
               <li
                 key={slide.content}
-                className="w-[90vw] h-[100vh]  static  p-24 capitalize text-white"
+                className="w-[95vw] h-[98vh]  static "
                 style={{
-                  minWidth: "100vw",
-                  minHeight: "100vh",
+                  minWidth: "95vw",
+                  minHeight: "98vh",
                   backgroundImage: `url(${slide.caseImg})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}
               >
-                {/* <Image
-                  ref={image}
-                  src={slide.caseImg}
-                  alt="case image"
-                  layout="fill"
-                  objectFit="cover"
-                /> */}
-
-                <div className={cls}>
-                  <h1>{slide.title}</h1>
+                <div className={cls + ""}>
+                  <p>{slide.title}</p>
                   <p>{slide.subtitle}</p>
                 </div>
               </li>
@@ -152,6 +142,7 @@ export default function Page(props) {
           })}
         </ul>
       </div>
+
     </section>
   );
 }

@@ -4,36 +4,64 @@ const ScrambleEffect = ({ tInput }) => {
   const [hoveredWordIndex, setHoveredWordIndex] = useState(-1);
   const [scrambledText, setScrambledText] = useState(tInput);
   const scramblerChars = "!<>-_\\/[]{}—=+*^?#__$§X¢";
+  const words = tInput.split(" ");
+
+  const [scrambleContinuously, setScrambleContinuously] = useState(true);
+  const [scrambledWords, setScrambledWords] = useState(() =>
+    words.map((word) => ({
+      original: word,
+      scrambled: word,
+    }))
+  );
 
   useEffect(() => {
-    let interval;
+    const interval = setInterval(() => {
+      if (scrambleContinuously) {
+        setScrambledWords((prevScrambledWords) =>
+          prevScrambledWords.map((wordObj) => ({
+            ...wordObj,
+            scrambled: scrambleWord(wordObj.original),
+          }))
+        );
+      }
+    }, 50);
 
-    if (hoveredWordIndex !== -1) {
-      interval = setInterval(() => {
-        const words = tInput.split(" ");
-        const scrambledWords = words.map((word, index) => {
-          if (index === hoveredWordIndex) {
-            return scrambleWord(word);
-          } else {
-            return word;
-          }
-        });
-        setScrambledText(scrambledWords.join(" "));
-      }, 50);
-    }
+    // Stop continuous scrambling after 1500ms
+    setTimeout(() => {
+      setScrambleContinuously(false);
+    }, 1500);
 
     return () => clearInterval(interval);
-  }, [tInput, hoveredWordIndex]);
+  }, [scrambleContinuously]);
+
+  useEffect(() => {
+    let timeout;
+    if (hoveredWordIndex !== -1) {
+      timeout = setTimeout(() => {
+        setScrambledWords((prevScrambledWords) =>
+          prevScrambledWords.map((wordObj, index) => {
+            if (index === hoveredWordIndex) {
+              return {
+                ...wordObj,
+                scrambled: scrambleWord(wordObj.original),
+              };
+            }
+            return wordObj;
+          })
+        );
+      }, 1500);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [hoveredWordIndex]);
 
   const handleMouseEnter = (index) => {
     setHoveredWordIndex(index);
+    setScrambleContinuously(true); // Allow continuous scrambling when hovering over a word
   };
 
   const handleMouseLeave = () => {
-    setTimeout(() => {
-      setHoveredWordIndex(-1);
-      setScrambledText(tInput);
-    }, 1500); // Delay resetting scrambled text for 1.5 second after mouse leaves
+    setHoveredWordIndex(-1);
   };
 
   const scrambleWord = (word) => {
@@ -50,14 +78,15 @@ const ScrambleEffect = ({ tInput }) => {
   };
 
   return (
-    <span className="min-w-max min-h-max cursor-default border border-red-700">
-      {tInput.split(" ").map((word, index) => (
+    <span className="p-1 min-w-max">
+      {scrambledWords.map((wordObj, index) => (
         <span
           key={index}
           onMouseEnter={() => handleMouseEnter(index)}
           onMouseLeave={handleMouseLeave}
+          className="cursor-default"
         >
-          {index === hoveredWordIndex ? scrambledText.split(" ")[index] : word}{" "}
+          {wordObj.scrambled}{" "}
         </span>
       ))}
     </span>
