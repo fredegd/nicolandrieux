@@ -13,7 +13,6 @@ async function getData() {
   const filePath = path.join(process.cwd(), "src", "allWorks.json");
   const fileData = await fs.readFile(filePath);
   const data = JSON.parse(fileData.toString());
-  console.log("DATAAA is Angekommen");
   return data;
 }
 
@@ -74,7 +73,7 @@ export default function Page(props) {
   );
 
   const router = useRouter();
-  console.log("PROPS", props.specificCaseData.metadata.slides);
+  // console.log("PROPS", props.specificCaseData.metadata.slides);
 
   useEffect(() => {
     const gallery = document.querySelector(".gallery");

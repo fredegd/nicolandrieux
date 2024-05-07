@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-
+import ScrambleEffect from "../ScrambleEffect";
 import { ArrowIcon } from "@/components/ArrowIcon";
 
 const navItems = {
@@ -49,7 +49,8 @@ export default function Index() {
                   target={target}
                   className="transition-all flex align-middle items-center gap-2  py-1 px-2 m-1 cursor-pointer uppercase text-xs sm:text-[1rem]"
                 >
-                  {name}
+                  <ScrambleEffect tInput={name} />
+
                   {icn && <ArrowIcon />}
                 </Link>
               );

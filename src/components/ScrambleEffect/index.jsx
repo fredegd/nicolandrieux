@@ -1,83 +1,66 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-const TextScramble = ({ text }) => {
-  const [displayText, setDisplayText] = useState(text);
-  const chars = "!<>-_\\/[]{}—=+*^?#________";
+const ScrambleEffect = ({ tInput }) => {
+  const [hoveredWordIndex, setHoveredWordIndex] = useState(-1);
+  const [scrambledText, setScrambledText] = useState(tInput);
+  const scramblerChars = "!<>-_\\/[]{}—=+*^?#__$§X¢";
 
-  const setText = (newText) => {
-    const oldText = displayText;
-    const length = Math.max(oldText.length, newText.length);
-    const queue = [];
-    for (let i = 0; i < length; i++) {
-      const from = oldText[i] || "";
-      const to = newText[i] || "";
-      const start = Math.floor(Math.random() * 40);
-      const end = start + Math.floor(Math.random() * 40);
-      queue.push({ from, to, start, end });
-    }
-    let frame = 0;
-    const update = () => {
-      let output = "";
-      let complete = 0;
-      for (let i = 0, n = queue.length; i < n; i++) {
-        let { from, to, start, end, char } = queue[i];
-        if (frame >= end) {
-          complete++;
-          output += to;
-        } else if (frame >= start) {
-          if (!char || Math.random() < 0.28) {
-            char = randomChar();
-            queue[i].char = char;
+  useEffect(() => {
+    let interval;
+
+    if (hoveredWordIndex !== -1) {
+      interval = setInterval(() => {
+        const words = tInput.split(" ");
+        const scrambledWords = words.map((word, index) => {
+          if (index === hoveredWordIndex) {
+            return scrambleWord(word);
+          } else {
+            return word;
           }
-          output += `<span class="dud">${char}</span>`;
-        } else {
-          output += from;
-        }
-      }
-      setDisplayText(output);
-      if (complete === queue.length) {
-        cancelAnimationFrame(frameRequest);
-        resolve();
+        });
+        setScrambledText(scrambledWords.join(" "));
+      }, 50);
+    }
+
+    return () => clearInterval(interval);
+  }, [tInput, hoveredWordIndex]);
+
+  const handleMouseEnter = (index) => {
+    setHoveredWordIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setTimeout(() => {
+      setHoveredWordIndex(-1);
+      setScrambledText(tInput);
+    }, 3000); // Delay resetting scrambled text for 3 second after mouse leaves
+  };
+
+  const scrambleWord = (word) => {
+    let newScrambledWord = "";
+    for (let i = 0; i < word.length; i++) {
+      if (Math.random() > 0.5) {
+        newScrambledWord += word[i];
       } else {
-        frameRequest = requestAnimationFrame(update);
-        frame++;
+        newScrambledWord +=
+          scramblerChars[Math.floor(Math.random() * scramblerChars.length)];
       }
-    };
-    update();
-  };
-
-  const randomChar = () => {
-    return chars[Math.floor(Math.random() * chars.length)];
-  };
-
-  return <span dangerouslySetInnerHTML={{ __html: displayText }} />;
-};
-
-const ScrambleEffect = ({ phrases }) => {
-  const [hovered, setHovered] = useState(false);
-  const [currentPhraseIndex, setCurrentPhraseIndex] = useState(0);
-
-  const handleHover = () => {
-    setHovered(true);
-  };
-
-  const handleMouseOut = () => {
-    setHovered(false);
-  };
-
-  const handleNextPhrase = () => {
-    setCurrentPhraseIndex((prevIndex) => (prevIndex + 1) % phrases.length);
+    }
+    return newScrambledWord;
   };
 
   return (
-    <div onMouseEnter={handleHover} onMouseLeave={handleMouseOut}>
-      {hovered && (
-        <TextScramble
-          key={currentPhraseIndex}
-          text={phrases[currentPhraseIndex]}
-        />
-      )}
-    </div>
+    <span className="py-2 min-w-max cursor-default">
+      {tInput.split(" ").map((word, index) => (
+        <span
+          key={index}
+          onMouseEnter={() => handleMouseEnter(index)}
+          onMouseLeave={handleMouseLeave}
+        >
+          {index === hoveredWordIndex ? scrambledText.split(" ")[index] : word}{" "}
+        </span>
+      ))}
+    </span>
   );
 };
 

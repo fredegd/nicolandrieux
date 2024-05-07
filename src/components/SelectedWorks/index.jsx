@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
 import { allWorks } from "../../allWorks";
+import ScrambleEffect from "../ScrambleEffect";
 
 export default function SelectedWorks() {
   const image = useRef();
@@ -37,11 +38,11 @@ export default function SelectedWorks() {
 
                 <div>
                   <p className="text-[1.8rem] font-semibold  tracking-tight">
-                    {project.metadata.title}
+                    <ScrambleEffect tInput={project.metadata.title} />
                   </p>
 
                   <p className=" text-[1.5rem]  tracking-tight">
-                    {project.metadata.summary}
+                    <ScrambleEffect tInput={project.metadata.summary} />
                   </p>
                 </div>
               </div>

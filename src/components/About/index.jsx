@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Portrait from "../../../public/images/portrait.png";
+import ScrambleEffect from "@/components/ScrambleEffect";
 
 const About = () => {
   const image = useRef();
@@ -16,24 +17,26 @@ const About = () => {
             className=" mb-2  "
             style={{ fontSize: "clamp(1.8rem, 2.2vw, 2.1rem)" }}
           >
-            {" "}
-            Nicolas Landrieux
+            <ScrambleEffect tInput={"NICOLAS LANDRIEUX"} />
           </p>
           <p>
-            I am a Berlin-based graphic designer building visual identities for
-            print and web, driven by a dynamic experience through coding systems
-            and motion design. I create brand strategies, Brand identities,
-            products, campaigns, and set designs.
+            <ScrambleEffect
+              tInput={
+                "I am a Berlin-based graphic designer building visual identities for print and web, driven by a dynamic experience through coding systems and motion design. I create brand strategies, Brand identities, products, campaigns, and set designs."
+              }
+            />
           </p>
           <p>
-            Currently based in Berlin, engaging in freelance collaborations with
-            brands and studios worldwide. feel free to reach out for work
-            inquiries or just to connect.
+            <ScrambleEffect
+              tInput={
+                "Currently based in Berlin, engaging in freelance collaborations with brands and studios worldwide. feel free to reach out for work inquiries or just to connect."
+              }
+            />
           </p>
 
           <p>
             <Link href={"mailto:nico@landrieux.design"} target="_blank">
-              nico@landrieux.design
+              <ScrambleEffect tInput={"   nico@landrieux.design"} />
             </Link>
           </p>
         </div>
