@@ -50,7 +50,7 @@ const ScrambleEffect = ({ tInput }) => {
   };
 
   return (
-    <span className="py-2 min-w-max cursor-default">
+    <span className="min-w-max min-h-max cursor-default border border-red-700">
       {tInput.split(" ").map((word, index) => (
         <span
           key={index}
