@@ -33,7 +33,7 @@ const ScrambleEffect = ({ tInput }) => {
     setTimeout(() => {
       setHoveredWordIndex(-1);
       setScrambledText(tInput);
-    }, 3000); // Delay resetting scrambled text for 3 second after mouse leaves
+    }, 1500); // Delay resetting scrambled text for 1.5 second after mouse leaves
   };
 
   const scrambleWord = (word) => {

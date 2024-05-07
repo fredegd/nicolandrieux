@@ -36,7 +36,7 @@ export default function Index() {
     <aside className="tracking-tight ">
       <div className="w-full fixed top-0 z-50">
         <nav
-          className="backdrop-blur-sm  h-20 flex flex-row items-start   fade md:overflow-auto scroll-pr-6 "
+          className="backdrop-blur-sm  h-24 flex flex-row items-start   fade md:overflow-auto scroll-pr-6 "
           id="nav"
         >
           <div className="flex flex-row space-x-0 p-5">
