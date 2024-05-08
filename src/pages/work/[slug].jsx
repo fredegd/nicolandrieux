@@ -113,10 +113,10 @@ export default function Page(props) {
   }
 
   return (
-    <section className="w-[100vw] h-[100vh] -mt-24">
+    <section className="w-[100vw] h-[100vh] -mt-24 overflow-scroll">
       <div
         ref={container}
-        className="gallery-wrapper  h-full w-[1000%] overflow-scroll p-0 m-0 max-h-[100vh]"
+        className="gallery-wrapper  h-full w-[1000%]  p-0 m-0 max-h-[100vh]"
       >
         <ul className=" flex gallery   p-0 m-0">
           {props.specificCaseData.metadata.slides.map((slide) => {
