@@ -1,6 +1,6 @@
 import { useContext, useRef, useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "@gsap/react";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { TransitionContext } from "@/context/TransitionContext";
 
@@ -8,9 +8,9 @@ import Hero from "../components/Hero";
 import SelectedWorks from "../components/SelectedWorks";
 import About from "../components/About";
 
-gsap.registerPlugin(ScrollTrigger);
-
 export default function Home() {
+  gsap.registerPlugin(ScrollTrigger);
+
   const { timeline } = useContext(TransitionContext);
   const container = useRef(null);
   const image = useRef();

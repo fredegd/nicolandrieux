@@ -5,7 +5,7 @@ const ScrambleEffect = ({ tInput }) => {
 
   const [scrambledText, setScrambledText] = useState(tInput);
   const [hoveredIndex, setHoveredIndex] = useState(
-    Math.random() * tInput.length - 1
+    Math.random() * tInput?.length - 1
   );
   const [hovered, setHovered] = useState(false);
   useEffect(() => {
@@ -19,11 +19,11 @@ const ScrambleEffect = ({ tInput }) => {
       maxRange = maxRange > tInput.length ? tInput.length : maxRange;
       setScrambledText((prevText) => {
         return prevText
-          .split("")
+          ?.split("")
           .map((char, index) =>
             index >= minRange && index <= maxRange && Math.random() > 0.5
               ? scramblerChars[
-                  Math.floor(Math.random() * scramblerChars.length)
+                  Math.floor(Math.random() * scramblerChars?.length)
                 ]
               : char
           )
