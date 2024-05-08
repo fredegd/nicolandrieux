@@ -41,14 +41,40 @@
           "title": "SALTED BEAUTY —— BRAND EXPERIENCE",
           "subtitle": "ART DIRECTION | STRATEGY | PACKAGING | SCREEN DESIGN",
           "content": "Slide 1 content",
-          "classNames": "w-full h-full  flex flex-col content-center items-end justify-center *:border *:border-white "
+
+          "styles": {
+            "width": "100%",
+            "height": "100%",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "mixBlendMode": "difference",
+            "color": "#ffffff",
+            "fontWeight": "bold"
+          }
         },
         {
           "caseImg": "/images/salted-02.png",
           "title": "",
           "subtitle": "Salted Beauty started a complete rebranding in summer 2021. In six month time, we updated the whole concept of the brand and adopted the new ton-of-voice. In a team of 4, we created a new brand strategy, a corporate identity, a new packaging style, a new UI/UX, a new social media content direction and we shot a complete brand campaign.",
           "content": "Slide 2 content",
-          "classNames": "w-[50%] h-full   flex flex-col content-center items-end justify-center border border-blue-500"
+
+          "styles": {
+            "width": "100%",
+            "height": "100%",
+            "padding": "0 5rem 0 70% ",
+
+            "alignSelf": "flex-end",
+            "justifySelf": "flex-end",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "mixBlendMode": "difference",
+            "color": "#ffffff",
+            "fontWeight": "bold"
+          }
         },
         {
           "caseImg": "/images/salted-03.png",
@@ -62,14 +88,37 @@
           "title": "",
           "subtitle": "the whole brand revolves exclusively around products from the sea. We recentered the strategy on the water allegory: it is not about what the product does, but about the ingredients and their added-values. Product names have been removed to give space to the skincare process: 3+ steps for a perfect skin.",
           "content": "Slide 4 content",
-          "classNames": "max-w-1/2 h-full  flex flex-col content-center items-end justify-center   top-0 left-0 "
+          "styles": {
+            "width": "100%",
+            "height": "100%",
+            "padding": "0 30rem 0 15rem",
+
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "mixBlendMode": "difference",
+            "color": "#ffffff",
+            "fontWeight": "bold"
+          }
         },
         {
           "caseImg": "/images/salted-05.png",
           "title": "SALTED BEAUTY —— BRAND EXPERIENCE",
           "subtitle": "The grtsk variable typeface from black foundry was the focus point of the brand identity. a simple but extensive method of combining each style in a systemic way allowed a strong but versatile look and feel. the implementation of a creative coding tool to generate headlines effortlessly rounded up the typographic approach.",
           "content": "Slide 5 content",
-          "classNames": "w-full h-full   flex flex-col content-center items-end justify-center  "
+          "styles": {
+            "width": "100%",
+            "height": "100%",
+            "padding": "0 30rem 0 15rem",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "alignItems": "center",
+
+            "color": "#ffffff",
+            "fontWeight": "bold"
+          }
         },
         {
           "caseImg": "/images/salted-06.png",

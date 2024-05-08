@@ -33,12 +33,9 @@ const navItems = {
 
 export default function Index() {
   return (
-    <aside className="tracking-tight ">
-      <div className=" h-24 w-full fixed top-0 z-50 flex items-center justify-center backdrop-blur-sm   bg-neutral-50 bg-opacity-10 ">
-        <nav
-          className="h-full w-[90%] flex items-center justify-start gap-4   fade md:overflow-auto px-3 sm:px-6"
-          id="nav"
-        >
+    <aside className="tracking-tight">
+      <div className="h-24 w-full fixed top-0 z-50 flex items-center justify-center backdrop-blur bg-neutral-50 bg-opacity-10">
+        <nav className="h-full w-[90%] flex items-center justify-start gap-5 fade md:overflow-auto px-3 sm:px-6 ">
           {Object.entries(navItems).map(([path, { name, icn, target }]) => {
             return (
               <Link
@@ -46,11 +43,12 @@ export default function Index() {
                 key={path}
                 href={path}
                 target={target}
-                className="transition-all flex  items-center  cursor-pointer uppercase text-sm sm:text-[1.2rem] "
+                className="transition-all  items-center cursor-pointer uppercase text-sm sm:text-[1.2rem] nav-link"
               >
-                <ScrambleEffect tInput={name} />
-
-                {icn && <ArrowIcon />}
+                <p className="mix-blend-difference text-neutral-200 flex items-center">
+                  <ScrambleEffect tInput={name} />
+                  {icn && <ArrowIcon />}
+                </p>
               </Link>
             );
           })}

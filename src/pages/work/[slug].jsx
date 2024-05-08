@@ -121,10 +121,11 @@ export default function Page(props) {
         <ul className=" flex gallery   p-0 m-0">
           {props.specificCaseData.metadata.slides.map((slide) => {
             const cls = slide?.classNames;
+            const styles = slide?.styles;
             return (
               <li
                 key={slide.content}
-                className="w-[95vw] h-[98vh]  static "
+                className="w-[95vw] h-[98vh]  static flex"
                 style={{
                   minWidth: "95vw",
                   minHeight: "98vh",
@@ -133,8 +134,8 @@ export default function Page(props) {
                   backgroundPosition: "center",
                 }}
               >
-                <div className={cls + ""}>
-                  <p>{slide.title}</p>
+                <div style={{ ...styles }}>
+                  <h1>{slide.title}</h1>
                   <p>{slide.subtitle}</p>
                 </div>
               </li>
@@ -142,7 +143,6 @@ export default function Page(props) {
           })}
         </ul>
       </div>
-
     </section>
   );
 }

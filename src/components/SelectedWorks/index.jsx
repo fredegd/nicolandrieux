@@ -33,7 +33,7 @@ export default function SelectedWorks() {
                   alt={project.metadata.title}
                   width={350}
                   height={0}
-                  className="rounded-lg w-full md:w-1/3"
+                  className="rounded-lg w-full md:w-1/4"
                 />
 
                 <div>

@@ -42,7 +42,7 @@ const ScrambleEffect = ({ tInput }) => {
     return () => {
       clearInterval(interval);
     };
-  }, [hovered, tInput]);
+  }, [hovered, tInput, hoveredIndex]);
 
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
