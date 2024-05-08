@@ -7,7 +7,10 @@ import ScrambleEffect from "@/components/ScrambleEffect";
 const About = () => {
   const image = useRef();
   return (
-    <section className="w-full  py-24  flex flex-col justify-center items-center h-auto">
+    <section
+      className="w-full  py-24  flex flex-col justify-center items-center h-auto"
+      id="aboutte"
+    >
       <div className=" sm:max-w-[80%] md:max-w-[90%] w-full flex flex-col md:flex-row-reverse items-center md:justify-end gap-5 p-8">
         <div
           className="flex flex-col gap-8 md:max-w-[320px] lg:min-w-[60%]"

@@ -6,19 +6,19 @@ export default function Hero() {
       <div className="max-w-[90%] flex flex-col items-center">
         <div className="flex flex-col items-center lg:flex-row lg:justify-between">
           <h1
-            className=" text-black font-semibold tracking-tighter text-center lg:text-left "
+            className="  font-semibold tracking-tighter text-center lg:text-left "
             style={{ fontSize: "clamp(2.3rem, 5vw, 6rem)" }}
           >
             <ScrambleEffect tInput={"NICOLAS LANDRIEUX"} />
           </h1>
           <h1
-            className=" text-black font-semibold tracking-tighter"
+            className="  font-semibold tracking-tighter"
             style={{ fontSize: "5.2rem" && "clamp(2.3rem, 5vw, 6rem)" }}
           >
             <ScrambleEffect tInput={"––"} />
           </h1>
           <h1
-            className=" text-black font-semibold tracking-tighter"
+            className="  font-semibold tracking-tighter"
             style={{ fontSize: "5.2rem" && "clamp(2.3rem, 5vw, 6rem)" }}
           >
             <ScrambleEffect tInput={"ART DIRECTOR"} />
@@ -26,7 +26,7 @@ export default function Hero() {
         </div>
         <div className="flex flex-col xl:flex-row justify-between items-center  w-3/6 lg:w-full mt-6 lg:mt-0">
           <p
-            className=" text-black text-center"
+            className="  text-center"
             style={{ fontSize: "1.0rem" && "clamp(0.85rem, 1.05vw, 1.10rem)" }}
           >
             <ScrambleEffect
@@ -36,13 +36,13 @@ export default function Hero() {
             />
           </p>
           <p
-            className=" text-black text-center"
+            className="  text-center"
             style={{ fontSize: "1.0rem" && "clamp(0.85rem, 1.05vw, 1.10rem)" }}
           >
             ––
           </p>
           <p
-            className=" text-black text-center"
+            className="  text-center"
             style={{ fontSize: "1.0rem" && "clamp(0.85rem, 1.05vw, 1.10rem)" }}
           >
             <ScrambleEffect tInput={"I AM A DESIGNER WHO CODES"} />
