@@ -59,7 +59,7 @@ export default function Home() {
     gsap.set("body", { backgroundColor: "#ffffff", color: "#000000" });
   }, []);
   return (
-    <div className="h-[100vh] w-full">
+    <div className="h-[100vh] w-full ">
       <div ref={container} className="h-[100vh] flex flex-col ">
         <Hero />
       </div>
