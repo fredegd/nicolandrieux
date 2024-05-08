@@ -74,35 +74,35 @@ export default function Page(props) {
 
   const router = useRouter();
 
-  useEffect(() => {
-    const gallery = document.querySelector(".gallery");
-    const galleryContainer = document.querySelector(".gallery-wrapper");
+  // useEffect(() => {
+  //   const gallery = document.querySelector(".gallery");
+  //   const galleryContainer = document.querySelector(".gallery-wrapper");
 
-    const pinTrigger = ScrollTrigger.create({
-      trigger: galleryContainer,
-      pin: true,
-      start: "top top",
-      end: "+=" + gallery.offsetWidth,
-      scrub: 1,
-    });
+  //   const pinTrigger = ScrollTrigger.create({
+  //     trigger: galleryContainer,
+  //     pin: true,
+  //     start: "top top",
+  //     end: "+=" + gallery.offsetWidth,
+  //     scrub: 1,
+  //   });
 
-    let amoutToScroll = (gallery.offsetWidth - window.innerWidth) * 0.9;
-    let tl = gsap.timeline();
-    tl.to(gallery, {
-      x: -amoutToScroll,
-      ease: "none",
-      scrollTrigger: {
-        trigger: galleryContainer,
-        start: "top 0px",
-        end: "+=" + amoutToScroll,
-        scrub: 1,
-      },
-    });
-    return () => {
-      pinTrigger.kill();
-      tl.kill();
-    };
-  }, []);
+  //   let amoutToScroll = (gallery.offsetWidth - window.innerWidth) * 0.9;
+  //   let tl = gsap.timeline();
+  //   tl.to(gallery, {
+  //     x: -amoutToScroll,
+  //     ease: "none",
+  //     scrollTrigger: {
+  //       trigger: galleryContainer,
+  //       start: "top 0px",
+  //       end: "+=" + amoutToScroll,
+  //       scrub: 1,
+  //     },
+  //   });
+  //   return () => {
+  //     pinTrigger.kill();
+  //     tl.kill();
+  //   };
+  // }, []);
 
   if (props.hasError) {
     return <h1>Error - please try another parameter</h1>;
