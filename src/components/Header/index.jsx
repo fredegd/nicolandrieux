@@ -46,7 +46,7 @@ export default function Index() {
                 key={path}
                 href={path}
                 target={target}
-                className="transition-all flex  items-center gap-1   cursor-pointer uppercase text-sm sm:text-[1.2rem] "
+                className="transition-all flex  items-center  cursor-pointer uppercase text-sm sm:text-[1.2rem] "
               >
                 <ScrambleEffect tInput={name} />
 

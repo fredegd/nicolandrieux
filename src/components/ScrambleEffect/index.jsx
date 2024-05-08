@@ -1,96 +1,69 @@
 import React, { useState, useEffect } from "react";
 
 const ScrambleEffect = ({ tInput }) => {
-  const [hoveredWordIndex, setHoveredWordIndex] = useState(-1);
-  const [scrambledText, setScrambledText] = useState(tInput);
   const scramblerChars = "!<>-_\\/[]{}—=+*^?#__$§X¢";
-  const words = tInput.split(" ");
 
-  const [scrambleContinuously, setScrambleContinuously] = useState(true);
-  const [scrambledWords, setScrambledWords] = useState(() =>
-    words.map((word) => ({
-      original: word,
-      scrambled: word,
-    }))
+  const [scrambledText, setScrambledText] = useState(tInput);
+  const [hoveredIndex, setHoveredIndex] = useState(
+    Math.random() * tInput.length - 1
   );
-
+  const [hovered, setHovered] = useState(false);
   useEffect(() => {
-    const interval = setInterval(() => {
-      if (scrambleContinuously) {
-        setScrambledWords((prevScrambledWords) =>
-          prevScrambledWords.map((wordObj) => ({
-            ...wordObj,
-            scrambled: scrambleWord(wordObj.original),
-          }))
-        );
-      }
+    let interval;
+    let counter = 0;
+    let minRange = !hovered ? hoveredIndex - 12 : hoveredIndex - 15;
+    let maxRange = !hovered ? hoveredIndex + 12 : hoveredIndex + 15;
+
+    interval = setInterval(() => {
+      minRange = minRange < 0 ? 0 : minRange;
+      maxRange = maxRange > tInput.length ? tInput.length : maxRange;
+      setScrambledText((prevText) => {
+        return prevText
+          .split("")
+          .map((char, index) =>
+            index >= minRange && index <= maxRange && Math.random() > 0.5
+              ? scramblerChars[
+                  Math.floor(Math.random() * scramblerChars.length)
+                ]
+              : char
+          )
+          .join("");
+      });
+
+      counter += 1;
     }, 50);
 
-    // Stop continuous scrambling after 1500ms
-    setTimeout(() => {
-      setScrambleContinuously(false);
-    }, 1500);
-
-    return () => clearInterval(interval);
-  }, [scrambleContinuously]);
-
-  useEffect(() => {
-    let timeout;
-    if (hoveredWordIndex !== -1) {
-      timeout = setTimeout(() => {
-        setScrambledWords((prevScrambledWords) =>
-          prevScrambledWords.map((wordObj, index) => {
-            if (index === hoveredWordIndex) {
-              return {
-                ...wordObj,
-                scrambled: scrambleWord(wordObj.original),
-              };
-            }
-            return wordObj;
-          })
-        );
-      }, 1500);
+    if (!hovered) {
+      setTimeout(() => {
+        clearInterval(interval);
+        setScrambledText(tInput);
+      }, 2000);
     }
-
-    return () => clearTimeout(timeout);
-  }, [hoveredWordIndex]);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [hovered, tInput]);
 
   const handleMouseEnter = (index) => {
-    setHoveredWordIndex(index);
-    setScrambleContinuously(true); // Allow continuous scrambling when hovering over a word
+    setHoveredIndex(index);
+    setHovered(true);
   };
 
   const handleMouseLeave = () => {
-    setHoveredWordIndex(-1);
+    setHovered((prevState) => !prevState);
+    // setHoveredIndex(Math.random() * tInput.length - 1);
   };
 
-  const scrambleWord = (word) => {
-    let newScrambledWord = "";
-    for (let i = 0; i < word.length; i++) {
-      if (Math.random() > 0.5) {
-        newScrambledWord += word[i];
-      } else {
-        newScrambledWord +=
-          scramblerChars[Math.floor(Math.random() * scramblerChars.length)];
-      }
-    }
-    return newScrambledWord;
-  };
-
-  return (
-    <span className="p-1 min-w-max">
-      {scrambledWords.map((wordObj, index) => (
-        <span
-          key={index}
-          onMouseEnter={() => handleMouseEnter(index)}
-          onMouseLeave={handleMouseLeave}
-          className="cursor-default"
-        >
-          {wordObj.scrambled}{" "}
-        </span>
-      ))}
+  return scrambledText.split("").map((char, index) => (
+    <span
+      key={index}
+      onMouseEnter={() => handleMouseEnter(index)}
+      onMouseLeave={handleMouseLeave}
+      className="cursor-default"
+    >
+      {char}
     </span>
-  );
+  ));
 };
 
 export default ScrambleEffect;

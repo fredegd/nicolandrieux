@@ -21,8 +21,8 @@ export default function Home() {
       const targets = gsap.utils.toArray(["h1", "p"]);
       gsap.fromTo(
         targets,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.25 }
+        { scale: 0.85, opacity: 0 },
+        { scale: 1, opacity: 1, stagger: 0.08 }
       );
       timeline.add(gsap.to(container.current, { opacity: 0 }));
     },
