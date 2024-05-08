@@ -51,7 +51,7 @@
             "alignItems": "center",
             "mixBlendMode": "difference",
             "color": "#ffffff",
-            "fontWeight": "bold"
+            "fontWeight": "semi-bold"
           }
         },
         {
@@ -73,7 +73,7 @@
             "alignItems": "center",
             "mixBlendMode": "difference",
             "color": "#ffffff",
-            "fontWeight": "bold"
+            "fontWeight": "semi-bold"
           }
         },
         {

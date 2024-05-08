@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { TransitionContext } from "@/context/TransitionContext";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Image from "next/image";
+import ScrambleEffect from "@/components/ScrambleEffect";
 import path from "path";
 import fs from "fs/promises";
 
@@ -135,8 +135,12 @@ export default function Page(props) {
                 }}
               >
                 <div style={{ ...styles }}>
-                  <h1>{slide.title}</h1>
-                  <p>{slide.subtitle}</p>
+                  <h1>
+                    <ScrambleEffect tInput={slide.title} />
+                  </h1>
+                  <p>
+                    <ScrambleEffect tInput={slide.subtitle} />
+                  </p>
                 </div>
               </li>
             );
