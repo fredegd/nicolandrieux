@@ -1,18 +1,17 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
+const scramblerCharsToChooseFrom = [
+  "FCKYUOUALL",
+  "!<>-_|/[]{}—=+*^?#__$ﬂŒ◊¬#§X¢",
+  "NOWAY",
+  "H€L£0WOr®D",
+];
 
 const ScrambleEffect = ({ tInput }) => {
-  // const scramblerCharsToChooseFrom = [
-  //   "FCKYUOUALL",
-  //   "!<>-_\\/[]{}—=+*^?#__$§X¢",
-  //   "NOWAY",
-  //   "HELLOWORLd",
-  // ];
-  // const scramblerChars =
-  //   scramblerCharsToChooseFrom[
-  //     Math.floor(Math.random() * scramblerCharsToChooseFrom.length)
-  //   ];
-
-  const scramblerChars = "FCKYUOUALL!<>-_/[]{}";
+  const [scramblerChars, setScramblerChars] = useState(
+    scramblerCharsToChooseFrom[
+      Math.floor(Math.random() * scramblerCharsToChooseFrom.length)
+    ]
+  );
 
   const [scrambledText, setScrambledText] = useState(tInput);
   const [hoveredIndex, setHoveredIndex] = useState(
