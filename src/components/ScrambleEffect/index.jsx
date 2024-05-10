@@ -61,7 +61,7 @@ const ScrambleEffect = ({ tInput }) => {
       setTimeout(() => {
         clearInterval(interval);
         setScrambledText(tInput);
-      }, 2000);
+      }, 1500);
     }
     return () => {
       clearInterval(interval);
