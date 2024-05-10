@@ -45,7 +45,7 @@ export default function Home() {
     // Create a timeline to control the background color transition
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#work",
+        trigger: "#hero-title",
         start: "top top",
         end: "bottom top",
         scrub: true, // Smooth scrubbing
@@ -55,8 +55,45 @@ export default function Home() {
     // Define the background color keyframes
     tl.to("body", { backgroundColor: "#000000", color: "#ffffff" });
 
+    //create a timeline to control the Hero text
+    // to let it fade out when the user scrolls down
+    const heroTimeline = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "top top", //[trigger][scroller]
+          end: "30% top", //[trigger][scroller]
+          scrub: true, // Smooth scrubbing
+        },
+      })
+      .to("#hero-title h1", {
+        opacity: 0,
+        y: -50,
+        duration: 1,
+      });
+
+    // create a timeline to control the menu background color
+    const menuTimeline = gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: "#hero-title",
+          start: "top top",
+          end: "bottom top",
+          scrub: true, // Smooth scrubbing
+        },
+      })
+      .to("#menu", {
+        color: "#ffffff",
+        duration: 1,
+      });
+
     // Set initial background color to white
     gsap.set("body", { backgroundColor: "#ffffff", color: "#000000" });
+    // let the Hero text opacity gradually go to 0  when the user scrolls down
+    // and go back to 1 when the user scrolls up
+    gsap.set("#hero-title h1", { opacity: 1 });
+    // Set initial menu background color to white
+    gsap.set("#menu", { color: "#000000" });
   }, []);
   return (
     <div className="h-[100vh] w-full ">

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 const scramblerCharsToChooseFrom = [
   "FCKYUOUALL",
-  "!<>-_|/[]{}—=+*^?#__$ﬂŒ◊¬#§X¢",
+  "!<>-|/[]{}—=+*^?#$Œ¬#§X¢",
   "NOWAY",
   "H€L£0WOr®D",
 ];
 
 const ScrambleEffect = ({ tInput }) => {
+  const scrambleSpeed = 50;
   const [scramblerChars, setScramblerChars] = useState(
     scramblerCharsToChooseFrom[
       Math.floor(Math.random() * scramblerCharsToChooseFrom.length)
@@ -27,14 +28,15 @@ const ScrambleEffect = ({ tInput }) => {
     // let maxRange = !hovered ? hoveredIndex + 12 : hoveredIndex + 15;
     let minRange = !hovered
       ? hoveredIndex - tInput?.length / 2
-      : hoveredIndex - tInput?.length / 10;
+      : hoveredIndex - Math.max(2, tInput?.length / 10);
     let maxRange = !hovered
       ? hoveredIndex + tInput?.length / 2
-      : hoveredIndex + tInput?.length / 10;
+      : hoveredIndex + Math.max(2, tInput?.length / 10);
 
     interval = setInterval(() => {
       minRange = minRange < 0 ? 0 : minRange;
       maxRange = maxRange > tInput.length ? tInput.length : maxRange;
+
       setScrambledText((prevText) => {
         return prevText
           ?.split("")
@@ -53,7 +55,7 @@ const ScrambleEffect = ({ tInput }) => {
 
       counter += 1;
       console.log(counter);
-    }, 50);
+    }, scrambleSpeed);
 
     if (!hovered) {
       setTimeout(() => {
@@ -64,7 +66,7 @@ const ScrambleEffect = ({ tInput }) => {
     return () => {
       clearInterval(interval);
     };
-  }, [hovered, tInput, hoveredIndex]);
+  }, [hovered, tInput, hoveredIndex, scramblerChars]);
 
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
