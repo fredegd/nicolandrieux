@@ -10,7 +10,7 @@ export default function SelectedWorks() {
   return (
     <section
       className="w-full  py-24  flex flex-col justify-center items-center"
-      id="selectedWorks"
+      id="work"
     >
       <div className="sm:max-w-[80%] md:max-w-[90%] w-full flex flex-col gap-40 md:gap-8 p-8">
         {allWorks
@@ -36,7 +36,7 @@ export default function SelectedWorks() {
                   alt={project.metadata.title}
                   width={350}
                   height={0}
-                  className="rounded-lg w-full md:w-1/4"
+                  className="w-full md:w-1/4"
                 />
 
                 <div>

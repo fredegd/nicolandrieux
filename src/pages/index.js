@@ -45,7 +45,7 @@ export default function Home() {
     // Create a timeline to control the background color transition
     const tl = gsap.timeline({
       scrollTrigger: {
-        trigger: "#about",
+        trigger: "#work",
         start: "top top",
         end: "bottom top",
         scrub: true, // Smooth scrubbing

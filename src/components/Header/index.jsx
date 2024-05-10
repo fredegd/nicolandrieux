@@ -9,12 +9,12 @@ const navItems = {
     icn: "",
     target: "",
   },
-  "/work": {
+  "/#work": {
     name: "work",
     icn: "",
     target: "",
   },
-  "/about": {
+  "/#about": {
     name: "about",
     icn: "",
     target: "",
@@ -34,7 +34,7 @@ const navItems = {
 export default function Index() {
   return (
     <aside className="tracking-tight">
-      <div className="h-24 w-full fixed top-0 z-50 flex items-center justify-center backdrop-blur bg-neutral-50 bg-opacity-10">
+      <div className="h-24 w-full fixed top-0 z-50 flex items-center justify-center backdrop-blur bg-opacity-10">
         <nav className="h-full w-[90%] flex items-center justify-start gap-5 fade md:overflow-auto px-3 sm:px-6 ">
           {Object.entries(navItems).map(([path, { name, icn, target }]) => {
             return (
