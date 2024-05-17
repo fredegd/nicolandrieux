@@ -18,7 +18,7 @@ const About = () => {
         >
           <p
             className=" uppercase font-medium "
-            style={{ fontSize: "clamp(1.8rem, 2.2vw, 2.1rem)" }}
+            style={{ fontSize: "clamp(1.2rem, 1.3vw, 1.45rem)" }}
           >
             <ScrambleEffect tInput={"NICOLAS LANDRIEUX"} />
           </p>
