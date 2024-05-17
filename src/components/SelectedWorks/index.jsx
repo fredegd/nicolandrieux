@@ -39,12 +39,15 @@ export default function SelectedWorks() {
                   height={220}
                 />
 
-                <div>
-                  <p className="text-[1.8rem] font-semibold  tracking-tight">
+                <div style={{ fontSize: "clamp(1.1rem, 1.25vw, 1.36rem)" }}>
+                  <p
+                    className=" font-semibold  tracking-tight"
+                    style={{ fontSize: "clamp(1.2rem, 1.3vw, 1.45rem)" }}
+                  >
                     <ScrambleEffect tInput={project.metadata.title} />
                   </p>
 
-                  <p className=" text-[1.5rem]  tracking-tight">
+                  <p className="  tracking-tight">
                     <ScrambleEffect tInput={project.metadata.summary} />
                   </p>
                 </div>
