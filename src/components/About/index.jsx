@@ -11,13 +11,13 @@ const About = () => {
       className="w-full  py-24  flex flex-col justify-center items-center h-auto"
       id="about"
     >
-      <div className=" sm:max-w-[80%] md:max-w-[90%] w-full flex flex-col md:flex-row-reverse items-center md:justify-end gap-5 p-8">
+      <div className=" w-10/12 flex flex-col md:flex-row-reverse items-center md:justify-end gap-12">
         <div
-          className="flex flex-col gap-8 md:max-w-[320px] lg:min-w-[60%]"
-          style={{ fontSize: "clamp(1.1rem, 1.32vw, 1.5rem)" }}
+          className=" max-w-[460px] flex flex-col gap-4  tracking-tight leading-[1.5rem]"
+          style={{ fontSize: "clamp(1.1rem, 1.25vw, 1.36rem)" }}
         >
           <p
-            className=" mb-2  "
+            className=" uppercase font-medium "
             style={{ fontSize: "clamp(1.8rem, 2.2vw, 2.1rem)" }}
           >
             <ScrambleEffect tInput={"NICOLAS LANDRIEUX"} />
@@ -37,7 +37,7 @@ const About = () => {
             />
           </p>
 
-          <p>
+          <p className="lowercase">
             <Link href={"mailto:nico@landrieux.design"} target="_blank">
               <ScrambleEffect tInput={"   nico@landrieux.design"} />
             </Link>
@@ -48,7 +48,7 @@ const About = () => {
           className="relative w-full md:w-[400px] min-w-[300px] max-h-[545px]"
         >
           <Image
-            className="w-full"
+            className="w-full h-auto aspect-[400/545]"
             src={Portrait}
             alt="portrait"
             placeholder="blur"
