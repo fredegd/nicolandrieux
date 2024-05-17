@@ -48,7 +48,7 @@ export default function Index() {
                   key={path}
                   href={path}
                   target={target}
-                  className="transition-all  items-center cursor-pointer uppercase text-sm sm:text-[1.2rem] nav-link"
+                  className=" items-center cursor-pointer uppercase text-sm sm:text-[1.2rem] nav-link"
                 >
                   <p className="mix-blend-difference flex items-center">
                     <ScrambleEffect tInput={name} />

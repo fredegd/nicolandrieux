@@ -12,7 +12,7 @@ export default function SelectedWorks() {
       className="w-full  py-24  flex flex-col justify-center items-center"
       id="work"
     >
-      <div className="sm:max-w-[80%] md:max-w-[90%] w-full flex flex-col gap-40 md:gap-8 p-8">
+      <div className="w-10/12 flex flex-col gap-40 md:gap-8 ">
         {allWorks
           .sort((a, b) => {
             if (
@@ -26,17 +26,17 @@ export default function SelectedWorks() {
           .map((project) => (
             <Link
               key={project.slug}
-              className="flex flex-col space-y-1 mb-6 opacity-80 hover:opacity-100 hover:scale-[1.01] hover:brightness-105 transition-all"
+              className="flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105 hover:bg-white hover:text-black"
               href={`/work/${project.slug}`}
             >
-              <div className="w-full flex flex-col md:flex-row items-center  gap-8 space-x-0 md:space-x-2">
+              <div className="w-full flex flex-col md:flex-row items-center  gap-12 space-x-0 md:space-x-2">
                 <Image
                   ref={image}
+                  className="w-full md:w-[275px] h-auto aspect-[275/220] "
                   src={project.metadata.image || ""}
                   alt={project.metadata.title}
-                  width={350}
-                  height={0}
-                  className="w-full md:w-1/4"
+                  width={275}
+                  height={220}
                 />
 
                 <div>
