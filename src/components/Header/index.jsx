@@ -9,13 +9,13 @@ const navItems = {
   //   icn: "",
   //   target: "",
   // },
-  "/#work": {
-    name: "work",
+  "/#about": {
+    name: "about",
     icn: "",
     target: "",
   },
-  "/#about": {
-    name: "about",
+  "/#work": {
+    name: "work",
     icn: "",
     target: "",
   },
@@ -34,13 +34,18 @@ const navItems = {
 export default function Index() {
   return (
     <>
-      <div className="h-24 w-full fixed top-4 z-40  border border-blue-600 blur-xl"></div>
       <aside className="tracking-tight">
         <div
-          className="h-24 w-full fixed top-0 z-50 flex items-center justify-center backdrop-blur-sm"
+          className="h-24 w-full fixed top-0 z-30 flex items-center justify-center  "
           id="menu"
         >
-          <nav className="h-full w-[90%] flex items-center justify-start gap-5 fade md:overflow-auto px-3 sm:px-6 ">
+          <div className="w-full h-full backdrop-blur-sm "></div>
+        </div>
+        <div
+          className="h-24 w-full fixed top-0 z-50 flex items-center justify-center "
+          id="menu"
+        >
+          <nav className="h-full w-10/12 flex items-center justify-start gap-16 fade md:overflow-auto p-0 ">
             {Object.entries(navItems).map(([path, { name, icn, target }]) => {
               return (
                 <Link
@@ -48,9 +53,14 @@ export default function Index() {
                   key={path}
                   href={path}
                   target={target}
-                  className=" items-center cursor-pointer uppercase text-sm sm:text-[1.2rem] nav-link"
+                  className="transition-all  items-center cursor-pointer uppercase text-sm sm:text-[1.25rem] font-extralight   nav-link"
                 >
-                  <p className="mix-blend-difference flex items-center">
+                  <p
+                    className="mix-blend-difference flex items-center tracking-normal"
+                    style={{
+                      fontSize: "1.0rem" && "clamp(0.9rem, 1.1vw, 1.18rem)",
+                    }}
+                  >
                     <ScrambleEffect tInput={name} />
                     {icn && <ArrowIcon />}
                   </p>
