@@ -22,7 +22,7 @@ export default function Hero() {
             style={{ fontSize: "5.2rem" && "clamp(2.9rem, 4.5vw, 4.7rem)" }}
           >
             &nbsp;
-            <ScrambleEffect tInput={"––"} />
+            <ScrambleEffect tInput={"——"} />
             &nbsp;
           </h1>
           <h1
@@ -48,7 +48,7 @@ export default function Hero() {
             style={{ fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)" }}
           >
             &nbsp;
-            <ScrambleEffect tInput={"––"} />
+            <ScrambleEffect tInput={"——"} />
             &nbsp;
           </p>
           <p

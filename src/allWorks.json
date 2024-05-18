@@ -1,10 +1,13 @@
 [
   {
+    "slug": "kunstkraftwerk",
+    "content": "## Kunstkraftwerk Leipzig\n\n- ART DIRECTION, CREATIVE CODING, MOTION DESIGN",
     "metadata": {
       "title": "KUNSTKRAFTWERK LEIPZIG",
       "publishedAt": "2024-04-07",
       "summary": "ART DIRECTION, CREATIVE CODING, MOTION DESIGN",
       "image": "/images/kunstkraftwerk.png",
+
       "slides": [
         {
           "caseImg": "/images/salted-01.png",
@@ -126,16 +129,17 @@
           "classNames": ""
         }
       ]
-    },
-    "slug": "kunstkraftwerk",
-    "content": "## Kunstkraftwerk Leipzig\n\n- ART DIRECTION, CREATIVE CODING, MOTION DESIGN"
+    }
   },
   {
+    "slug": "liebeskind",
+    "content": "## Liebeskind Berlin\n\n- BRAND DESIGN, ART DIRECTION, SEASONAL ARTWORKS, SCREEN DESIGN",
     "metadata": {
       "title": "Liebeskind Berlin",
       "publishedAt": "2024-04-08",
       "summary": "BRAND DESIGN, ART DIRECTION, SEASONAL ARTWORKS, SCREEN DESIGN",
       "image": "/images/liebeskind.png",
+
       "slides": [
         {
           "caseImg": "/images/salted-01.png",
@@ -257,56 +261,35 @@
           "classNames": ""
         }
       ]
-    },
-    "slug": "liebeskind",
-    "content": "## Liebeskind Berlin\n\n- BRAND DESIGN, ART DIRECTION, SEASONAL ARTWORKS, SCREEN DESIGN"
+    }
   },
   {
+    "slug": "salted",
+    "content": "salted",
     "metadata": {
       "title": "Salted-Beauty",
       "publishedAt": "2024-04-09",
       "summary": "Brand Experience, corporate identity, UI-UX, Creative Coding, Team lead",
       "image": "/images/salted.png",
+
       "slides": [
         {
           "caseImg": "/images/salted-01.png",
           "title": "SALTED BEAUTY —— BRAND EXPERIENCE",
           "subtitle": "ART DIRECTION | STRATEGY | PACKAGING | SCREEN DESIGN",
           "content": "Slide 1 content",
-
-          "styles": {
-            "width": "100%",
-            "height": "100%",
-            "display": "flex",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "alignItems": "center",
-            "mixBlendMode": "difference",
-            "color": "#ffffff",
-            "fontWeight": "semi-bold"
-          }
+          "classNames": "w-full h-full flex flex-col justify-center items-center font-semibold  ",
+          "classNames_h1": " text-white !text-[4.7rem] ",
+          "classNames_p": "text-black  text-[1.7rem] "
         },
         {
           "caseImg": "/images/salted-02.png",
           "title": "",
           "subtitle": "Salted Beauty started a complete rebranding in summer 2021. In six month time, we updated the whole concept of the brand and adopted the new ton-of-voice. In a team of 4, we created a new brand strategy, a corporate identity, a new packaging style, a new UI/UX, a new social media content direction and we shot a complete brand campaign.",
           "content": "Slide 2 content",
-
-          "styles": {
-            "width": "100%",
-            "height": "100%",
-            "padding": "0 5rem 0 70% ",
-
-            "alignSelf": "flex-end",
-            "justifySelf": "flex-end",
-            "display": "flex",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "alignItems": "center",
-            "mixBlendMode": "difference",
-            "color": "#ffffff",
-            "fontWeight": "semi-bold"
-          }
+          "classNames": "w-full h-full flex flex-col justify-center items-center font-semibold ",
+          "classNames_h1": " text-[3rem]",
+          "classNames_p": ""
         },
         {
           "caseImg": "/images/salted-03.png",
@@ -320,76 +303,65 @@
           "title": "",
           "subtitle": "the whole brand revolves exclusively around products from the sea. We recentered the strategy on the water allegory: it is not about what the product does, but about the ingredients and their added-values. Product names have been removed to give space to the skincare process: 3+ steps for a perfect skin.",
           "content": "Slide 4 content",
-          "styles": {
-            "width": "100%",
-            "height": "100%",
-            "padding": "0 30rem 0 15rem",
-
-            "display": "flex",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "alignItems": "center",
-            "mixBlendMode": "difference",
-            "color": "#ffffff",
-            "fontWeight": "bold"
-          }
+          "classNames": "w-full h-full flex flex-col justify-center items-center font-semibold ",
+          "classNames_h1": "text-[3rem]",
+          "classNames_p": "text-[6.5rem]"
         },
         {
           "caseImg": "/images/salted-05.png",
           "title": "SALTED BEAUTY —— BRAND EXPERIENCE",
           "subtitle": "The grtsk variable typeface from black foundry was the focus point of the brand identity. a simple but extensive method of combining each style in a systemic way allowed a strong but versatile look and feel. the implementation of a creative coding tool to generate headlines effortlessly rounded up the typographic approach.",
           "content": "Slide 5 content",
-          "styles": {
-            "width": "100%",
-            "height": "100%",
-            "padding": "0 30rem 0 15rem",
-            "display": "flex",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "alignItems": "center",
-
-            "color": "#ffffff",
-            "fontWeight": "bold"
-          }
+          "classNames": "w-full h-full flex flex-col justify-center items-center font-semibold ",
+          "classNames_h1": "text-[3rem]",
+          "classNames_p": "text-[6.5rem]"
         },
         {
           "caseImg": "/images/salted-06.png",
           "title": "",
           "subtitle": "",
           "content": "Slide 6 content",
-          "classNames": ""
+          "classNames": "w-full h-full flex flex-col justify-center items-center font-semibold ",
+          "classNames_h1": "text-[3rem]",
+          "classNames_p": "text-[6.5rem]"
         },
         {
           "caseImg": "/images/salted-07.png",
           "title": "",
           "subtitle": "",
           "content": "Slide 7 content",
-          "classNames": ""
+          "classNames": "w-full h-full flex flex-col justify-center items-center font-semibold ",
+          "classNames_h1": "text-[3rem]",
+          "classNames_p": "text-[6.5rem]"
         },
         {
           "caseImg": "/images/salted-08.png",
           "title": "",
           "subtitle": "",
           "content": "Slide 8 content",
-          "classNames": ""
+          "classNames": "w-full h-full flex flex-col justify-center items-center font-semibold ",
+          "classNames_h1": "text-[3rem]",
+          "classNames_p": "text-[6.5rem]"
         },
         {
           "caseImg": "/images/salted-09.png",
           "title": "",
           "subtitle": "",
           "content": "Slide 9 content",
-          "classNames": ""
+          "classNames": "w-full h-full flex flex-col justify-center items-center font-semibold ",
+          "classNames_h1": "text-[3rem]",
+          "classNames_p": "text-[6.5rem]"
         },
         {
           "caseImg": "/images/salted-10.png",
           "title": "",
           "subtitle": "",
           "content": "Slide 10 content",
-          "classNames": ""
+          "classNames": "w-full h-full flex flex-col justify-center items-center font-semibold ",
+          "classNames_h1": "text-[3rem]!important",
+          "classNames_p": "text-[6.5rem]"
         }
       ]
-    },
-    "slug": "salted",
-    "content": "salted"
+    }
   }
 ]

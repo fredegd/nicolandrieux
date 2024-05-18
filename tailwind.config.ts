@@ -61,14 +61,14 @@ const config: Config = {
         "light-gray-300": "var(--color-light-gray-300)",
       },
     },
-    text: {
+    fontSize: {
       sm: "0.8rem",
-      base: "10rem",
+      base: "1rem",
       xl: "1.25rem",
       "2xl": "1.563rem",
       "3xl": "1.953rem",
       "4xl": "2.441rem",
-      "5xl": "18.0rem",
+      "5xl": "3.052rem",
     },
   },
   plugins: [],

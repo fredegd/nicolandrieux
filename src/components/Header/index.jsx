@@ -46,14 +46,14 @@ export default function Index() {
           <div className="w-full h-full  "></div>
         </div>
         <div
-          className="h-24 w-full fixed top-0 z-50 flex items-center justify-center hover:backdrop-blur-sm"
+          className="h-24 w-full fixed top-0 z-50 flex items-center justify-center hover:backdrop-blur-sm mix-blend-difference"
           id="menu"
         >
-          <nav className="h-full w-10/12 flex items-center justify-start gap-16 fade md:overflow-auto p-0 text-slate-500">
+          <nav className="h-full w-10/12 flex items-center justify-start gap-16 fade md:overflow-auto p-0 text-slate-500 ">
             {Object.entries(navItems).map(([path, { name, icn, target }]) => {
               const isActive =
                 currentPath === path || currentPath.split("/")[1] === name;
-              console.log(currentPath.split("/")[1], name);
+              // console.log(currentPath.split("/")[1], name);
 
               return (
                 <Link
@@ -61,12 +61,12 @@ export default function Index() {
                   key={path}
                   href={path}
                   target={target}
-                  className={`transition-all items-center cursor-pointer uppercase text-sm sm:text-[1.25rem] font-extralight nav-link ${
+                  className={`mix-blend-difference transition-all items-center cursor-pointer uppercase text-sm sm:text-[1.25rem] font-extralight   nav-link ${
                     isActive ? "text-white" : ""
                   }`}
                 >
                   <p
-                    className="mix-blend-difference flex items-center tracking-normal"
+                    className=" flex items-center tracking-normal"
                     style={{
                       fontSize: "1.0rem" && "clamp(0.9rem, 1.1vw, 1.18rem)",
                     }}

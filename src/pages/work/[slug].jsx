@@ -55,17 +55,11 @@ export default function Page(props) {
 
   useGSAP(
     () => {
-      const targets = gsap.utils.toArray([
-        "img",
-        "li",
-        "h1",
-        "p",
-        image.current,
-      ]);
+      const targets = gsap.utils.toArray(["img", "p", image.current]);
       gsap.fromTo(
         targets,
-        { x: "20%", opacity: 0 },
-        { x: 0, opacity: 1, stagger: 0.1 }
+        { y: "20%", opacity: 0 },
+        { y: 0, opacity: 1, stagger: 0.05 }
       );
       timeline.add(gsap.to(container.current, { opacity: 0 }));
     },
@@ -73,36 +67,6 @@ export default function Page(props) {
   );
 
   const router = useRouter();
-
-  // useEffect(() => {
-  //   const gallery = document.querySelector(".gallery");
-  //   const galleryContainer = document.querySelector(".gallery-wrapper");
-
-  //   const pinTrigger = ScrollTrigger.create({
-  //     trigger: galleryContainer,
-  //     pin: true,
-  //     start: "top top",
-  //     end: "+=" + gallery.offsetWidth,
-  //     scrub: 1,
-  //   });
-
-  //   let amoutToScroll = (gallery.offsetWidth - window.innerWidth) * 0.9;
-  //   let tl = gsap.timeline();
-  //   tl.to(gallery, {
-  //     x: -amoutToScroll,
-  //     ease: "none",
-  //     scrollTrigger: {
-  //       trigger: galleryContainer,
-  //       start: "top 0px",
-  //       end: "+=" + amoutToScroll,
-  //       scrub: 1,
-  //     },
-  //   });
-  //   return () => {
-  //     pinTrigger.kill();
-  //     tl.kill();
-  //   };
-  // }, []);
 
   if (props.hasError) {
     return <h1>Error - please try another parameter</h1>;
@@ -113,40 +77,40 @@ export default function Page(props) {
   }
 
   return (
-    <section className="w-[100vw] h-[100vh] -mt-24 overflow-scroll">
-      <div
+    <section className="w-[100vw] h-[100vh] -mt-24 ">
+      <ul
         ref={container}
-        className="gallery-wrapper  h-full w-[1000%]  p-0 m-0 max-h-[100vh]"
+        className="  gallery w-[100%]  h-full max-h-[100vh]   p-0 m-0"
       >
-        <ul className=" flex gallery   p-0 m-0">
-          {props.specificCaseData.metadata.slides.map((slide) => {
-            const cls = slide?.classNames;
-            const styles = slide?.styles;
-            return (
-              <li
-                key={slide.content}
-                className="w-[95vw] h-[98vh]  static flex"
-                style={{
-                  minWidth: "95vw",
-                  minHeight: "98vh",
-                  backgroundImage: `url(${slide.caseImg})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              >
-                <div style={{ ...styles }}>
-                  <h1>
-                    <ScrambleEffect tInput={slide.title} />
-                  </h1>
-                  <p>
-                    <ScrambleEffect tInput={slide.subtitle} />
-                  </p>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+        {props.specificCaseData.metadata.slides.map((slide, idx) => {
+          const cls = slide?.classNames;
+          const cls_h1 = slide?.classNames_h1;
+          const cls_p = slide?.classNames_p;
+          console.log(cls_h1, cls_p, cls);
+          return (
+            <li
+              key={slide.content}
+              className="w-[100vw] h-[100vh]  static flex flex-col"
+              style={{
+                minWidth: "100vw",
+                minHeight: "100vh",
+                backgroundImage: `url(${slide.caseImg})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className={cls}>
+                <h1 className={cls_h1}>
+                  <ScrambleEffect tInput={slide.title} />
+                </h1>
+                <p className={cls_p}>
+                  <ScrambleEffect tInput={slide.subtitle} />
+                </p>
+              </div>
+            </li>
+          );
+        })}
+      </ul>
     </section>
   );
 }
