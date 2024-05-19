@@ -96,7 +96,7 @@ export default function Home() {
     gsap.set("#menu", { color: "#000000" });
   }, []);
   return (
-    <div className="h-[100vh] w-full ">
+    <div className="h-[100vh] w-full -mt-24">
       <div ref={container} className="h-[100vh] flex flex-col ">
         <Hero />
       </div>

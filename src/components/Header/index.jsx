@@ -6,12 +6,12 @@ import { ArrowIcon } from "@/components/ArrowIcon";
 import path from "path";
 
 const navItems = {
-  "/#about": {
+  "https://landrieux.design/#about": {
     name: "about",
     icn: "",
     target: "",
   },
-  "/#work": {
+  "https://landrieux.design/#work": {
     name: "work",
     icn: "",
     target: "",
