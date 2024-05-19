@@ -10,7 +10,7 @@ export default function Hero() {
         className="max-w-[92%] flex flex-col items-center sticky top-0"
         id="hero-title"
       >
-        <div className="flex flex-col items-center lg:flex-row lg:justify-between lg:-mb-6 tracking-normal">
+        <div className="flex flex-col items-center lg:flex-row lg:justify-between lg:-mb-5  tracking-normal">
           <h1
             className="font-semibold  text-center lg:text-left "
             style={{ fontSize: "clamp(2.9rem, 4.5vw, 4.7rem)" }}
@@ -32,7 +32,7 @@ export default function Hero() {
             <ScrambleEffect tInput={"ART DIRECTOR"} />
           </h1>
         </div>
-        <div className="flex flex-col xl:flex-row justify-start items-center  w-3/6 lg:w-full mt-6 lg:mt-0  tracking-normal lg:tracking-wide ">
+        <div className="flex flex-col xl:flex-row justify-start items-center  w-3/6 lg:w-full mt-6 lg:mt-0  tracking-normal lg:tracking-wide pl-1">
           <p
             className="  text-center"
             style={{ fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)" }}

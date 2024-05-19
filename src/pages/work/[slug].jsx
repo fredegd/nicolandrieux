@@ -147,6 +147,7 @@ export default function Page(props) {
           id="gallery-item-3"
           className="w-[100vw] h-[71vw]   static flex flex-col items-center bg-cover bg-center bg-no-repeat"
           style={{
+            backgroundColor: "#fff",
             backgroundImage: `url(${gallery[2].caseImg})`,
           }}
         >
@@ -198,6 +199,7 @@ export default function Page(props) {
           id="gallery-item-6"
           className="w-[100vw] h-[71vw]   static flex flex-col items-center bg-cover bg-center bg-no-repeat"
           style={{
+            backgroundColor: "#fff",
             backgroundImage: `url(${gallery[5].caseImg})`,
           }}
         >
