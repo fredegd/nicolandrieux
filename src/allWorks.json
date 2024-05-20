@@ -314,13 +314,17 @@
           "content": "Slide 6 content"
         },
         {
-          "caseImg": "/images/salted-07.png",
+          "caseImg": "/images/salted-07_01.png",
+          "caseImg1": "/images/salted-07_02.png",
+
           "title": "",
           "subtitle": "",
           "content": "Slide 7 content"
         },
         {
-          "caseImg": "/images/salted-08.png",
+          "caseImg": "/images/salted-08_01.png",
+          "caseImg1": "/images/salted-08_02.png",
+          "caseImg2": "/images/salted-08_03.png",
           "title": "UI/UX design work in progress in figma.",
           "subtitle": "instagram feed mock-up to prepare the relaunch on social media.",
           "content": "Slide 8 content"

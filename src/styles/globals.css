@@ -2,6 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+    /* This won't be included in your compiled CSS unless you actually use it */
+    .writing-horizontal-tb {
+        writing-mode: horizontal-tb;
+    }
+
+    .writing-vertical-rl {
+        writing-mode: vertical-rl;
+    }
+    .writing-vertical-lr {
+        writing-mode: vertical-lr;
+    }
+
+    .writing-sideways-rl {
+        writing-mode: sideways-rl;
+    }
+    .writing-sideways-lr {
+        writing-mode: sideways-lr;
+    }
+}
+
 html{
     --bg-col: #ffffff;
     --text-col: #000000;

@@ -93,7 +93,7 @@ export default function Page(props) {
     <section className="w-[100vw] h-[71vw]  -mt-24 ">
       <ul
         ref={container}
-        className="   w-[100%]  h-full max-h-[100vh]   p-0 m-0"
+        className="   w-[100%]  h-full max-h-[100vh]   p-0 m-0 overscroll-auto"
       >
         <li
           id="gallery-item-1"
@@ -113,7 +113,7 @@ export default function Page(props) {
               <ScrambleEffect tInput={gallery[0].title} />
             </h1>
             <p
-              className="text-black self-end text-[1.7rem]"
+              className="text-black  self-end text-[1.7rem]"
               style={{
                 fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
               }}
@@ -124,28 +124,23 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-2"
-          className="w-[100vw] h-[71vw]   static flex flex-col items-end bg-cover bg-center bg-no-repeat"
+          className="w-[100vw] h-[71vw]   static flex flex-col items-end justify-center bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url(${gallery[1].caseImg})`,
           }}
         >
-          <div
-            ref={image}
-            className="flex flex-col items-center justify-center max-w-[35%] p-4  h-full"
+          <p
+            className="text-black self-end  max-w-[33%] pr-4 text-[1.7rem] leading-[1.5rem]"
+            style={{
+              fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
+            }}
           >
-            <p
-              className="text-black self-start text-[1.7rem] leading-[1.5rem]"
-              style={{
-                fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
-              }}
-            >
-              <ScrambleEffect tInput={gallery[1].subtitle} />
-            </p>
-          </div>
+            <ScrambleEffect tInput={gallery[1].subtitle} />
+          </p>
         </li>
         <li
           id="gallery-item-3"
-          className="w-[100vw] h-[71vw]   static flex flex-col items-center bg-cover bg-center bg-no-repeat"
+          className="w-[100vw] h-[60vw]   static flex flex-col items-center bg-cover bg-center bg-no-repeat"
           style={{
             backgroundColor: "#fff",
             backgroundImage: `url(${gallery[2].caseImg})`,
@@ -252,31 +247,39 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-8"
-          className="w-[100vw] h-[71vw]   static flex flex-col items-center bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: `url(${gallery[7].caseImg})`,
-          }}
+          className="w-[100vw] h-[71vw]   static flex flex-col items-center "
         >
           <div
             ref={image}
-            className="flex flex-col  justify-center max-w-[92%]  h-full"
+            className="w-full h-full bg-white flex justify-between"
           >
-            <p
-              className="text-black self-end text-[1.7rem] rotate-90 mr-80 -mt-80"
-              style={{
-                fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
-              }}
+            <div
+              className="w-5/12 h-full bg-cover bg-center bg-no-repeat relative"
+              style={{ backgroundImage: `url(${gallery[7].caseImg})` }}
             >
-              <ScrambleEffect tInput={gallery[7].title} />
-            </p>
-            <p
-              className="text-black self-end text-[1.7rem] -rotate-90"
-              style={{
-                fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
-              }}
+              <p
+                className="text-black  absolute  origin-top-left -right-4 lg:-right-6 top-4 lg:top-10 writing-vertical-rl"
+                style={{
+                  fontSize: "1.0rem" && "clamp(0.6rem, 1.07vw, 1.15rem)",
+                }}
+              >
+                <ScrambleEffect tInput={gallery[7].title} />
+              </p>
+            </div>
+
+            <div
+              className="w-6/12 self-end h-full bg-cover bg-center bg-no-repeat relative"
+              style={{ backgroundImage: `url(${gallery[7].caseImg1})` }}
             >
-              <ScrambleEffect tInput={gallery[7].subtitle} />
-            </p>
+              <p
+                className="text-black  absolute  bottom-3 lg:bottom-10 -left-4 lg:-left-12  writing-vertical-rl rotate-180 lg:max-h-[30%] "
+                style={{
+                  fontSize: "1.0rem" && "clamp(0.6rem, 1.07vw, 1.15rem)",
+                }}
+              >
+                <ScrambleEffect tInput={gallery[7].subtitle} />
+              </p>
+            </div>
           </div>
         </li>
         <li
