@@ -60,7 +60,7 @@ export default function Index() {
                   key={path}
                   href={path}
                   target={target}
-                  className={`mix-blend-difference transition-all items-center cursor-pointer uppercase text-sm sm:text-[1.25rem] font-extralight   nav-link ${
+                  className={`mix-blend-difference transition-all items-center cursor-pointer uppercase text-sm sm:text-[1.25rem]    nav-link ${
                     isActive ? "text-white" : ""
                   } ${isActive ? "font-bold" : ""}`}
                 >
