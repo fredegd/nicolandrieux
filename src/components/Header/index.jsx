@@ -46,7 +46,7 @@ export default function Index() {
           <div className="w-full h-full  "></div>
         </div>
         <div
-          className="h-24 w-full fixed top-0 z-50 flex items-center justify-center hover:backdrop-blur-sm mix-blend-difference"
+          className="h-24 w-full fixed top-0 z-50 flex items-center justify-center hover:backdrop-blur-lg mix-blend-difference"
           id="menu"
         >
           <nav className="h-full w-10/12 flex items-center justify-start gap-16 fade md:overflow-auto p-0 text-slate-500 ">

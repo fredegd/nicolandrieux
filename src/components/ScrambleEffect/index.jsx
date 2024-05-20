@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 const scramblerCharsToChooseFrom = [
   "FCKYUOUALL",
-  "!<>-|/[]{}—=+*^?#$Œ¬#§X¢",
+  "!<>/[]{}=+*^?#$@§X¢",
   "NOWAY",
-  "H€L£0WOr®D",
+  "H€Ll0WOrLD",
 ];
 
 const ScrambleEffect = ({ tInput }) => {
