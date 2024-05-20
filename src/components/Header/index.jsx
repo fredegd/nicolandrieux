@@ -6,12 +6,12 @@ import { ArrowIcon } from "@/components/ArrowIcon";
 import path from "path";
 
 const navItems = {
-  "https://landrieux.design/#about": {
+  "/#about": {
     name: "about",
     icn: "",
     target: "",
   },
-  "https://landrieux.design/#work": {
+  "/#work": {
     name: "work",
     icn: "",
     target: "",
@@ -53,7 +53,6 @@ export default function Index() {
             {Object.entries(navItems).map(([path, { name, icn, target }]) => {
               const isActive =
                 currentPath === path || currentPath.split("/")[1] === name;
-              // console.log(currentPath.split("/")[1], name);
 
               return (
                 <Link
@@ -63,7 +62,7 @@ export default function Index() {
                   target={target}
                   className={`mix-blend-difference transition-all items-center cursor-pointer uppercase text-sm sm:text-[1.25rem] font-extralight   nav-link ${
                     isActive ? "text-white" : ""
-                  }`}
+                  } ${isActive ? "font-bold" : ""}`}
                 >
                   <p
                     className=" flex items-center tracking-normal"
