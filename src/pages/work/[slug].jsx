@@ -245,7 +245,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-8"
-          className="w-[100vw] h-[71vw]   flex flex-col items-center  sticky -top-24"
+          className="w-[100vw] h-[71vw]   flex flex-col items-center  sticky -top-80"
         >
           <div
             ref={image}
