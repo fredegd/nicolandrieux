@@ -6,14 +6,15 @@ gsap.registerPlugin(useGSAP);
 
 export default function TransitionLayout({ children }) {
   const [displayChildren, setDisplayChildren] = useState(children);
-  const { timeline } = useContext(TransitionContext);
+  const { timeline, setTimeline } = useContext(TransitionContext);
   const { contextSafe } = useGSAP();
 
   const exit = contextSafe(() => {
     timeline.play().then(() => {
-      // window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
       setDisplayChildren(children);
       timeline.pause().clear();
+      setTimeline(gsap.timeline({ paused: true }));
     });
   });
 

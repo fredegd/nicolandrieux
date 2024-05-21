@@ -9,6 +9,7 @@ import ScrambleEffect from "@/components/ScrambleEffect";
 import path from "path";
 import fs from "fs/promises";
 
+
 async function getData() {
   const filePath = path.join(process.cwd(), "src", "allWorks.json");
   const fileData = await fs.readFile(filePath);
@@ -91,13 +92,10 @@ export default function Page(props) {
 
   return (
     <section className="w-[100vw] h-[71vw]  -mt-24 ">
-      <ul
-        ref={container}
-        className="   w-[100%]  h-full max-h-[100vh]   p-0 m-0 overscroll-auto"
-      >
+      <ul ref={container} className="    p-0 m-0">
         <li
           id="gallery-item-1"
-          className="w-[100vw] h-[71vw] flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24 "
+          className="w-[100vw] h-[71vw] flex flex-col items-center bg-cover bg-center bg-no-repeat sticky -top-80"
           style={{
             backgroundImage: `url(${gallery[0].caseImg})`,
           }}
@@ -124,7 +122,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-2"
-          className="w-[100vw] h-[71vw]   flex flex-col items-end justify-center bg-cover bg-center bg-no-repeat sticky top-24"
+          className="w-[100vw] h-[71vw]   flex flex-col items-end justify-center bg-cover bg-center bg-no-repeat sticky -top-24"
           style={{
             backgroundImage: `url(${gallery[1].caseImg})`,
           }}
@@ -140,7 +138,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-3"
-          className="w-[100vw] h-[60vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
+          className="w-[100vw] h-[60vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky -top-24"
           style={{
             backgroundColor: "#fff",
             backgroundImage: `url(${gallery[2].caseImg})`,
@@ -150,7 +148,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-4"
-          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
+          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky -top-24"
           style={{
             backgroundImage: `url(${gallery[3].caseImg})`,
           }}
@@ -171,7 +169,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-5"
-          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
+          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky -top-24"
           style={{
             backgroundImage: `url(${gallery[4].caseImg})`,
           }}
@@ -192,7 +190,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-6"
-          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
+          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky -top-24"
           style={{
             backgroundColor: "#fff",
             backgroundImage: `url(${gallery[5].caseImg})`,
@@ -220,7 +218,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-7"
-          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
+          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky -top-24"
           style={{
             backgroundImage: `url(${gallery[6].caseImg})`,
           }}
@@ -247,7 +245,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-8"
-          className="w-[100vw] h-[71vw]   flex flex-col items-center  sticky top-24"
+          className="w-[100vw] h-[71vw]   flex flex-col items-center  sticky -top-24"
         >
           <div
             ref={image}
@@ -284,34 +282,22 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-9"
-          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
-          style={{
-            backgroundImage: `url(${gallery[8].caseImg})`,
-          }}
+          className="w-[100vw] h-[55vw] aspect-[100/50]  flex flex-col items-center m-0 p-0 sticky -top-10  bg-black"
         >
-          <div
-            ref={image}
-            className="flex flex-col items-center justify-center max-w-[92%]  h-full"
-          >
-            <h1
-              className="text-white self-center text-[4.7rem] font-semibold"
-              style={{ fontSize: "clamp(2.9rem, 4.5vw, 4.7rem)" }}
-            >
-              <ScrambleEffect tInput={gallery[8].title} />
-            </h1>
-            <p
-              className="text-black self-end text-[1.7rem]"
-              style={{
-                fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
-              }}
-            >
-              <ScrambleEffect tInput={gallery[8].subtitle} />
-            </p>
-          </div>
+          <iframe
+            src="https://player.vimeo.com/video/840869673?h=0886893cd2?autoplay=1&loop=1&autopause=0"
+            frameBorder="0"
+            autoPlay={true}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+            className="w-full h-full"
+          ></iframe>
         </li>
         <li
           id="gallery-item-10"
-          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
+          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky -top-24"
           style={{
             backgroundImage: `url(${gallery[9].caseImg})`,
           }}

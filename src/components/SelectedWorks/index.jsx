@@ -9,10 +9,10 @@ export default function SelectedWorks() {
   const image = useRef();
   return (
     <section
-      className="w-full  py-24  flex flex-col justify-center items-center sticky  top-24"
+      className=" min-h-screen w-full  pt-24  flex flex-col justify-center items-center"
       id="work"
     >
-      <div className="w-10/12 flex flex-col gap-40 md:gap-8 ">
+      <div className="w-10/12 flex flex-col gap-40 md:gap-8  sticky top-0">
         {allWorks
           .sort((a, b) => {
             if (
@@ -26,7 +26,7 @@ export default function SelectedWorks() {
           .map((project) => (
             <Link
               key={project.slug}
-              className="flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105  hover:bg-white hover:text-black sticky -top-24 sm:static"
+              className="flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105  hover:bg-white hover:text-black "
               id="work-card"
               href={`/work/${project.slug}`}
             >
@@ -40,7 +40,7 @@ export default function SelectedWorks() {
                   height={220}
                 />
 
-                <div style={{ fontSize: "clamp(1.1rem, 1.25vw, 1.36rem)" }}>
+                <div>
                   <p
                     className=" font-semibold  tracking-tight"
                     style={{ fontSize: "clamp(1.2rem, 1.3vw, 1.45rem)" }}
@@ -48,7 +48,10 @@ export default function SelectedWorks() {
                     <ScrambleEffect tInput={project.metadata.title} />
                   </p>
 
-                  <p className="  tracking-tight">
+                  <p
+                    className="  tracking-tight"
+                    style={{ fontSize: "clamp(1.1rem, 1.25vw, 1.36rem)" }}
+                  >
                     <ScrambleEffect tInput={project.metadata.summary} />
                   </p>
                 </div>

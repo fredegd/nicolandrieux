@@ -40,12 +40,6 @@ export default function Index() {
     <>
       <aside className="tracking-tight">
         <div
-          className="h-24 w-full fixed top-0 z-30 flex items-center justify-center  "
-          id="menu"
-        >
-          <div className="w-full h-full  "></div>
-        </div>
-        <div
           className="h-24 w-full fixed top-0 z-50 flex items-center justify-center hover:backdrop-blur-lg mix-blend-difference"
           id="menu"
         >
