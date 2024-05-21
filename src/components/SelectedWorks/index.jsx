@@ -9,7 +9,7 @@ export default function SelectedWorks() {
   const image = useRef();
   return (
     <section
-      className="w-full  py-24  flex flex-col justify-center items-center "
+      className="w-full  py-24  flex flex-col justify-center items-center sticky  top-24"
       id="work"
     >
       <div className="w-10/12 flex flex-col gap-40 md:gap-8 ">
@@ -26,17 +26,17 @@ export default function SelectedWorks() {
           .map((project) => (
             <Link
               key={project.slug}
-              className="flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105 bg-black hover:bg-white hover:text-black sticky top-24"
+              className="flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105  hover:bg-white hover:text-black sticky -top-24 sm:static"
               id="work-card"
               href={`/work/${project.slug}`}
             >
               <div className="w-full flex flex-col md:flex-row items-center  gap-12 space-x-0 md:space-x-2">
                 <Image
                   ref={image}
-                  className="w-full md:w-[275px] h-auto aspect-[275/220] "
+                  className="w-full md:w-[400px] h-auto aspect-[400/220]  object-cover"
                   src={project.metadata.image || ""}
                   alt={project.metadata.title}
-                  width={275}
+                  width={400}
                   height={220}
                 />
 

@@ -20,7 +20,7 @@ export default function Home() {
       const targets = gsap.utils.toArray(["h1", "p"]);
       gsap.fromTo(
         targets,
-        { scale: 0.85, opacity: 0 },
+        { scale: 0.5, opacity: 0 },
         { scale: 1, opacity: 1, stagger: 0.1 }
       );
       timeline.add(gsap.to(container.current, { opacity: 0 }));
@@ -53,7 +53,17 @@ export default function Home() {
     });
 
     // Define the background color keyframes
-    tl.to("body", { backgroundColor: "#000000", color: "#ffffff" });
+    tl.to("body,  #work-card", {
+      backgroundColor: "#000000",
+      color: "#ffffff",
+    });
+
+    tl.to("#work-card", {
+      opacity: 1,
+      y: -250,
+      duration: 4.0,
+      stagger: 0.8,
+    });
 
     //create a timeline to control the Hero text
     // to let it fade out when the user scrolls down
@@ -68,7 +78,7 @@ export default function Home() {
       })
       .to("#hero-title , #hero-subtitle", {
         opacity: 0,
-        duration: 0.7,
+        duration: 1.2,
       });
 
     // create a timeline to control the menu background color
@@ -87,7 +97,15 @@ export default function Home() {
       });
 
     // Set initial background color to white
-    gsap.set("body", { backgroundColor: "#ffffff", color: "#000000" });
+    gsap.set("body, #work-card", {
+      backgroundColor: "#ffffff",
+      color: "#000000",
+    });
+
+    gsap.set("#work-card", {
+      opacity: 0,
+      y: 0,
+    });
     // let the Hero text opacity gradually go to 0  when the user scrolls down
     // and go back to 1 when the user scrolls up
     gsap.set("#hero-title h1", { opacity: 1 });

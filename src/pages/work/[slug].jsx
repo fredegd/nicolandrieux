@@ -97,7 +97,7 @@ export default function Page(props) {
       >
         <li
           id="gallery-item-1"
-          className="w-[100vw] h-[71vw] static flex flex-col items-center bg-cover bg-center bg-no-repeat"
+          className="w-[100vw] h-[71vw] flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24 "
           style={{
             backgroundImage: `url(${gallery[0].caseImg})`,
           }}
@@ -124,7 +124,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-2"
-          className="w-[100vw] h-[71vw]   static flex flex-col items-end justify-center bg-cover bg-center bg-no-repeat"
+          className="w-[100vw] h-[71vw]   flex flex-col items-end justify-center bg-cover bg-center bg-no-repeat sticky top-24"
           style={{
             backgroundImage: `url(${gallery[1].caseImg})`,
           }}
@@ -140,7 +140,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-3"
-          className="w-[100vw] h-[60vw]   static flex flex-col items-center bg-cover bg-center bg-no-repeat"
+          className="w-[100vw] h-[60vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
           style={{
             backgroundColor: "#fff",
             backgroundImage: `url(${gallery[2].caseImg})`,
@@ -150,7 +150,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-4"
-          className="w-[100vw] h-[71vw]   static flex flex-col items-center bg-cover bg-center bg-no-repeat"
+          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
           style={{
             backgroundImage: `url(${gallery[3].caseImg})`,
           }}
@@ -171,7 +171,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-5"
-          className="w-[100vw] h-[71vw]   static flex flex-col items-center bg-cover bg-center bg-no-repeat"
+          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
           style={{
             backgroundImage: `url(${gallery[4].caseImg})`,
           }}
@@ -192,7 +192,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-6"
-          className="w-[100vw] h-[71vw]   static flex flex-col items-center bg-cover bg-center bg-no-repeat"
+          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
           style={{
             backgroundColor: "#fff",
             backgroundImage: `url(${gallery[5].caseImg})`,
@@ -220,7 +220,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-7"
-          className="w-[100vw] h-[71vw]   static flex flex-col items-center bg-cover bg-center bg-no-repeat"
+          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
           style={{
             backgroundImage: `url(${gallery[6].caseImg})`,
           }}
@@ -247,7 +247,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-8"
-          className="w-[100vw] h-[71vw]   static flex flex-col items-center "
+          className="w-[100vw] h-[71vw]   flex flex-col items-center  sticky top-24"
         >
           <div
             ref={image}
@@ -284,7 +284,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-9"
-          className="w-[100vw] h-[71vw]   static flex flex-col items-center bg-cover bg-center bg-no-repeat"
+          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
           style={{
             backgroundImage: `url(${gallery[8].caseImg})`,
           }}
@@ -311,7 +311,7 @@ export default function Page(props) {
         </li>
         <li
           id="gallery-item-10"
-          className="w-[100vw] h-[71vw]   static flex flex-col items-center bg-cover bg-center bg-no-repeat"
+          className="w-[100vw] h-[71vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-24"
           style={{
             backgroundImage: `url(${gallery[9].caseImg})`,
           }}
