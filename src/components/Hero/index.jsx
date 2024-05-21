@@ -7,19 +7,19 @@ export default function Hero() {
       id="hero"
     >
       <div
-        className="max-w-[92%] flex flex-col items-center sticky top-0"
+        className="max-w-[92%] flex flex-col items-center sticky -top-24"
         id="hero-title"
       >
-        <div className="flex flex-col items-center lg:flex-row lg:justify-between lg:-mb-5  tracking-normal">
+        <div className="flex  items-center flex-row justify-between lg:-mb-5  tracking-normal">
           <h1
             className="font-semibold  text-center lg:text-left "
-            style={{ fontSize: "clamp(2.9rem, 4.5vw, 4.7rem)" }}
+            style={{ fontSize: "clamp(1.1rem, 4.5vw, 4.7rem)" }}
           >
             <ScrambleEffect tInput={"NICOLAS LANDRIEUX "} />
           </h1>
           <h1
             className="  font-semibold "
-            style={{ fontSize: "5.2rem" && "clamp(2.9rem, 4.5vw, 4.7rem)" }}
+            style={{ fontSize: "5.2rem" && "clamp(1.1rem, 4.5vw, 4.7rem)" }}
           >
             &nbsp;
             <ScrambleEffect tInput={"——"} />
@@ -27,15 +27,18 @@ export default function Hero() {
           </h1>
           <h1
             className="  font-semibold "
-            style={{ fontSize: "5.2rem" && "clamp(2.9rem, 4.5vw, 4.7rem)" }}
+            style={{ fontSize: "5.2rem" && "clamp(1.1rem, 4.5vw, 4.7rem)" }}
           >
             <ScrambleEffect tInput={"ART DIRECTOR"} />
           </h1>
         </div>
-        <div className="flex flex-col xl:flex-row justify-start items-center  w-3/6 lg:w-full mt-6 lg:mt-0  tracking-normal lg:tracking-wide pl-1">
+        <div
+          className="flex flex-row justify-start items-center  w-full mt-0  tracking-normal lg:tracking-wide pl-1"
+          id="hero-subtitle"
+        >
           <p
             className="  text-center"
-            style={{ fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)" }}
+            style={{ fontSize: "1.0rem" && "clamp(0.25rem, 1.05vw, 1.12rem)" }}
           >
             <ScrambleEffect
               tInput={
@@ -45,7 +48,7 @@ export default function Hero() {
           </p>
           <p
             className="  text-center"
-            style={{ fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)" }}
+            style={{ fontSize: "1.0rem" && "clamp(0.25rem, 1.05vw, 1.12rem)" }}
           >
             &nbsp;
             <ScrambleEffect tInput={"——"} />
@@ -53,7 +56,7 @@ export default function Hero() {
           </p>
           <p
             className="  text-center"
-            style={{ fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)" }}
+            style={{ fontSize: "1.0rem" && "clamp(0.25rem, 1.05vw, 1.12rem)" }}
           >
             <ScrambleEffect tInput={"I AM A DESIGNER WHO CODES."} />
           </p>

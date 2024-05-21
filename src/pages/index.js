@@ -62,14 +62,13 @@ export default function Home() {
         scrollTrigger: {
           trigger: "#hero",
           start: "top top", //[trigger][scroller]
-          end: "30% top", //[trigger][scroller]
+          end: "50% top", //[trigger][scroller]
           scrub: true, // Smooth scrubbing
         },
       })
-      .to("#hero-title h1", {
+      .to("#hero-title , #hero-subtitle", {
         opacity: 0,
-        y: -50,
-        duration: 1,
+        duration: 0.7,
       });
 
     // create a timeline to control the menu background color
