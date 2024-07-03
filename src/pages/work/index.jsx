@@ -28,7 +28,7 @@ export default function Index() {
   );
 
   return (
-    <div ref={container} className=" w-full flex">
+    <div ref={container} className=" w-full flex bg-black text-white -mt-24">
       <SelectedWorks />
     </div>
   );
