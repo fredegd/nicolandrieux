@@ -8,7 +8,7 @@ const scramblerCharsToChooseFrom = [
 
 const ScrambleEffect = ({ tInput }) => {
   const scrambleSpeed = 50;
-  const revealSpeed = Math.floor(2000 / tInput.length);
+  const revealSpeed = Math.floor(1500.0 / tInput.length);
   const [scramblerChars, setScramblerChars] = useState(
     scramblerCharsToChooseFrom[
       Math.floor(Math.random() * scramblerCharsToChooseFrom.length)
@@ -85,7 +85,7 @@ const ScrambleEffect = ({ tInput }) => {
     }, revealSpeed);
 
     return () => clearInterval(revealInterval);
-  }, [revealSpeed, tInput]);
+  }, [tInput]);
 
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
