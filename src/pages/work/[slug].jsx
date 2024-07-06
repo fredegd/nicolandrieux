@@ -386,7 +386,7 @@ export default function Page(props) {
             </p>
 
             <iframe
-              src="https://drive.google.com/file/d/1jCjX6ERPtVf0iLvBK4AAwMfnpIEhH8wS/preview"
+              src="https://drive.google.com/file/d/1jCjX6ERPtVf0iLvBK4AAwMfnpIEhH8wS/preview?t=50"
               autoPlay={true}
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen

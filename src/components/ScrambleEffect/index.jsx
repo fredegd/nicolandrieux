@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 const scramblerCharsToChooseFrom = [
   "FCKYUOUALL",
   "!<>/[]{}=+*^?#$@§X¢",
@@ -16,12 +16,40 @@ const ScrambleEffect = ({ tInput }) => {
   );
 
   const [scrambledText, setScrambledText] = useState(tInput);
-  const [hoveredIndex, setHoveredIndex] = useState(
-    // Math.random() * tInput?.length - 1
-    tInput?.length / 2
-  );
+  const [hoveredIndex, setHoveredIndex] = useState(tInput?.length / 2);
   const [hovered, setHovered] = useState(false);
   const [visibleIndices, setVisibleIndices] = useState([]);
+  const [shouldReveal, setShouldReveal] = useState(false);
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && entry.intersectionRatio >= 0.05) {
+            setShouldReveal(true);
+          } else {
+            setShouldReveal(false);
+            setVisibleIndices([]);
+          }
+        });
+      },
+      {
+        threshold: 0.05,
+        rootMargin: "0px 0px -5% 0px",
+      }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     let interval;
@@ -73,19 +101,21 @@ const ScrambleEffect = ({ tInput }) => {
 
   //revealing the content on first load
   useEffect(() => {
-    const revealInterval = setInterval(() => {
-      setVisibleIndices((prevIndices) => {
-        const nextIndex = prevIndices.length;
-        if (nextIndex >= tInput.length) {
-          clearInterval(revealInterval);
-          return prevIndices;
-        }
-        return [...prevIndices, nextIndex];
-      });
-    }, revealSpeed);
+    if (shouldReveal) {
+      const revealInterval = setInterval(() => {
+        setVisibleIndices((prevIndices) => {
+          const nextIndex = prevIndices.length;
+          if (nextIndex >= tInput.length) {
+            clearInterval(revealInterval);
+            return prevIndices;
+          }
+          return [...prevIndices, nextIndex];
+        });
+      }, revealSpeed);
 
-    return () => clearInterval(revealInterval);
-  }, [tInput]);
+      return () => clearInterval(revealInterval);
+    }
+  }, [tInput, shouldReveal, revealSpeed]);
 
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
@@ -103,7 +133,7 @@ const ScrambleEffect = ({ tInput }) => {
   };
 
   return (
-    <span>
+    <span ref={containerRef}>
       {scrambledText.split("").map((char, index) => (
         <span
           key={index}

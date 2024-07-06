@@ -11,14 +11,6 @@ export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    (async () => {
-      const LocomotiveScroll = (await import("locomotive-scroll")).default;
-
-      const locomotiveScroll = new LocomotiveScroll();
-    })();
-  }, []);
-
-  useEffect(() => {
     // Ensure ScrollTrigger is loaded
     if (!gsap.plugins.scrollTrigger) {
       gsap.registerPlugin(ScrollTrigger);
