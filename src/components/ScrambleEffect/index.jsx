@@ -8,6 +8,7 @@ const scramblerCharsToChooseFrom = [
 
 const ScrambleEffect = ({ tInput }) => {
   const scrambleSpeed = 50;
+  const revealSpeed = Math.floor(2000 / tInput.length);
   const [scramblerChars, setScramblerChars] = useState(
     scramblerCharsToChooseFrom[
       Math.floor(Math.random() * scramblerCharsToChooseFrom.length)
@@ -20,6 +21,8 @@ const ScrambleEffect = ({ tInput }) => {
     tInput?.length / 2
   );
   const [hovered, setHovered] = useState(false);
+  const [visibleIndices, setVisibleIndices] = useState([]);
+
   useEffect(() => {
     let interval;
     let counter = 0;
@@ -34,8 +37,9 @@ const ScrambleEffect = ({ tInput }) => {
       : hoveredIndex + Math.max(2, tInput?.length / 10);
 
     interval = setInterval(() => {
-      minRange = minRange < 0 ? 0 : minRange;
-      maxRange = maxRange > tInput.length ? tInput.length : maxRange;
+      minRange = Math.max(0, minRange);
+
+      maxRange = Math.min(tInput.length, maxRange);
 
       setScrambledText((prevText) => {
         return prevText
@@ -54,7 +58,6 @@ const ScrambleEffect = ({ tInput }) => {
       });
 
       counter += 1;
-
     }, scrambleSpeed);
 
     if (!hovered) {
@@ -68,14 +71,30 @@ const ScrambleEffect = ({ tInput }) => {
     };
   }, [hovered, tInput, hoveredIndex, scramblerChars]);
 
+  //revealing the content on first load
+  useEffect(() => {
+    const revealInterval = setInterval(() => {
+      setVisibleIndices((prevIndices) => {
+        const nextIndex = prevIndices.length;
+        if (nextIndex >= tInput.length) {
+          clearInterval(revealInterval);
+          return prevIndices;
+        }
+        return [...prevIndices, nextIndex];
+      });
+    }, revealSpeed);
+
+    return () => clearInterval(revealInterval);
+  }, [revealSpeed, tInput]);
+
   const handleMouseEnter = (index) => {
     setHoveredIndex(index);
-    setHovered((prevState) => !prevState);
+    setHovered(true);
   };
 
   const handleMouseLeave = () => {
-    setHovered((prevState) => !prevState);
-    // setHoveredIndex(Math.random() * tInput.length - 1);
+    setHovered(false);
+    setHoveredIndex(-1);
     setScramblerChars(
       scramblerCharsToChooseFrom[
         Math.floor(Math.random() * scramblerCharsToChooseFrom.length)
@@ -83,18 +102,25 @@ const ScrambleEffect = ({ tInput }) => {
     );
   };
 
-  return scrambledText.split("").map((char, index) => (
-    <span
-      key={index}
-      onMouseEnter={() => handleMouseEnter(index)}
-      onTouchStart={() => handleMouseEnter(index)}
-      onTouchEnd={handleMouseLeave}
-      onMouseLeave={handleMouseLeave}
-      className="cursor-default"
-    >
-      {char}
+  return (
+    <span>
+      {scrambledText.split("").map((char, index) => (
+        <span
+          key={index}
+          onMouseEnter={() => handleMouseEnter(index)}
+          onTouchStart={() => handleMouseEnter(index)}
+          onTouchEnd={handleMouseLeave}
+          onMouseLeave={handleMouseLeave}
+          className="cursor-default"
+          style={{
+            visibility: visibleIndices.includes(index) ? "visible" : "hidden",
+          }}
+        >
+          {char}
+        </span>
+      ))}
     </span>
-  ));
+  );
 };
 
 export default ScrambleEffect;
