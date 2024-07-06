@@ -76,6 +76,11 @@ const ScrambleEffect = ({ tInput }) => {
   const handleMouseLeave = () => {
     setHovered((prevState) => !prevState);
     // setHoveredIndex(Math.random() * tInput.length - 1);
+    setScramblerChars(
+      scramblerCharsToChooseFrom[
+        Math.floor(Math.random() * scramblerCharsToChooseFrom.length)
+      ]
+    );
   };
 
   return scrambledText.split("").map((char, index) => (

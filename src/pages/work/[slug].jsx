@@ -562,9 +562,7 @@ export default function Page(props) {
             ></iframe>
           </li>
         </ul>
-      ) : (
-        <div></div>
-      )}
+      ) : null}
     </section>
   );
 }
