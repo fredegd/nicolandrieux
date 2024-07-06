@@ -8,7 +8,7 @@ const About = () => {
   const image = useRef();
   return (
     <section
-      className="min-h-screen w-full  pt-24   flex flex-col justify-center items-center h-auto"
+      className="min-h-screen h-auto w-full  pt-24   flex flex-col justify-center items-center gap-12 md:gap-24 md:pt-32 md:h-a"
       id="about"
     >
       <div className=" w-10/12 flex flex-col md:flex-row-reverse items-center md:justify-end gap-12">

@@ -1,14 +1,40 @@
 import { useContext, useRef, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
+import { useRouter } from "next/router";
 
 import Hero from "../components/Hero";
 import SelectedWorks from "../components/SelectedWorks";
 import About from "../components/About";
 
+import Scroll from "react-scroll";
+
+const { Element: ScrollElement } = Scroll;
+
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
+
+  const { query } = useRouter();
+
+  useEffect(() => {
+    if (query.id === "work") {
+      setTimeout(() => {
+        Scroll.scroller.scrollTo("work", {
+          duration: 300,
+          smooth: true,
+          offset: 0,
+        });
+      }, 100);
+    } else if (query.id === "about") {
+      setTimeout(() => {
+        Scroll.scroller.scrollTo("about", {
+          duration: 300,
+          smooth: true,
+          offset: 0,
+        });
+      }, 100);
+    }
+  }, [query]);
 
   useEffect(() => {
     // Ensure ScrollTrigger is loaded

@@ -25,7 +25,10 @@ export default function Index() {
   );
 
   return (
-    <div ref={container} className="min-h-[100vh] flex ">
+    <div
+      ref={container}
+      className="min-h-[100vh] flex bg-black text-white -mt-24"
+    >
       <About />
     </div>
   );

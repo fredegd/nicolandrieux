@@ -15,7 +15,7 @@ const ibmMono = IBM_Plex_Mono({
 export default function App({ Component, pageProps, router }) {
   return (
     <div
-      className={` antialiased max-w-screen max-height-screen m-0  ${ibmMono.className} uppercase`}
+      className={` antialiased max-w-screen max-height-screen m-0  ${ibmMono.className} uppercase selection:bg-slate-200/30 selection:text-slate-600 selection:backdrop:blur-md`}
     >
       <TransitionProvider>
         <Header />
