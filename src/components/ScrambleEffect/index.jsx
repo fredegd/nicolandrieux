@@ -29,8 +29,8 @@ const ScrambleEffect = ({ tInput }) => {
           if (entry.isIntersecting && entry.intersectionRatio >= 0.05) {
             setShouldReveal(true);
           } else {
-            setShouldReveal(false);
-            setVisibleIndices([]);
+            // setShouldReveal(false);//this line would make the text disappear when not leaving the viewport
+            // setVisibleIndices([]);
           }
         });
       },
