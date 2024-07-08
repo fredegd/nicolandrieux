@@ -23,49 +23,40 @@ export default function Hero() {
       id="hero"
       ref={container}
     >
-      <div className="max-w-[92%] flex flex-col items-center ">
+      <div className="max-w-[92%] flex flex-col items-start md:items-center ">
         <div
-          className="flex  items-center flex-row justify-between   tracking-normal"
+          className="flex flex-col md:flex-row justify-start md:items-center md:justify-between   tracking-normal text-[10vw] md:text-[4.5vw]"
           id="hero-title"
         >
-          <h1
-            className="font-semibold  text-center text-[4.5vw]"
-            // style={{ fontSize: "5.2rem" && "clamp(1.1rem, 4.5vw, 4.7rem)" }}
-          >
+          <h1 className="font-semibold  ">
             <ScrambleEffect tInput={"NICOLAS LANDRIEUX "} />
           </h1>
-          <h1
-            className="  font-semibold text-[4.5vw]"
-            // style={{ fontSize: "5.2rem" && "clamp(1.1rem, 4.5vw, 4.7rem)" }}
-          >
-            &nbsp;
+          <h1 className="  font-semibold ">
+            <span className="hidden md:inline-block">&nbsp;</span>
             <ScrambleEffect tInput={"——"} />
             &nbsp;
           </h1>
-          <h1
-            className="  font-semibold text-[4.5vw]"
-            // style={{ fontSize: "5.2rem" && "clamp(1.1rem, 4.5vw, 4.7rem)" }}
-          >
+          <h1 className="  font-semibold ">
             <ScrambleEffect tInput={"ART DIRECTOR"} />
           </h1>
         </div>
         <div
-          className="flex flex-row justify-start items-center  w-full mt-0  tracking-normal"
+          className="flex flex-col md:flex-row justify-start md:items-center  md:w-full w-9/12 mt-0  tracking-normal text-[4vw] md:text-[1.12vw]"
           id="hero-subtitle"
         >
-          <p className="  text-center text-[1.12vw]">
+          <p>
             <ScrambleEffect
               tInput={
                 "SPECIALIST IN BRANDING, CRAFTING UNIQUE DESIGN AND EXPERIENCE THROUGH CREATIVE CODING AND MOTION DESIGN"
               }
             />
           </p>
-          <p className="  text-center  text-[1.12vw]">
+          <p className=" hidden md:inline-block">
             &nbsp;
             <ScrambleEffect tInput={"——"} />
             &nbsp;
           </p>
-          <p className="  text-center text-[1.12vw]">
+          <p>
             <ScrambleEffect tInput={"I AM A DESIGNER WHO CODES."} />
           </p>
         </div>
