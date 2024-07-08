@@ -5,14 +5,14 @@ import ScrambleEffect from "../ScrambleEffect";
 import { ArrowIcon } from "@/components/ArrowIcon";
 
 const navItems = {
-  "/?id=about": {
+  "/#about": {
     name: "about",
     href: "/#about",
     icn: null,
     target: "",
     query: { id: "about" },
   },
-  "/?id=work": {
+  "/#work": {
     name: "work",
     href: "/#work",
     icn: null,
@@ -54,7 +54,7 @@ export default function Index() {
             {Object.entries(navItems).map(
               ([path, { name, href, icn, target, query }]) => {
                 const isActive =
-                  currentPath === path || currentPath.split("/")[1] === name;
+                  currentPath === path || currentPath.split("/")[2] === "name";
                 // console.log(currentPath.split("/")[1], name, isActive);
                 return (
                   <Link
