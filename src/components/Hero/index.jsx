@@ -3,6 +3,7 @@ import ScrambleEffect from "../ScrambleEffect";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { TransitionContext } from "@/context/TransitionContext";
+
 export default function Hero() {
   const { timeline } = useContext(TransitionContext);
   const container = useRef(null);

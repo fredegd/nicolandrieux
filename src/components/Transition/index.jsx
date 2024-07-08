@@ -11,8 +11,8 @@ export default function TransitionLayout({ children }) {
 
   const exit = contextSafe(() => {
     timeline.play().then(() => {
-      window.scrollTo(0, 0);
       setDisplayChildren(children);
+      // window.scrollTo(0, 0);
       timeline.pause().clear();
       setTimeline(gsap.timeline({ paused: true }));
     });

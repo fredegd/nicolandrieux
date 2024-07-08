@@ -9,13 +9,13 @@ import About from "../components/About";
 
 import Scroll from "react-scroll";
 
-const { Element: ScrollElement } = Scroll;
+// const { Element: ScrollElement } = Scroll;
 
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
 
   const { query } = useRouter();
-
+  //scroll between sections based on query params
   useEffect(() => {
     if (query.id === "work") {
       setTimeout(() => {
@@ -105,7 +105,7 @@ export default function Home() {
     let workTimelineEnter = gsap
       .timeline({
         scrollTrigger: {
-          trigger: "hero",
+          trigger: "#hero",
           start: "30% top", // when the top of the trigger hits the top of the viewport
           end: "90% top", // end after scrolling 200px beyond the start
           stagger: 0.5, // 0.5 second stagger between each start
