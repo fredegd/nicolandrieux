@@ -20,7 +20,7 @@ export default function Home() {
     if (query.id === "work") {
       setTimeout(() => {
         Scroll.scroller.scrollTo("work", {
-          duration: 300,
+          duration: 0,
           smooth: true,
           offset: 0,
         });
@@ -28,7 +28,7 @@ export default function Home() {
     } else if (query.id === "about") {
       setTimeout(() => {
         Scroll.scroller.scrollTo("about", {
-          duration: 300,
+          duration: 0,
           smooth: true,
           offset: 0,
         });
@@ -87,13 +87,13 @@ export default function Home() {
         scrollTrigger: {
           trigger: "#hero",
           start: "top top", //[trigger][scroller]
-          end: "30% top", //[trigger][scroller]
+          end: "25% top", //[trigger][scroller]
           scrub: true, // Smooth scrubbing
         },
       })
       .to("#hero-title , #hero-subtitle", {
         opacity: 0,
-        y: -100,
+        y: -50,
         duration: 1.2,
       });
 

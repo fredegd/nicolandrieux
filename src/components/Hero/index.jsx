@@ -10,11 +10,7 @@ export default function Hero() {
   useGSAP(
     () => {
       const targets = gsap.utils.toArray(["#hero-title", "#hero-subtitle"]);
-      gsap.fromTo(
-        targets,
-        { y: 100, opacity: 0 },
-        { y: 0, opacity: 1, stagger: 0.1 }
-      );
+      gsap.fromTo(targets, { y: 100 }, { y: 0, stagger: 0.1 });
       timeline.add(gsap.to(container.current, { opacity: 0 }));
     },
     { scope: container }
@@ -24,6 +20,7 @@ export default function Hero() {
     <section
       className=" min-h-screen w-full  flex justify-center items-center sticky -top-24"
       id="hero"
+      ref={container}
     >
       <div className="max-w-[92%] flex flex-col items-center ">
         <div
