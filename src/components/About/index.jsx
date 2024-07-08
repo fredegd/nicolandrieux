@@ -11,9 +11,25 @@ const About = () => {
       className="min-h-screen h-auto w-full  pt-24   flex flex-col justify-center items-center gap-12 md:gap-24 md:pt-32 md:h-a"
       id="about"
     >
-      <div className=" w-10/12 flex flex-col md:flex-row-reverse items-center md:justify-end gap-12">
+      <div className=" w-10/12 flex flex-col lg:flex-row items-center gap-12">
         <div
-          className=" max-w-[460px] flex flex-col gap-4  tracking-tight leading-[1.5rem]"
+          ref={image}
+          className="w-full  sm:w-10/12 md:w-8/12 lg:w-4/12 xl:w-3/12"
+          // className="relative w-full md:w-[400px] min-w-[300px] max-h-[545px]"
+        >
+          <Image
+            className="w-full h-auto aspect-[400/400] lg:aspect-[400/545]"
+            src={Portrait}
+            alt="portrait"
+            placeholder="blur"
+            style={{ objectFit: "cover" }}
+            width={{ md: 400, lg: 400, xl: 400 }}
+            height={{ md: 400, lg: 400, xl: 545 }}
+          />
+        </div>
+        <div
+          className=" w-full lg:w-[460px] flex flex-col gap-4  tracking-tight leading-[1.5rem]"
+          // className=" max-w-[460px] flex flex-col gap-4  tracking-tight leading-[1.5rem]"
           style={{ fontSize: "clamp(1.1rem, 1.25vw, 1.36rem)" }}
         >
           <p
@@ -42,20 +58,6 @@ const About = () => {
               <ScrambleEffect tInput={"   nico@landrieux.design"} />
             </Link>
           </p>
-        </div>
-        <div
-          ref={image}
-          className="relative w-full md:w-[400px] min-w-[300px] max-h-[545px]"
-        >
-          <Image
-            className="w-full h-auto aspect-[400/545]"
-            src={Portrait}
-            alt="portrait"
-            placeholder="blur"
-            style={{ objectFit: "cover" }}
-            width={400}
-            height={545}
-          />
         </div>
       </div>
     </section>
