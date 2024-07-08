@@ -17,21 +17,18 @@ const navItems = {
     href: "/#work",
     icn: null,
     target: "",
-    query: { id: "work" },
   },
   "https://www.instagram.com/exhausted_lab/": {
     name: "instagram",
     href: "https://www.instagram.com/exhausted_lab/",
     icn: { ArrowIcon },
     target: "_blank",
-    query: { id: "" },
   },
   "https://www.linkedin.com/in/nicolaslandrieux/": {
     name: "linkedin",
     href: "https://www.linkedin.com/in/nicolaslandrieux/",
     icn: { ArrowIcon },
     target: "_blank",
-    query: { id: "" },
   },
 };
 
@@ -61,10 +58,6 @@ export default function Index() {
                     scroll={true}
                     key={name}
                     href={href}
-                    //{{
-                    //pathname: href,
-                    // query: query,
-                    // }}
                     target={target}
                     className={`mix-blend-difference transition-all items-center cursor-pointer uppercase text-sm sm:text-[1.25rem] w-fit nav-link ${
                       isActive ? "text-white" : ""
