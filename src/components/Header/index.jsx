@@ -54,8 +54,8 @@ export default function Index() {
             {Object.entries(navItems).map(
               ([path, { name, href, icn, target, query }]) => {
                 const isActive =
-                  currentPath === path || currentPath.split("/")[1] === "name";
-                // console.log(currentPath.split("/")[1], name, isActive);
+                  currentPath === path || currentPath.split("/")[1] === name;
+                console.log(currentPath.split("/")[1], name, isActive);
                 return (
                   <Link
                     scroll={true}
