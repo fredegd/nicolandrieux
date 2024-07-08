@@ -8,19 +8,20 @@ import SelectedWorks from "../components/SelectedWorks";
 import About from "../components/About";
 
 import Scroll from "react-scroll";
+import Footer from "../components/Footer";
 
-// const { Element: ScrollElement } = Scroll;
+const { Element: ScrollElement } = Scroll;
 
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
 
   const { query } = useRouter();
-  //scroll between sections based on query params
+  //scroll to the selected section based on the query
   useEffect(() => {
     if (query.id === "work") {
       setTimeout(() => {
         Scroll.scroller.scrollTo("work", {
-          duration: 0,
+          duration: 100,
           smooth: true,
           offset: 0,
         });
@@ -28,7 +29,7 @@ export default function Home() {
     } else if (query.id === "about") {
       setTimeout(() => {
         Scroll.scroller.scrollTo("about", {
-          duration: 0,
+          duration: 100,
           smooth: true,
           offset: 0,
         });
@@ -36,6 +37,7 @@ export default function Home() {
     }
   }, [query]);
 
+  // ScrollTrigger for the background color transition
   useEffect(() => {
     // Ensure ScrollTrigger is loaded
     if (!gsap.plugins.scrollTrigger) {
@@ -87,13 +89,13 @@ export default function Home() {
         scrollTrigger: {
           trigger: "#hero",
           start: "top top", //[trigger][scroller]
-          end: "25% top", //[trigger][scroller]
+          end: "20% top", //[trigger][scroller]
           scrub: true, // Smooth scrubbing
         },
       })
       .to("#hero-title , #hero-subtitle", {
         opacity: 0,
-        y: -50,
+        y: -100,
         duration: 1.2,
       });
 
@@ -102,6 +104,7 @@ export default function Home() {
     gsap.set(" #hero-subtitle", { opacity: 1, y: 0 });
     gsap.set(" #hero-title", { opacity: 1, y: 0 });
 
+    // Create a timeline to control the work card enter animation
     let workTimelineEnter = gsap
       .timeline({
         scrollTrigger: {
@@ -114,11 +117,12 @@ export default function Home() {
       })
       .to("#work-card", { opacity: 1, y: 0, duration: 1, stagger: 0.5 });
 
+    // Create a timeline to control the work card  exit animation
     let workTimelineExit = gsap
       .timeline({
         scrollTrigger: {
           trigger: "#work",
-          start: "20% top", // when the top of the trigger hits the top of the viewport
+          start: "20% top", // when the top20% of the trigger hits the top of the viewport
           end: "bottom top", // end when the bottom of the trigger hits the top of the viewport
           scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
         },
@@ -132,6 +136,7 @@ export default function Home() {
       <Hero />
       <SelectedWorks />
       <About />
+      <Footer />
     </div>
   );
 }

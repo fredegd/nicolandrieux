@@ -7,14 +7,14 @@ import { ArrowIcon } from "@/components/ArrowIcon";
 const navItems = {
   "/?id=about": {
     name: "about",
-    href: "/",
+    href: "/#about",
     icn: null,
     target: "",
     query: { id: "about" },
   },
   "/?id=work": {
     name: "work",
-    href: "/",
+    href: "/#work",
     icn: null,
     target: "",
     query: { id: "work" },
@@ -60,10 +60,11 @@ export default function Index() {
                   <Link
                     scroll={true}
                     key={name}
-                    href={{
-                      pathname: href,
-                      query: query,
-                    }}
+                    href={href}
+                    //{{
+                    //pathname: href,
+                    // query: query,
+                    // }}
                     target={target}
                     className={`mix-blend-difference transition-all items-center cursor-pointer uppercase text-sm sm:text-[1.25rem]    nav-link ${
                       isActive ? "text-white" : ""

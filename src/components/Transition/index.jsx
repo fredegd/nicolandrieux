@@ -10,12 +10,13 @@ export default function TransitionLayout({ children }) {
   const { contextSafe } = useGSAP();
 
   const exit = contextSafe(() => {
-    timeline.play().then(() => {
-      setDisplayChildren(children);
-      // window.scrollTo(0, 0);
-      timeline.pause().clear();
-      setTimeline(gsap.timeline({ paused: true }));
-    });
+    setDisplayChildren(children);
+    // timeline.play().then(() => {
+    //   setDisplayChildren(children);
+    //   // window.scrollTo(0, 0);
+    //   timeline.pause().clear();
+    //   setTimeline(gsap.timeline({ paused: true }));
+    // });
   });
 
   useGSAP(() => {

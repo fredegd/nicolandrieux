@@ -6,7 +6,6 @@ import { allWorks } from "../../allWorks";
 import ScrambleEffect from "../ScrambleEffect";
 
 export default function SelectedWorks() {
-  const image = useRef();
   return (
     <section
       className=" min-h-screen w-full  pt-24  flex flex-col justify-center items-center"
@@ -32,7 +31,6 @@ export default function SelectedWorks() {
             >
               <div className="w-full flex flex-col md:flex-row items-center  gap-12 space-x-0 md:space-x-2">
                 <Image
-                  ref={image}
                   className="w-full md:w-[400px] h-auto aspect-[400/220]  object-cover"
                   src={project.metadata.image || ""}
                   alt={project.metadata.title}
