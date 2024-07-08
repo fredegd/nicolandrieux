@@ -47,10 +47,10 @@ export default function Index() {
     <>
       <aside className="tracking-tight">
         <div
-          className="h-24 w-full fixed top-0 z-50 flex items-center justify-center hover:backdrop-blur-lg mix-blend-difference"
+          className="h-36 md:h-24 w-full fixed top-0 z-50 flex items-center justify-center hover:backdrop-blur-lg mix-blend-difference"
           id="menu"
         >
-          <nav className="h-full w-10/12 flex items-center justify-start gap-16 fade md:overflow-auto p-0 text-slate-500 ">
+          <nav className="h-full w-10/12 flex flex-col gap-1 pt-10 md:flex-row md:items-center md:justify-start md:gap-16  md:p-0 text-slate-500  ">
             {Object.entries(navItems).map(
               ([path, { name, href, icn, target, query }]) => {
                 const isActive =
@@ -66,7 +66,7 @@ export default function Index() {
                     // query: query,
                     // }}
                     target={target}
-                    className={`mix-blend-difference transition-all items-center cursor-pointer uppercase text-sm sm:text-[1.25rem]    nav-link ${
+                    className={`mix-blend-difference transition-all items-center cursor-pointer uppercase text-sm sm:text-[1.25rem] w-fit nav-link ${
                       isActive ? "text-white" : ""
                     } ${isActive ? "font-bold" : ""}`}
                   >

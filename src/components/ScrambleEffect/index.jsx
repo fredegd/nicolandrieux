@@ -86,8 +86,13 @@ const ScrambleEffect = ({ tInput }) => {
       });
 
       counter += 1;
+      //make sure the text ceases to scramble after max 100 iterations
+      if (counter >= 100) {
+        clearInterval(interval);
+        setScrambledText(tInput);
+      }
     }, scrambleSpeed);
-
+    //if the user leaves the object, stop the scrambling effect
     if (!hovered) {
       setTimeout(() => {
         clearInterval(interval);
@@ -139,6 +144,7 @@ const ScrambleEffect = ({ tInput }) => {
           key={index}
           onMouseEnter={() => handleMouseEnter(index)}
           onTouchStart={() => handleMouseEnter(index)}
+          onTouchCancel={handleMouseLeave}
           onTouchEnd={handleMouseLeave}
           onMouseLeave={handleMouseLeave}
           className="cursor-default"

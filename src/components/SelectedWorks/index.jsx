@@ -8,7 +8,7 @@ import ScrambleEffect from "../ScrambleEffect";
 export default function SelectedWorks() {
   return (
     <section
-      className=" min-h-screen w-full  pt-24 mb-24 flex flex-col justify-center items-center"
+      className=" min-h-screen w-full   pt-36 md:pt-24 mb-24 flex flex-col justify-center items-center"
       id="work"
     >
       <div className="w-10/12 flex flex-col gap-4 md:gap-8">
