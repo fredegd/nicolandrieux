@@ -25,11 +25,11 @@ export default function SelectedWorks() {
           .map((project) => (
             <Link
               key={project.slug}
-              className="flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105  hover:bg-white hover:text-black  hover:border-t border-0"
+              className="flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105  hover:bg-white hover:text-black  "
               id="work-card"
               href={`/work/${project.slug}`}
             >
-              <div className="w-full flex flex-col md:flex-row items-center  md:gap-12 space-x-0 md:space-x-2">
+              <div className="w-full flex flex-col md:flex-row items-center  gap-6 md:gap-12  space-x-0 md:space-x-2">
                 <Image
                   className="w-full md:w-[400px] h-auto aspect-[400/220]  object-cover"
                   src={project.metadata.image || ""}
@@ -38,17 +38,17 @@ export default function SelectedWorks() {
                   height={220}
                 />
 
-                <div>
+                <div className="text-sm">
                   <p
                     className=" font-semibold  tracking-tight"
-                    style={{ fontSize: "clamp(1.2rem, 1.3vw, 1.45rem)" }}
+                    // style={{ fontSize: "clamp(1.2rem, 1.3vw, 1.45rem)" }}
                   >
                     <ScrambleEffect tInput={project.metadata.title} />
                   </p>
 
                   <p
                     className="  tracking-tight"
-                    style={{ fontSize: "clamp(1.1rem, 1.25vw, 1.36rem)" }}
+                    // style={{ fontSize: "clamp(1.1rem, 1.25vw, 1.36rem)" }}
                   >
                     <ScrambleEffect tInput={project.metadata.summary} />
                   </p>

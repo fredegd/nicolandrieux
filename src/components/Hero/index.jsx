@@ -41,7 +41,7 @@ export default function Hero() {
           </h1>
         </div>
         <div
-          className="flex flex-col md:flex-row justify-start md:items-center  md:w-full w-9/12 mt-0  tracking-normal text-[4vw] md:text-[1.12vw]"
+          className="flex flex-col md:flex-row justify-start md:items-center  md:w-full w-9/12 mt-0  tracking-normal text-sm md:text-[1.12vw]"
           id="hero-subtitle"
         >
           <p>
