@@ -89,13 +89,13 @@ export default function Home() {
         scrollTrigger: {
           trigger: "#hero",
           start: "top top", //[trigger][scroller]
-          end: "20% top", //[trigger][scroller]
+          end: "30% top", //[trigger][scroller]
           scrub: true, // Smooth scrubbing
         },
       })
       .to("#hero-title , #hero-subtitle", {
         opacity: 0,
-        y: -100,
+        y: 0,
         duration: 1.2,
       });
 
@@ -104,32 +104,32 @@ export default function Home() {
     gsap.set(" #hero-subtitle", { opacity: 1, y: 0 });
     gsap.set(" #hero-title", { opacity: 1, y: 0 });
 
-    // Create a timeline to control the work card enter animation
-    let workTimelineEnter = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "#hero",
-          start: "30% top", // when the top of the trigger hits the top of the viewport
-          end: "90% top", // end after scrolling 200px beyond the start
-          stagger: 0.5, // 0.5 second stagger between each start
-          scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-        },
-      })
-      .to("#work-card", { opacity: 1, y: 0, duration: 1, stagger: 0.5 });
+    // // Create a timeline to control the work card enter animation
+    // let workTimelineEnter = gsap
+    //   .timeline({
+    //     scrollTrigger: {
+    //       trigger: "#hero",
+    //       start: "30% top", // when the top of the trigger hits the top of the viewport
+    //       end: "90% top", // end after scrolling 200px beyond the start
+    //       stagger: 0.5, // 0.5 second stagger between each start
+    //       scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+    //     },
+    //   })
+    //   .to("#work-card", { opacity: 1, y: 0, duration: 1, stagger: 0.5 });
 
-    // Create a timeline to control the work card  exit animation
-    let workTimelineExit = gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: "#work",
-          start: "20% top", // when the top20% of the trigger hits the top of the viewport
-          end: "bottom top", // end when the bottom of the trigger hits the top of the viewport
-          scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-        },
-      })
-      .to("#work-card", { opacity: 0, y: -100, duration: 1, stagger: 0.5 });
+    // // Create a timeline to control the work card  exit animation
+    // let workTimelineExit = gsap
+    //   .timeline({
+    //     scrollTrigger: {
+    //       trigger: "#work",
+    //       start: "20% top", // when the top20% of the trigger hits the top of the viewport
+    //       end: "bottom top", // end when the bottom of the trigger hits the top of the viewport
+    //       scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
+    //     },
+    //   })
+    //   .to("#work-card", { opacity: 0, y: -100, duration: 1, stagger: 0.5 });
 
-    gsap.set("#work-card", { opacity: 0, y: 100 });
+    // gsap.set("#work-card", { opacity: 0, y: 100 });
   }, []);
   return (
     <div className="h-[100vh] w-full -mt-24">

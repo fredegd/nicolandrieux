@@ -1,15 +1,32 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
+import { TransitionContext } from "@/context/TransitionContext";
+import gsap from "gsap";
+
+import { useGSAP } from "@gsap/react";
 import { allWorks } from "../../allWorks";
 import ScrambleEffect from "../ScrambleEffect";
 
 export default function SelectedWorks() {
+  const { timeline } = useContext(TransitionContext);
+  const container = useRef(null);
+
+  useGSAP(
+    () => {
+      const targets = gsap.utils.toArray(["#hero-title", "#hero-subtitle"]);
+      gsap.fromTo(targets, { y: 200 }, { y: 0, stagger: 0.2 });
+      timeline.add(gsap.to(container.current, { opacity: 0 }));
+    },
+    { scope: container }
+  );
+
   return (
     <section
       className=" min-h-screen w-full   pt-36 md:pt-24 mb-24 flex flex-col justify-center items-center"
       id="work"
+      ref={container}
     >
       <div className="w-10/12 flex flex-col gap-4 md:gap-8">
         {allWorks

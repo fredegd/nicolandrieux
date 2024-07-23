@@ -11,11 +11,13 @@ export default function Hero() {
   useGSAP(
     () => {
       const targets = gsap.utils.toArray(["#hero-title", "#hero-subtitle"]);
-      gsap.fromTo(targets, { y: 100 }, { y: 0, stagger: 0.1 });
+      gsap.fromTo(targets, { y: 200 }, { y: 0, stagger: 0.2 });
       timeline.add(gsap.to(container.current, { opacity: 0 }));
     },
     { scope: container }
   );
+  const isBrowser = typeof window !== "undefined";
+  const isWideScreen = isBrowser && window.innerWidth > 768;
 
   return (
     <section
@@ -23,9 +25,32 @@ export default function Hero() {
       id="hero"
       ref={container}
     >
-      <div className="max-w-[92%] flex flex-col items-start md:items-center ">
+      <div className="max-w-[92%] hidden md:flex flex-col items-start md:items-center ">
         <div
-          className="flex flex-col md:flex-row justify-start md:items-center md:justify-between   tracking-normal text-[10vw] md:text-[4.5vw]"
+          className="flex flex-col md:flex-row justify-start md:items-center md:justify-between   tracking-normal text-[12vw] md:text-[4.5vw] leading-none mb-8"
+          id="hero-title"
+        >
+          <h1 className="font-semibold  ">
+            <ScrambleEffect tInput={"NICOLAS LANDRIEUX  ——  ART DIRECTOR"} />
+          </h1>
+        </div>
+        <div
+          className="flex flex-col md:flex-row justify-start md:items-center  md:w-full w-9/12 mt-0  tracking-normal text-md md:text-[1.12vw] leading-tight"
+          id="hero-subtitle"
+        >
+          <p>
+            <ScrambleEffect
+              tInput={
+                "SPECIALIST IN BRANDING, CRAFTING UNIQUE DESIGN AND EXPERIENCE THROUGH CREATIVE CODING AND MOTION DESIGN  ——  I AM A DESIGNER WHO CODES."
+              }
+            />
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-[92%] flex flex-col items-start md:items-center md:hidden">
+        <div
+          className="flex flex-col md:flex-row justify-start md:items-center md:justify-between   tracking-normal text-[12vw] md:text-[4.5vw] leading-none mb-8"
           id="hero-title"
         >
           <h1 className="font-semibold  ">
@@ -41,7 +66,7 @@ export default function Hero() {
           </h1>
         </div>
         <div
-          className="flex flex-col md:flex-row justify-start md:items-center  md:w-full w-9/12 mt-0  tracking-normal text-sm md:text-[1.12vw]"
+          className="flex flex-col md:flex-row justify-start md:items-center  md:w-full w-9/12 mt-0  tracking-normal text-md md:text-[1.12vw] leading-tight"
           id="hero-subtitle"
         >
           <p>
