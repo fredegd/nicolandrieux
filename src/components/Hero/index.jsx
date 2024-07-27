@@ -8,16 +8,14 @@ export default function Hero() {
   const { timeline } = useContext(TransitionContext);
   const container = useRef(null);
 
-  useGSAP(
-    () => {
-      const targets = gsap.utils.toArray(["#hero-title", "#hero-subtitle"]);
-      gsap.fromTo(targets, { y: 200 }, { y: 0, stagger: 0.2 });
-      timeline.add(gsap.to(container.current, { opacity: 0 }));
-    },
-    { scope: container }
-  );
-  const isBrowser = typeof window !== "undefined";
-  const isWideScreen = isBrowser && window.innerWidth > 768;
+  // useGSAP(
+  //   () => {
+  //     const targets = gsap.utils.toArray(["#hero-title", "#hero-subtitle"]);
+  //     gsap.fromTo(targets, { y: 200 }, { y: 0, stagger: 0.2 });
+  //     timeline.add(gsap.to(container.current, { opacity: 0 }));
+  //   },
+  //   { scope: container }
+  // );
 
   return (
     <section

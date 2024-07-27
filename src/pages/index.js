@@ -50,7 +50,7 @@ export default function Home() {
         scrollTrigger: {
           trigger: "#hero",
           start: "20% top",
-          end: "60% top",
+          end: "100% top",
           scrub: true, // Smooth scrubbing
         },
       })
@@ -83,19 +83,18 @@ export default function Home() {
     gsap.set("#menu", { color: "#000000" });
 
     //create a timeline to control the Hero text
-    // to let it fade out when the user scrolls down
+    // letting it fade out when the user scrolls down
     const heroTimeline = gsap
       .timeline({
         scrollTrigger: {
           trigger: "#hero",
           start: "top top", //[trigger][scroller]
-          end: "30% top", //[trigger][scroller]
+          end: "50% top", //[trigger][scroller]
           scrub: true, // Smooth scrubbing
         },
       })
       .to("#hero-title , #hero-subtitle", {
         opacity: 0,
-        y: 0,
         duration: 1.2,
       });
 

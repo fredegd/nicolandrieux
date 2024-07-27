@@ -59,15 +59,17 @@ export default function Index() {
                     key={name}
                     href={href}
                     target={target}
-                    className={`mix-blend-difference transition-all items-center cursor-pointer uppercase text-sm sm:text-[1.25rem] w-fit nav-link ${
+                    className={`mix-blend-difference transition-all items-center cursor-pointer uppercase text-sm md:text-md lg:text-[1.12vw] w-fit nav-link ${
                       isActive ? "text-white" : ""
                     } ${isActive ? "font-bold" : ""}`}
                   >
                     <p
                       className=" flex items-center tracking-normal"
-                      style={{
-                        fontSize: "1.0rem" && "clamp(0.9rem, 1.1vw, 1.18rem)",
-                      }}
+                      style={
+                        {
+                          // fontSize: "1.0rem" && "clamp(0.9rem, 1.1vw, 1.18rem)",
+                        }
+                      }
                     >
                       <ScrambleEffect tInput={name} />
                       {icn && <ArrowIcon />}

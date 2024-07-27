@@ -11,7 +11,7 @@ const About = () => {
       className="min-h-screen h-auto w-full  pt-36   flex flex-col justify-center items-center gap-12 md:gap-24 md:pt-32 md:h-a"
       id="about"
     >
-      <div className=" w-10/12 flex flex-col lg:flex-row items-center gap-12 text-sm">
+      <div className=" w-10/12 flex flex-col lg:flex-row items-center gap-12 text-sm md:text-md lg:text-[1.12vw]">
         <div
           ref={image}
           className="w-full  sm:w-10/12 md:w-8/12 lg:w-4/12 xl:w-3/12"

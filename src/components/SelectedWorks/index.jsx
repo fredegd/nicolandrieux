@@ -13,14 +13,14 @@ export default function SelectedWorks() {
   const { timeline } = useContext(TransitionContext);
   const container = useRef(null);
 
-  useGSAP(
-    () => {
-      const targets = gsap.utils.toArray(["#hero-title", "#hero-subtitle"]);
-      gsap.fromTo(targets, { y: 200 }, { y: 0, stagger: 0.2 });
-      timeline.add(gsap.to(container.current, { opacity: 0 }));
-    },
-    { scope: container }
-  );
+  // useGSAP(
+  //   () => {
+  //     const targets = gsap.utils.toArray(["work"]);
+  //     gsap.fromTo(targets, { y: 200 }, { y: 0, stagger: 0.2 });
+  //     timeline.add(gsap.to(container.current, { opacity: 0 }));
+  //   },
+  //   { scope: container }
+  // );
 
   return (
     <section
@@ -42,20 +42,20 @@ export default function SelectedWorks() {
           .map((project) => (
             <Link
               key={project.slug}
-              className="flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105  hover:bg-white hover:text-black  "
+              className="flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105  hover:bg-white hover:text-black  transition duration-120 ease-in-out "
               id="work-card"
               href={`/work/${project.slug}`}
             >
-              <div className="w-full flex flex-col md:flex-row items-center  gap-6 md:gap-12  space-x-0 md:space-x-2">
+              <div className="w-full flex flex-col md:flex-row md:items-center  gap-6 md:gap-12  space-x-0 md:space-x-2">
                 <Image
-                  className="w-full md:w-[400px] h-auto aspect-[400/220]  object-cover"
+                  className="w-full md:max-w-[400px] h-auto aspect-[400/220]  object-cover"
                   src={project.metadata.image || ""}
                   alt={project.metadata.title}
                   width={400}
                   height={220}
                 />
 
-                <div className="text-sm">
+                <div className="text-sm md:text-md lg:text-[1.12vw] w-full">
                   <p
                     className=" font-semibold  tracking-tight"
                     // style={{ fontSize: "clamp(1.2rem, 1.3vw, 1.45rem)" }}
