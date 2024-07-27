@@ -52,7 +52,7 @@ export default function Index() {
               ([path, { name, href, icn, target, query }]) => {
                 const isActive =
                   currentPath === path || currentPath.split("/")[1] === name;
-                console.log(currentPath.split("/")[1], name, isActive);
+                // console.log(currentPath.split("/")[1], name, isActive);
                 return (
                   <Link
                     scroll={true}
