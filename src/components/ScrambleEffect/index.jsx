@@ -1,10 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 const scramblerCharsToChooseFrom = [
-  "FCKYUOUALL",
-  "!<>/[]{}=+*^?#$@§X¢",
-  "NOWAY",
-  "H€Ll0WOrLD",
+  "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]{|}",
 ];
+// const scramblerCharsToChooseFrom = [
+//   "FCKYUOUALL",
+//   "!<>/[]{}=+*^?#$@§X¢",
+//   "NOWAY",
+//   "H€Ll0WOrLD",
+// ];
 
 const ScrambleEffect = ({ tInput }) => {
   const scrambleSpeed = 50;
@@ -86,8 +89,8 @@ const ScrambleEffect = ({ tInput }) => {
       });
 
       counter += 1;
-      //make sure the text ceases to scramble after max 100 iterations
-      if (counter >= 100) {
+      //make sure the text ceases to scramble after max 150 iterations
+      if (counter >= 150) {
         clearInterval(interval);
         setScrambledText(tInput);
       }
@@ -97,7 +100,7 @@ const ScrambleEffect = ({ tInput }) => {
       setTimeout(() => {
         clearInterval(interval);
         setScrambledText(tInput);
-      }, 1500);
+      }, 1800);
     }
     return () => {
       clearInterval(interval);
