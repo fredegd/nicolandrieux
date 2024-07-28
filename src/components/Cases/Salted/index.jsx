@@ -7,50 +7,49 @@ function Salted({ gallery }) {
     <ul className="    p-0 m-0">
       <li
         id="gallery-item-1"
-        className="w-[100vw] h-[71vw] flex flex-col items-center bg-cover bg-center bg-no-repeat sticky -top-80"
+        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw] flex flex-col items-center bg-[length:530%] md:bg-cover bg-[left_40%_top_0rem]  md:bg-center bg-no-repeat sticky -top-80"
         style={{
           backgroundImage: `url(${gallery[0].caseImg})`,
         }}
       >
-        <div
-          //   ref={image}
-          className="flex flex-col items-center justify-center max-w-[92%]  h-full"
-        >
+        <div className="flex flex-col items-start  justify-center w-10/12 h-full">
           <h1
-            className="text-white self-center text-[4.7rem] font-semibold"
+            className="text-white tracking-normal text-[12vw] md:text-[4.5vw] leading-none font-semibold"
             style={{ fontSize: "clamp(2.9rem, 4.5vw, 4.7rem)" }}
           >
             <ScrambleEffect tInput={gallery[0].title} />
           </h1>
-          <p
-            className="text-black  self-end text-[1.7rem]"
-            style={{
-              fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
-            }}
-          >
+          <p className="hidden md:inline text-end text-black   md:w-full text-sm md:text-md lg:text-[1.12vw]">
             <ScrambleEffect tInput={gallery[0].subtitle} />
+          </p>
+          <p className="md:hidden text-black   w-4/12 md:w-full text-sm md:text-md lg:text-[1.12vw]">
+            <ScrambleEffect tInput={gallery[0].subtitle.replace(/\|/g, "")} />
           </p>
         </div>
       </li>
       <li
         id="gallery-item-2"
-        className="w-[100vw] h-[71vw]   flex flex-col items-end justify-center bg-cover bg-center bg-no-repeat sticky -top-24"
-        style={{
-          backgroundImage: `url(${gallery[1].caseImg})`,
-        }}
+        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw] flex flex-col-reverse md:flex-row  items-center md:bg-cover bg-center bg-no-repeat sticky -top-24"
       >
-        <p
-          className="text-black self-end  max-w-[33%] pr-4 text-[1.7rem] leading-[1.5rem]"
-          style={{
-            fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
-          }}
-        >
-          <ScrambleEffect tInput={gallery[1].subtitle} />
-        </p>
+        <Image
+          className="w-full md:w-8/12  h-full aspect-[400/400]  object-cover"
+          src={gallery[1].caseImg || ""}
+          alt={gallery[1].content}
+          width={800}
+          height={800}
+        />{" "}
+        <div className="w-full h-full bg-white flex flex-col items-center justify-center">
+          <p className="w-10/12 md:w-11/12 text-black  text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem] font-semibold mb-4">
+            <ScrambleEffect tInput={gallery[1].title} />
+          </p>
+          <p className="w-10/12 md:w-11/12 text-black  text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]">
+            <ScrambleEffect tInput={gallery[1].subtitle} />
+          </p>
+        </div>
       </li>
       <li
         id="gallery-item-3"
-        className="w-[100vw] h-[60vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky -top-24"
+        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw] flex flex-col items-center bg-[length:400%] md:bg-cover bg-[left_2%_top_20%] bg-no-repeat sticky -top-24"
         style={{
           backgroundColor: "#fff",
           backgroundImage: `url(${gallery[2].caseImg})`,
@@ -60,19 +59,14 @@ function Salted({ gallery }) {
       </li>
       <li
         id="gallery-item-4"
-        className="w-[100vw] h-[71vw]   flex flex-col items-center  bg-no-repeat sticky -top-24"
+        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw] flex flex-col items-center  bg-[length:530%] md:bg-[length:130%_120%]  bg-[left_58%_top_10%] md:bg-[left_0%_top_10%] bg-no-repeat sticky -top-24"
         style={{
           backgroundImage: `url(${gallery[3].caseImg})`,
-          backgroundPosition: "0% 10%",
-          backgroundSize: "130% 120%",
         }}
       >
-        <div
-          //   ref={image}
-          className="flex flex-col items-center justify-center w-10/12  h-full"
-        >
+        <div className="flex flex-col items-center  w-10/12  h-full pt-36">
           <p
-            className="text-black self-start  leading-[1.2rem] max-w-[66%]"
+            className="text-black self-start  leading-[1.2rem] md:max-w-[66%]"
             style={{
               fontSize: "1.0rem" && "clamp(0.85rem, 1.05vw, 1.12rem)",
             }}
@@ -83,19 +77,14 @@ function Salted({ gallery }) {
       </li>
       <li
         id="gallery-item-5"
-        className="w-[100vw] h-[71vw]   flex flex-col items-center  bg-no-repeat sticky -top-24"
+        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw] flex flex-col items-center  bg-[length:330%] md:bg-[length:130%_120%]  bg-[left_58%_top_40%] md:bg-[left_0%_top_10%] bg-no-repeat sticky -top-24"
         style={{
           backgroundImage: `url(${gallery[4].caseImg})`,
-          backgroundPosition: "0% 50%",
-          backgroundSize: "130%",
         }}
       >
-        <div
-          //   ref={image}
-          className="flex flex-col items-center justify-center w-10/12  h-full"
-        >
+        <div className="flex flex-col items-center  w-10/12  h-full pt-36">
           <p
-            className="text-white self-start  leading-[1.2rem] max-w-[60%]"
+            className="text-white self-start  leading-[1.2rem] md:max-w-[66%]"
             style={{
               fontSize: "1.0rem" && "clamp(0.85rem, 1.05vw, 1.12rem)",
             }}
