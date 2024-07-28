@@ -105,7 +105,7 @@ const ScrambleEffect = ({ tInput }) => {
     return () => {
       clearInterval(interval);
     };
-  }, [hovered, tInput, hoveredIndex, scramblerChars]);
+  }, [hovered, tInput, hoveredIndex, scramblerChars, shouldReveal]);
 
   //revealing the content on first load
   useEffect(() => {
