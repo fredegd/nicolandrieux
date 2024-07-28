@@ -89,8 +89,8 @@ const ScrambleEffect = ({ tInput }) => {
       });
 
       counter += 1;
-      //make sure the text ceases to scramble after max 150 iterations
-      if (counter >= 150) {
+      //make sure the text ceases to scramble after max 180 iterations
+      if (counter >= 180) {
         clearInterval(interval);
         setScrambledText(tInput);
       }
