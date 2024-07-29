@@ -91,16 +91,28 @@ function Salted({ gallery }) {
       {console.log(gallery[5].caseImg)}
       <li
         id="gallery-item-6"
-        className={`w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw]    flex flex-col items-center bg-[length:70%] bg-[center_top_0] bg-no-repeat sticky  top-0 bg-white`}
-        style={{
-          backgroundImage: `url(${gallery[5].caseImg})`,
-        }}
+        className={`w-[100vw] md:w-[100vw] h-[100vh] md:h-[75vw]    
+                    flex flex-col items-center  bg-[length:70%] bg-[center_top_0] bg-no-repeat sticky  top-0 md:-top-36 py-56 md:pt-24 bg-white`}
       >
-        <div></div>
+        <Image
+          className="  object-cover md:object-center w-9/12 hidden md:block  "
+          width={600}
+          height={600}
+          src={gallery[5].caseImg}
+          alt="Salted Beauty Campaign 01"
+        />
+        <Image
+          className="  object-cover md:object-center md:hidden  "
+          width={600}
+          height={600}
+          src={gallery[5].caseImg1}
+          alt="Salted Beauty Campaign 01"
+        />
       </li>
       <li
         id="gallery-item-7"
-        className=" w-[100vw] md:w-[100vw] min-h-[100vh] md:h-[71vw]    md:flex flex-col  bg-[center_top_50%] md:bg-center bg-no-repeat bg-[length:300%] md:bg-[length:140%] md:bg-white sticky top-[-50%]"
+        className=" w-[100vw] md:w-[100vw] min-h-[100vh] md:h-[71vw]   
+                   md:flex flex-col  bg-[center_top_50%] md:bg-center bg-no-repeat bg-[length:300%] md:bg-[length:140%] md:bg-white sticky top-[-100%] md:top-[-50%]"
         style={{
           backgroundImage: `url(${gallery[6].caseImg})`,
         }}
@@ -124,7 +136,7 @@ function Salted({ gallery }) {
       </li>
       <li
         id="gallery-item-7-bis"
-        className="md:hidden  w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw]  bg-[length:400%] md:bg-[length:130%_120%]  bg-[left_48%_top_0%] md:bg-[left_0%_top_10%] bg-no-repeat sticky -top-24"
+        className="md:hidden  w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw]  bg-[length:400%] md:bg-[length:130%_120%]  bg-[left_48%_top_0%] md:bg-[left_0%_top_10%] bg-no-repeat sticky top-0"
         style={{
           backgroundImage: `url(${gallery[6].caseImg2})`,
         }}
@@ -133,7 +145,7 @@ function Salted({ gallery }) {
       </li>
       <li
         id="gallery-item-7-tris"
-        className="md:hidden w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw]  bg-[length:200%]  bg-[left_45%_top_30%] md:bg-[left_0%_top_10%] bg-no-repeat sticky -top-24"
+        className="md:hidden w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw]  bg-[length:200%]  bg-[left_45%_top_30%] md:bg-[left_0%_top_10%] bg-no-repeat sticky -top-0"
         style={{
           backgroundImage: `url(${gallery[6].caseImg1 + "?tr=rt-270"})`,
         }}
@@ -143,7 +155,7 @@ function Salted({ gallery }) {
 
       <li
         id="gallery-item-8"
-        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw]  hidden md:flex flex-col items-center  sticky -top-80"
+        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw]  hidden md:flex flex-col items-center  sticky top-0"
       >
         <div
           className="w-full h-full bg-white 
@@ -188,7 +200,7 @@ function Salted({ gallery }) {
       </li>
       <li
         id="gallery-item-9"
-        className="w-[100vw] md:w-[100vw] h-[100vh] md:min-h-[60vw]  flex flex-col items-center m-0 p-0 bg-white"
+        className="w-[100vw] md:w-[100vw] h-[100vh] md:min-h-[60vw]  flex flex-col items-center m-0 p-0 bg-white sticky -top-48"
       >
         <div className="p-0 m-0  w-full h-full bg-white flex flex-col justify-start items-start">
           <iframe
