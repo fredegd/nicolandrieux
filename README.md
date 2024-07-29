@@ -1,5 +1,8 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+This progect contains the webpages and code for [Landrieux.design](https://landrieux.design) website a portfolio web showcase for Nicolas Landrieux studio
+
+
 ## Getting Started
 
 First, run the development server:
