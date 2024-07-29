@@ -121,7 +121,7 @@ function Liebeskind({ gallery }) {
             alt="Liebeskind Berlin"
             width={1600}
             height={1140}
-            className="w-full md:w-1/2 h-[140%] object-cover object-center"
+            className="w-full md:w-1/2 h-[140%] md-h-full object-cover object-center"
           />
           <p className="hidden md:block text-left   fixed left-[35%] top-[30%]">
             <ScrambleEffect tInput={gallery[3].subtitle} />
@@ -167,25 +167,27 @@ function Liebeskind({ gallery }) {
       </li>
       <li
         id="gallery-item-7"
-        className="w-[100vw] h-[71vw]   flex flex-col items-center justify-start bg-white bg-cover bg-center bg-no-repeat sticky -top-24 px-48"
+        className="w-[100vw] h-[71vw]   flex flex-col items-center justify-start bg-white bg-cover bg-center bg-no-repeat  "
       >
-        <p
-          className="text-black   w-full py-32 text-[1.7rem] leading-[1.5rem]  "
-          style={{
-            fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
-          }}
-        >
-          <ScrambleEffect tInput={gallery[6].subtitle} />
-        </p>
+        <div className="w-10/12 h-full">
+          <p
+            className="text-black   w-full py-32 text-[1.7rem] leading-[1.5rem]  "
+            style={{
+              fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
+            }}
+          >
+            <ScrambleEffect tInput={gallery[6].subtitle} />
+          </p>
 
-        <iframe
-          src="https://drive.google.com/file/d/1vHFXwc0BShBr4tF0GeC8PE68TEO-25_l/preview?t=50.0&loop=1"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowFullScreen
-          webkitallowfullscreen="true"
-          mozallowfullscreen="true"
-          className="w-full h-full"
-        ></iframe>
+          <iframe
+            src="https://drive.google.com/file/d/1vHFXwc0BShBr4tF0GeC8PE68TEO-25_l/preview?t=50.0&loop=1"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            webkitallowfullscreen="true"
+            mozallowfullscreen="true"
+            className="w-full h-full"
+          ></iframe>
+        </div>
       </li>
     </ul>
   );
