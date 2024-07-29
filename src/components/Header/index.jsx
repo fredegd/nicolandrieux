@@ -19,13 +19,13 @@ const navItems = {
     target: "",
   },
   "https://www.instagram.com/exhausted_lab/": {
-    name: "instagram",
+    name: "INSTAGRAM ↗",
     href: "https://www.instagram.com/exhausted_lab/",
     icn: { ArrowIcon },
     target: "_blank",
   },
   "https://www.linkedin.com/in/nicolaslandrieux/": {
-    name: "linkedin",
+    name: "LINKEDIN ↗",
     href: "https://www.linkedin.com/in/nicolaslandrieux/",
     icn: { ArrowIcon },
     target: "_blank",
@@ -49,7 +49,7 @@ export default function Index() {
         >
           <nav className="h-full w-10/12 flex flex-col gap-1 pt-10 md:flex-row md:items-center md:justify-start md:gap-16  md:p-0 text-slate-500  ">
             {Object.entries(navItems).map(
-              ([path, { name, href, icn, target, query }]) => {
+              ([path, { name, href, target, query }]) => {
                 const isActive =
                   currentPath === path || currentPath.split("/")[1] === name;
                 // console.log(currentPath.split("/")[1], name, isActive);
@@ -63,16 +63,8 @@ export default function Index() {
                       isActive ? "text-white" : ""
                     } ${isActive ? "font-bold" : ""}`}
                   >
-                    <p
-                      className=" flex items-center tracking-normal"
-                      style={
-                        {
-                          // fontSize: "1.0rem" && "clamp(0.9rem, 1.1vw, 1.18rem)",
-                        }
-                      }
-                    >
+                    <p className=" flex items-center tracking-normal align-middle">
                       <ScrambleEffect tInput={name} />
-                      {icn && <ArrowIcon />}
                     </p>
                   </Link>
                 );

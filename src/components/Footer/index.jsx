@@ -15,14 +15,14 @@ export default function Footer() {
             <ScrambleEffect tInput={"DESIGNED BY NICOLAS LANDRIEUX"} />
           </p>
           <p className=" uppercase font-medium ">
-            <ScrambleEffect tInput={"DEVELOPED BY"} />
+            <ScrambleEffect tInput={"DEVELOPED BY" + " "} />
             <a
               href="http://fredegd.dev"
               target="_blank"
               rel="noopener noreferrer"
+              className="underline"
             >
-              {" "}
-              <ScrambleEffect tInput={"TAPIWO (FRED)"} />
+              <ScrambleEffect tInput={"TAPIWO (FRED)↗"} />
             </a>
           </p>
           <p className=" uppercase font-medium ">
