@@ -1,7 +1,4 @@
 import React, { useRef, useContext } from "react";
-import Portrait from "../../../public/images/portrait.png";
-import Link from "next/link";
-import Image from "next/image";
 import { TransitionContext } from "@/context/TransitionContext";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
