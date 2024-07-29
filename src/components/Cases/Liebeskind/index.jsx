@@ -55,7 +55,7 @@ function Liebeskind({ gallery }) {
         className="w-[100vw] h-[100vw] md:h-[100vh] flex flex-col items-center bg-white"
       >
         <div className="w-10/12 h-[100vw] flex flex-col gap-8 justify-center ">
-          <p className="hidden md:block text-black  w-full  text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]   ">
+          <p className="hidden md:block text-black  w-full  text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]  mt-24 ">
             <ScrambleEffect tInput={gallery[1].subtitle} />
           </p>
 
@@ -84,7 +84,7 @@ function Liebeskind({ gallery }) {
 
       <li
         id="gallery-item-4"
-        className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 bg-white border border-blue-300"
+        className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 bg-white "
       >
         <div className="flex w-full">
           <Image

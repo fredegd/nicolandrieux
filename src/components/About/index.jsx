@@ -1,11 +1,11 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Portrait from "../../../public/images/portrait.png";
 import ScrambleEffect from "@/components/ScrambleEffect";
 
 const About = () => {
   const image = useRef();
+  let portrait = "https://ik.imagekit.io/3vlhcozis/Nicolandrieux/portrait.png";
   return (
     <section
       className="min-h-screen h-auto w-full  pt-36   flex flex-col justify-center items-center gap-12 md:gap-24 md:pt-32 md:h-a"
@@ -18,12 +18,15 @@ const About = () => {
         >
           <Image
             className="w-full h-auto aspect-[400/400] lg:aspect-[400/545]"
-            src={Portrait}
+            src={portrait}
             alt="portrait"
             placeholder="blur"
+            blurDataURL={portrait}
             style={{ objectFit: "cover" }}
-            width={{ md: 400, lg: 400, xl: 400 }}
-            height={{ md: 400, lg: 400, xl: 545 }}
+            width={400}
+            height={545}
+            // width={{ md: "400px", lg: "400px", xl: "400px" }}
+            // height={{ md: "400px", lg: "400px", xl: "545px" }}
           />
         </div>
         <div
