@@ -31,10 +31,10 @@ function Salted({ gallery }) {
           className="w-full md:w-8/12  h-full aspect-[400/400]  object-cover"
           src={gallery[1].caseImg || ""}
           alt={gallery[1].content}
-          width={800}
-          height={800}
+          width={1600}
+          height={1600}
         />{" "}
-        <div className="w-full h-full bg-white flex flex-col items-center justify-center pt-12 md:pt-0">
+        <div className="w-full h-full bg-white flex flex-col items-center justify-center pt-28 md:pt-4">
           <p className="w-10/12 md:w-11/12 text-black  text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem] font-semibold mb-4">
             <ScrambleEffect tInput={gallery[1].title} />
           </p>
