@@ -10,70 +10,32 @@
 
       "slides": [
         {
-          "caseImg": "/images/salted-01.png",
-          "title": "SALTED BEAUTY —— BRAND EXPERIENCE",
-          "subtitle": "ART DIRECTION | STRATEGY | PACKAGING | SCREEN DESIGN",
-          "content": "Slide 1 content"
+          "caseImg": "https://ik.imagekit.io/3vlhcozis/Nicolandrieux/kunstkraftwerk/Leipzig%20Bckrd.jpg?",
+          "title": "KUNST KRAFTWERK MOTION DESIGN",
+          "title1": "KUNSTKRAFTWERK LEIPZIG",
+          "title2": "—— MOTION DESIGN",
+          "subtitle": "ART DIRECTION | CREATIVE CODING | MOTION DESIGN",
+          "content": ""
         },
         {
-          "caseImg": "/images/salted-02.png",
+          "caseImg": "",
           "title": "",
-          "subtitle": "Salted Beauty started a complete rebranding in summer 2021. In six month time, we updated the whole concept of the brand and adopted the new ton-of-voice. In a team of 4, we created a new brand strategy, a corporate identity, a new packaging style, a new UI/UX, a new social media content direction and we shot a complete brand campaign.",
-          "content": "Slide 2 content"
+          "subtitle": "Having the chance to exhibit in the immersive room of the Kunstkraftwerk in Leipzig was an amazing opportunity. I PRESENTED 'Shadow Dancers': a 5-minute generative typographic ballet in two opposite movements, a virtual Pas de Deux expressing the lack of communication in relationships.",
+          "subtitle1": "Filmed with real dancers, remapped through a personal creative coding algorithm, and adapted to the enormous 360° projection walls, it allowed the viewers to immerse themselves in a classical ballet experience with a very modern twist.",
+          "content": ""
         },
         {
-          "caseImg": "/images/salted-03.png",
+          "caseImg": "",
           "title": "",
-          "subtitle": "",
-          "content": "Slide 3 content",
-          "classNames": ""
+          "subtitle": "CREATED IN PROCESSING and then remapped in 8K resolution using Touchdesigner, the whole process was based on a few lines of codes.",
+          "subtitle1": "to let you enjoy playing with the ballerina, I translated the code in p5js to make it web friendly. have fun!",
+          "content": ""
         },
         {
-          "caseImg": "/images/salted-04.png",
+          "caseImg": "",
           "title": "",
-          "subtitle": "the whole brand revolves exclusively around products from the sea. We recentered the strategy on the water allegory: it is not about what the product does, but about the ingredients and their added-values. Product names have been removed to give space to the skincare process: 3+ steps for a perfect skin.",
-          "content": "Slide 4 content"
-        },
-        {
-          "caseImg": "/images/salted-05.png",
-          "title": "SALTED BEAUTY —— BRAND EXPERIENCE",
-          "subtitle": "The grtsk variable typeface from black foundry was the focus point of the brand identity. a simple but extensive method of combining each style in a systemic way allowed a strong but versatile look and feel. the implementation of a creative coding tool to generate headlines effortlessly rounded up the typographic approach.",
-          "content": "Slide 5 content"
-        },
-        {
-          "caseImg": "/images/salted-06.png",
-          "title": "",
-          "subtitle": "",
-          "content": "Slide 6 content",
-          "classNames": ""
-        },
-        {
-          "caseImg": "/images/salted-07.png",
-          "title": "",
-          "subtitle": "",
-          "content": "Slide 7 content",
-          "classNames": ""
-        },
-        {
-          "caseImg": "/images/salted-08.png",
-          "title": "",
-          "subtitle": "",
-          "content": "Slide 8 content",
-          "classNames": ""
-        },
-        {
-          "caseImg": "/images/salted-09.png",
-          "title": "",
-          "subtitle": "",
-          "content": "Slide 9 content",
-          "classNames": ""
-        },
-        {
-          "caseImg": "/images/salted-10.png",
-          "title": "",
-          "subtitle": "",
-          "content": "Slide 10 content",
-          "classNames": ""
+          "subtitle": "I am a multi-disciplinary designer in both print and digital. when many choose to focus on one discipline, i prefer working all around the field of graphic design. I do think it‘s not about how i do something, but more what and why. I have a few more motion work in this showreel, feel free to have a look.",
+          "content": ""
         }
       ]
     }
@@ -95,11 +57,13 @@
           "content": ""
         },
         {
-          "caseImg": "https://ik.imagekit.io/3vlhcozis/Nicolandrieux/02-Liebeskind/Liebeskind-2.jpg",
+          "caseImg": "https://player.vimeo.com/video/824497699?h=8a2c0ffafd&color=ffffff&title=0&byline=0&portrait=0&autoplay=1&loop=1",
+          "caseImg1": "https://ik.imagekit.io/3vlhcozis/Nicolandrieux/02-Liebeskind/Liebeskind-2.jpg",
+          "preview": "https://ik.imagekit.io/3vlhcozis/Nicolandrieux/video-preview/Liebeskind-CI-Preloadloop.mp4",
           "title": "",
           "subtitle": "Since its introduction to the market in 2003, Liebeskind Berlin has spread the Berlin spirit into the fashion world. In 2013, I took over the art direction from the hands of several agencies. I built a 360° graphic team, starting with B2B and progressively overtaking all visual aspects of the brand.",
           "subtitle1": "BRAND GUIDELINES AND CAMPAIGN ART DIRECTION",
-          "content": ""
+          "content": "Liebeskind Corporate Identity"
         },
         {
           "caseImg": "https://ik.imagekit.io/3vlhcozis/Nicolandrieux/02-Liebeskind/Liebeskind-3.png",
@@ -114,7 +78,7 @@
 
           "title": "",
           "subtitle": "CAMPAIGN ART DIRECTION",
-          "content": "Slide 4 content"
+          "content": ""
         },
         {
           "caseImg": "https://ik.imagekit.io/3vlhcozis/Nicolandrieux/02-Liebeskind/Liebeskind-5-A.jpg",

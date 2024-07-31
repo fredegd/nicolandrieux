@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ScrambleEffect from "../../ScrambleEffect";
+import Modal from "../../Modal";
 
 function Liebeskind({ gallery }) {
   return (
@@ -53,27 +54,19 @@ function Liebeskind({ gallery }) {
       </li>
       <li
         id="gallery-item-2"
-        className="w-[100vw]  md:h-[120vh] flex flex-col items-center bg-white pt-40 sm:pt-24 pb-12 sm:pb-4 sticky top-0 sm:-top-48"
+        className="w-[100vw]  md:h-[120vh] flex flex-col items-center bg-white pt-40 sm:pt-24 pb-12 sm:pb-4 sticky top-0 sm:relative"
       >
-        <div className="w-10/12 h-full flex flex-col md:flex-col-reverse gap-4 justify-end items-center">
-          <div className="p-0 m-0 w-full h-[47vw] bg-white flex flex-col justify-start items-start border border-slate-800">
-            <iframe
-              src="https://player.vimeo.com/video/824497699?h=8a2c0ffafd&color=ffffff&title=0&byline=0&portrait=0"
-              frameborder="0"
-              width="800"
-              height="450"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowfullscreen
-              className="w-full h-full"
-            ></iframe>
-          </div>
+        <div className="w-full h-full flex flex-col md:flex-col-reverse gap-4 justify-end items-center">
+          <Modal slide={gallery[1]} />
 
-          <p className="hidden md:block text-black  w-full  text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]  mt-24  sticky top-24">
-            <ScrambleEffect tInput={gallery[1].subtitle} />
-          </p>
-          <p className="block md:hidden self-start  text-black  w-3/5 text-sm leading-[1.5rem]">
-            <ScrambleEffect tInput={gallery[1].subtitle1} />
-          </p>
+          <div className="w-10/12">
+            <p className="hidden md:block  text-black   text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]  mt-24  sticky top-24">
+              <ScrambleEffect tInput={gallery[1].subtitle} />
+            </p>
+            <p className="block md:hidden self-start  text-black  w-3/5 text-sm leading-[1.5rem]">
+              <ScrambleEffect tInput={gallery[1].subtitle1} />
+            </p>
+          </div>
         </div>
       </li>
       <li
