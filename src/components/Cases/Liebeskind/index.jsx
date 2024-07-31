@@ -30,21 +30,22 @@ function Liebeskind({ gallery }) {
           </p>
         </div>
         {/* mobile */}
-        <div className="flex flex-col md:hidden items-start  justify-center w-10/12 h-full">
+        <div className="flex flex-col md:hidden items-start  justify-center w-10/12 h-full pt-24">
           <h1 className="text-white tracking-normal text-[11vw] md:text-[4.2vw] leading-none font-semibold my-4">
             <ScrambleEffect tInput={gallery[0].title} />
           </h1>
-          <p className="md:hidden text-black   w-4/12 md:w-full text-sm md:text-md lg:text-[1.12vw] font-medium">
+          <p className="md:hidden text-black   w-5/12 md:w-full text-sm md:text-base lg:text-[1.12vw] font-medium">
             <ScrambleEffect tInput={gallery[0].subtitle.replace(/\|/g, "")} />
           </p>
         </div>
       </li>
       <li
         id="gallery-item-2-mobile"
-        className="w-[100vw] md:w-[100vw] h-[150vh] md:h-[71vw] flex flex-col md:hidden items-center  bg-[length:120%]  bg-[left_60%_top_12rem]  bg-no-repeat sticky top-[-24rem] bg-white"
+        className="w-[100vw] md:w-[100vw] h-[150vh] md:h-[71vw] flex flex-col md:hidden items-center 
+                   bg-[length:120%]  bg-[left_60%_top_12rem]  bg-no-repeat sticky top-[-30rem] bg-white"
         style={{ backgroundImage: `url(${gallery[3].caseImg1})` }}
       >
-        <div className="w-10/12 pt-56">
+        <div className="w-10/12 pt-56 sticky top-0">
           <p className="md:hidden text-white   w-full text-sm font-medium">
             <ScrambleEffect tInput={gallery[1].subtitle} />
           </p>
@@ -52,22 +53,25 @@ function Liebeskind({ gallery }) {
       </li>
       <li
         id="gallery-item-2"
-        className="w-[100vw] h-[100vw] md:h-[100vh] flex flex-col items-center bg-white"
+        className="w-[100vw]  md:h-[120vh] flex flex-col items-center bg-white pt-40 sm:pt-24 pb-12 sm:pb-4 sticky top-0 sm:-top-48"
       >
-        <div className="w-10/12 h-[100vw] flex flex-col gap-8 justify-center ">
-          <p className="hidden md:block text-black  w-full  text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]  mt-24 ">
+        <div className="w-10/12 h-full flex flex-col md:flex-col-reverse gap-4 justify-end items-center">
+          <div className="p-0 m-0 w-full h-[47vw] bg-white flex flex-col justify-start items-start border border-slate-800">
+            <iframe
+              src="https://player.vimeo.com/video/824497699?h=8a2c0ffafd&color=ffffff&title=0&byline=0&portrait=0"
+              frameborder="0"
+              width="800"
+              height="450"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
+
+          <p className="hidden md:block text-black  w-full  text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]  mt-24  sticky top-24">
             <ScrambleEffect tInput={gallery[1].subtitle} />
           </p>
-
-          <iframe
-            src="https://player.vimeo.com/video/824497699?h=8a2c0ffafd&color=ffffff&title=0&byline=0&portrait=0"
-            frameborder="1"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen
-            className="w-[100%] h-[100%]"
-          ></iframe>
-
-          <p className="block md:hidden  text-black  w-6/12 text-sm leading-[1.5rem] mb-16">
+          <p className="block md:hidden self-start  text-black  w-3/5 text-sm leading-[1.5rem]">
             <ScrambleEffect tInput={gallery[1].subtitle1} />
           </p>
         </div>
@@ -79,12 +83,12 @@ function Liebeskind({ gallery }) {
           backgroundImage: `url(${gallery[2].caseImg})`,
         }}
       >
-        <div className=""></div>
+        <div></div>
       </li>
 
       <li
         id="gallery-item-4"
-        className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 bg-white "
+        className="w-[100vw] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 bg-white "
       >
         <div className="flex w-full">
           <Image
@@ -123,7 +127,7 @@ function Liebeskind({ gallery }) {
             height={1140}
             className="w-full md:w-1/2 h-[140%] md-h-full object-cover object-center"
           />
-          <p className="hidden md:block text-left   fixed left-[35%] top-[30%]">
+          <p className="hidden md:block text-left   fixed left-[6%] xl:left-[33%] top-[30%]">
             <ScrambleEffect tInput={gallery[3].subtitle} />
           </p>
           <div className="hidden md:flex flex-col gap-8">
@@ -165,28 +169,58 @@ function Liebeskind({ gallery }) {
           />
         </div>
       </li>
+
+      <li
+        id="gallery-item-6-Mobile"
+        className="w-[100vw] flex md:hidden items-center bg-white pt-36 sticky top-0"
+      >
+        <div className="flex flex-col gap-4 items-center">
+          <Image
+            src={gallery[4].caseImg1}
+            alt="Liebeskind Berlin"
+            width={800}
+            height={570}
+            className="w-full h-full object-cover object-center"
+          />
+          <Image
+            src={gallery[4].caseImg2}
+            alt="Liebeskind Berlin"
+            width={800}
+            height={570}
+            className="object-cover object-center"
+          />
+          <p className="w-10/12">
+            <ScrambleEffect tInput={gallery[4].subtitle} />
+          </p>
+        </div>
+      </li>
+
       <li
         id="gallery-item-7"
-        className="w-[100vw] h-[71vw]   flex flex-col items-center justify-start bg-white bg-cover bg-center bg-no-repeat  "
+        className="w-[100vw] h-[100vh] md:h-[120vh] flex flex-col items-center bg-white"
       >
-        <div className="w-10/12 h-full">
-          <p
-            className="text-black   w-full py-32 text-[1.7rem] leading-[1.5rem]  "
-            style={{
-              fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
-            }}
-          >
+        <div className="w-10/12 h-full flex flex-col-reverse gap-6 justify-center items-center">
+          <Image
+            src={gallery[6].caseImg}
+            alt="Liebeskind Berlin"
+            width={800}
+            height={570}
+            className="w-full h-[47vw] md:hidden object-cover object-center"
+          />
+          <div className="p-0 m-0 w-full h-[47vw] bg-white flex flex-col justify-start items-start border border-slate-800">
+            <iframe
+              src="https://drive.google.com/file/d/1vHFXwc0BShBr4tF0GeC8PE68TEO-25_l/preview?t=50.0&loop=1"
+              frameborder="0"
+              width="800"
+              height="450"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowfullscreen
+              className="w-full h-full"
+            ></iframe>
+          </div>
+          <p className=" text-black  w-full text-sm  lg:text-[1.12vw] leading-5 tracking-normal  mt-24  sticky top-24">
             <ScrambleEffect tInput={gallery[6].subtitle} />
           </p>
-
-          <iframe
-            src="https://drive.google.com/file/d/1vHFXwc0BShBr4tF0GeC8PE68TEO-25_l/preview?t=50.0&loop=1"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
-            webkitallowfullscreen="true"
-            mozallowfullscreen="true"
-            className="w-full h-full"
-          ></iframe>
         </div>
       </li>
     </ul>
