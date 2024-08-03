@@ -1,13 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, use } from "react";
 const scramblerCharsToChooseFrom = [
-  "!#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]{|}",
+  "!#$%&'*,./:;=0123456789@ABCDEFGHIJKLMNOPQRSTUVWXYZ(){}",
 ];
-// const scramblerCharsToChooseFrom = [
-//   "FCKYUOUALL",
-//   "!<>/[]{}=+*^?#$@§X¢",
-//   "NOWAY",
-//   "H€Ll0WOrLD",
-// ];
 
 const ScrambleEffect = ({ tInput }) => {
   const scrambleSpeed = 50;
@@ -19,10 +13,14 @@ const ScrambleEffect = ({ tInput }) => {
   );
 
   const [scrambledText, setScrambledText] = useState(tInput);
-  const [hoveredIndex, setHoveredIndex] = useState(tInput?.length / 2);
+  const [hoveredIndex, setHoveredIndex] = useState(-1); //assigning at firs a negative nr to cause the whole text to scramble
   const [hovered, setHovered] = useState(false);
   const [visibleIndices, setVisibleIndices] = useState([]);
   const [shouldReveal, setShouldReveal] = useState(false);
+
+  const [minRng, setMinRng] = useState(0);
+  const [maxRng, setMaxRng] = useState(tInput?.length);
+
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -55,31 +53,37 @@ const ScrambleEffect = ({ tInput }) => {
   }, []);
 
   useEffect(() => {
+    if (hoveredIndex < 0) {
+      setMinRng(0);
+      setMaxRng(tInput?.length);
+    }
+    if (hoveredIndex >= 0) {
+      setMinRng(
+        hovered
+          ? hoveredIndex - Math.max(2, tInput?.length / 4)
+          : hoveredIndex - Math.max(2, tInput?.length / 20)
+      );
+      setMaxRng(
+        hovered
+          ? hoveredIndex + Math.max(2, tInput?.length / 4)
+          : hoveredIndex + Math.max(2, tInput?.length / 20)
+      );
+    }
+  }, [hoveredIndex, tInput, hovered]);
+
+  useEffect(() => {
     let interval;
     let counter = 0;
 
-    // let minRange = !hovered ? hoveredIndex - 12 : hoveredIndex - 15;
-    // let maxRange = !hovered ? hoveredIndex + 12 : hoveredIndex + 15;
-    let minRange = !hovered
-      ? hoveredIndex - tInput?.length / 2
-      : hoveredIndex - Math.max(2, tInput?.length / 10);
-    let maxRange = !hovered
-      ? hoveredIndex + tInput?.length / 2
-      : hoveredIndex + Math.max(2, tInput?.length / 10);
-
     interval = setInterval(() => {
-      minRange = Math.max(0, minRange);
-
-      maxRange = Math.min(tInput.length, maxRange);
-
       setScrambledText((prevText) => {
         return prevText
           ?.split("")
           .map((char, index) =>
             char !== " " &&
-            index >= minRange &&
-            index <= maxRange &&
-            Math.random() > 0.5
+            index >= minRng &&
+            index <= maxRng &&
+            Math.random() > 0.6
               ? scramblerChars[
                   Math.floor(Math.random() * scramblerChars?.length)
                 ]
@@ -88,12 +92,12 @@ const ScrambleEffect = ({ tInput }) => {
           .join("");
       });
 
-      counter += 1;
-      //make sure the text ceases to scramble after max 180 iterations
-      if (counter >= 180) {
+      //make sure the text ceases to scramble after max 120 iterations
+      if (counter >= 120) {
         clearInterval(interval);
         setScrambledText(tInput);
       }
+      counter += 1;
     }, scrambleSpeed);
     //if the user leaves the object, stop the scrambling effect
     if (!hovered) {
@@ -105,7 +109,15 @@ const ScrambleEffect = ({ tInput }) => {
     return () => {
       clearInterval(interval);
     };
-  }, [hovered, tInput, hoveredIndex, scramblerChars, shouldReveal]);
+  }, [
+    hovered,
+    tInput,
+    hoveredIndex,
+    scramblerChars,
+    shouldReveal,
+    minRng,
+    maxRng,
+  ]);
 
   //revealing the content on first load
   useEffect(() => {
@@ -132,12 +144,7 @@ const ScrambleEffect = ({ tInput }) => {
 
   const handleMouseLeave = () => {
     setHovered(false);
-    setHoveredIndex(-1);
-    setScramblerChars(
-      scramblerCharsToChooseFrom[
-        Math.floor(Math.random() * scramblerCharsToChooseFrom.length)
-      ]
-    );
+    // setHoveredIndex(-1); //this line would reset the hoveredIndex to -1 when the user leaves the object
   };
 
   return (
