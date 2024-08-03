@@ -8,13 +8,13 @@ const About = () => {
   let portrait = "https://ik.imagekit.io/3vlhcozis/Nicolandrieux/portrait.png";
   return (
     <section
-      className="min-h-screen h-auto w-full  pt-36   flex flex-col justify-center items-center gap-12 md:gap-24 md:pt-32 md:h-a"
+      className=" min-h-screen h-auto w-full  pt-36   flex flex-col justify-center items-center gap-12 md:gap-24 md:pt-32 md:h-a"
       id="about"
     >
       <div className=" w-10/12 flex flex-col lg:flex-row items-center gap-12 text-sm md:text-md lg:text-[1.12vw]">
         <div
           ref={image}
-          className="w-full  sm:w-10/12 md:w-8/12 lg:w-4/12 xl:w-3/12"
+          className="enterAnimation w-full  sm:w-10/12 md:w-8/12 lg:w-4/12 xl:w-3/12 sticky top-24"
         >
           <Image
             className="w-full h-auto aspect-[400/400] lg:aspect-[400/545]"
@@ -29,14 +29,8 @@ const About = () => {
             // height={{ md: "400px", lg: "400px", xl: "545px" }}
           />
         </div>
-        <div
-          className=" w-full lg:w-[460px] flex flex-col gap-4  tracking-tight leading-[1.5rem]"
-          // style={{ fontSize: "clamp(1.1rem, 1.25vw, 1.36rem)" }}
-        >
-          <p
-            className=" uppercase font-medium "
-            // style={{ fontSize: "clamp(1.2rem, 1.3vw, 1.45rem)" }}
-          >
+        <div className="enterAnimation w-full lg:w-[460px] flex flex-col gap-4  tracking-tight leading-[1.5rem]">
+          <p className=" uppercase font-medium ">
             <ScrambleEffect tInput={"NICOLAS LANDRIEUX"} />
           </p>
           <p>

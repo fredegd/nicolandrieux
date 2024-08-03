@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useRef, useContext } from "react";
+import React, { useRef, useEffect, useContext, use } from "react";
 import { TransitionContext } from "@/context/TransitionContext";
 import gsap from "gsap";
 
@@ -12,15 +12,6 @@ import ScrambleEffect from "../ScrambleEffect";
 export default function SelectedWorks() {
   const { timeline } = useContext(TransitionContext);
   const container = useRef(null);
-
-  // useGSAP(
-  //   () => {
-  //     const targets = gsap.utils.toArray(["work"]);
-  //     gsap.fromTo(targets, { y: 200 }, { y: 0, stagger: 0.2 });
-  //     timeline.add(gsap.to(container.current, { opacity: 0 }));
-  //   },
-  //   { scope: container }
-  // );
 
   return (
     <section
@@ -42,7 +33,7 @@ export default function SelectedWorks() {
           .map((project) => (
             <Link
               key={project.slug}
-              className="flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105  hover:bg-white hover:text-black  transition duration-120 ease-in-out "
+              className="enterAnimation flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105  hover:bg-white hover:text-black  transition duration-120 ease-in-out"
               id="work-card"
               href={`/work/${project.slug}`}
             >

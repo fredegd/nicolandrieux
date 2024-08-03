@@ -1,4 +1,4 @@
-import { useContext, useRef, useEffect } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useRouter } from "next/router";
@@ -15,8 +15,26 @@ const { Element: ScrollElement } = Scroll;
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
 
+  useEffect(() => {
+    const enterAnimationTargets = gsap.utils.toArray(".enterAnimation");
+
+    enterAnimationTargets.forEach((element) => {
+      gsap
+        .to(element, {
+          y: 0,
+          opacity: 1,
+          scrollTrigger: {
+            // markers: true,
+            trigger: element,
+            start: "top 100%",
+          },
+        })
+        .duration(1);
+    });
+  }, []);
+
   const { query } = useRouter();
-  //scroll to the selected section based on the query
+  //scroll to the selected section based on the url query
   useEffect(() => {
     if (query.id === "work") {
       setTimeout(() => {
@@ -59,7 +77,7 @@ export default function Home() {
         color: "#ffffff",
       });
 
-    // create a timeline to control the menu background color
+    // create a timeline to control the nav background color
     const menuBgTimeline = gsap
       .timeline({
         scrollTrigger: {
@@ -102,33 +120,6 @@ export default function Home() {
     // and go back to 1 when the user scrolls up
     gsap.set(" #hero-subtitle", { opacity: 1, y: 0 });
     gsap.set(" #hero-title", { opacity: 1, y: 0 });
-
-    // // Create a timeline to control the work card enter animation
-    // let workTimelineEnter = gsap
-    //   .timeline({
-    //     scrollTrigger: {
-    //       trigger: "#hero",
-    //       start: "30% top", // when the top of the trigger hits the top of the viewport
-    //       end: "90% top", // end after scrolling 200px beyond the start
-    //       stagger: 0.5, // 0.5 second stagger between each start
-    //       scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-    //     },
-    //   })
-    //   .to("#work-card", { opacity: 1, y: 0, duration: 1, stagger: 0.5 });
-
-    // // Create a timeline to control the work card  exit animation
-    // let workTimelineExit = gsap
-    //   .timeline({
-    //     scrollTrigger: {
-    //       trigger: "#work",
-    //       start: "20% top", // when the top20% of the trigger hits the top of the viewport
-    //       end: "bottom top", // end when the bottom of the trigger hits the top of the viewport
-    //       scrub: 1, // smooth scrubbing, takes 1 second to "catch up" to the scrollbar
-    //     },
-    //   })
-    //   .to("#work-card", { opacity: 0, y: -100, duration: 1, stagger: 0.5 });
-
-    // gsap.set("#work-card", { opacity: 0, y: 100 });
   }, []);
   return (
     <div className="h-[100vh] w-full -mt-24">

@@ -51,24 +51,53 @@ export default function Page(props) {
   const gallery = props.specificCaseData.metadata.slides;
 
   const slug = props.specificCaseData.slug;
-  // console.log(slug);
-  useGSAP(
-    () => {
-      const targets = gsap.utils.toArray(["p", "h1", "li", "img", "iframe"]);
-      gsap.fromTo(
-        targets,
-        { y: "20%", opacity: 0, filter: "blur(10px)" },
-        { y: 0, opacity: 1, filter: "none", stagger: 0.05 }
-      );
-      timeline.add(
-        gsap.to(container.current, {
-          opacity: 0,
-          filter: "none",
+  useGSAP(() => {
+    const targets = gsap.utils.toArray("p, h1");
+
+    targets.forEach((target) => {
+      gsap.from(target, {
+        y: "30%",
+        scrollTrigger: {
+          trigger: target,
+          start: "top 80%",
+          end: "bottom 60%",
+          onEnter: () => {
+            gsap.to(target, { y: 0, opacity: 1, filter: "none", duration: 1 });
+          },
+          once: true, // Ensures the animation happens only once
+        },
+      });
+    });
+
+    // Animate li elements
+    const listItems = gsap.utils.toArray("li");
+
+    listItems.forEach((item) => {
+      gsap
+        .from(item, {
+          filter: "blur(3px)",
+
+          scrollTrigger: {
+            // markers: true,
+            trigger: item,
+            start: "top 30%",
+            end: "center 60%",
+            onEnter: () => {
+              gsap.to(item, { filter: "none", y: 0 });
+            },
+          },
         })
-      );
-    },
-    { scope: container }
-  );
+        .duration(1.2);
+    });
+
+    timeline.add(
+      gsap.to(container.current, {
+        opacity: 0,
+        filter: "none",
+        y: 0,
+      })
+    );
+  }, [timeline]);
 
   const router = useRouter();
 

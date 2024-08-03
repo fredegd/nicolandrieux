@@ -33,3 +33,8 @@ margin: 0;
 padding: 0;
 
 }
+
+.enterAnimation{
+    /* animation: fadeIn 1s ease-in-out; */
+    transform: translateY(6rem);
+}

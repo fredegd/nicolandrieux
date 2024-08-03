@@ -23,7 +23,7 @@ export default function Hero() {
       id="hero"
       ref={container}
     >
-      <div className="max-w-[92%] hidden md:flex flex-col items-start md:items-center ">
+      <div className="enterAnimation max-w-[92%] hidden md:flex flex-col items-start md:items-center ">
         <div
           className="flex flex-col md:flex-row justify-start md:items-center md:justify-between   tracking-normal text-[12vw] md:text-[4.5vw] leading-none mb-8"
           id="hero-title"
@@ -46,7 +46,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="w-10/12 flex flex-col items-start md:items-center md:hidden">
+      <div className="enterAnimation w-10/12 flex flex-col items-start md:items-center md:hidden">
         <div
           className="flex flex-col md:flex-row justify-start md:items-center md:justify-between   tracking-normal text-[11vw] md:text-[4.5vw] leading-none mb-8"
           id="hero-title"
