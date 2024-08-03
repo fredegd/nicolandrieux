@@ -20,7 +20,7 @@ export default function TransitionLayout({ children }) {
   });
 
   useGSAP(() => {
-    console.log(children.key, displayChildren.key);
+    // console.log(children.key, displayChildren.key);
     //if page is not the current page
     if (children.key !== displayChildren.key) {
       exit();

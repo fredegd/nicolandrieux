@@ -5,7 +5,7 @@ import Modal from "../../Modal";
 
 function Liebeskind({ gallery }) {
   return (
-    <ul className="    p-0 m-0">
+    <ul className="p-0 m-0">
       <li
         id="gallery-item-1"
         className="w-[100vw] md:w-[100vw] h-[100vh]  flex flex-col md:flex-col-reverse lg:flex-col items-center md:items-start lg:items-center md:justify-center
@@ -81,7 +81,7 @@ function Liebeskind({ gallery }) {
 
       <li
         id="gallery-item-4"
-        className="w-[100vw] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 bg-white "
+        className="w-[100vw] h-auto md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 bg-white "
       >
         <div className="flex w-full">
           <Image
@@ -110,7 +110,7 @@ function Liebeskind({ gallery }) {
 
       <li
         id="gallery-item-5"
-        className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 md:-top-[50%] bg-white"
+        className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 md:-top-[50%] bg-white "
       >
         <div className="flex w-full  gap-12">
           <Image
@@ -190,7 +190,7 @@ function Liebeskind({ gallery }) {
 
       <li
         id="gallery-item-7"
-        className="w-[100vw] h-[100vh] md:h-[120vh] flex flex-col items-center bg-white"
+        className="w-[100vw] h-[100vh] md:h-[120vh] flex flex-col items-center bg-white filter-none sticky -top-24"
       >
         <div className="w-10/12 h-full flex flex-col-reverse gap-6 justify-center items-center">
           <Image

@@ -52,52 +52,36 @@ export default function Page(props) {
 
   const slug = props.specificCaseData.slug;
   useGSAP(() => {
-    const targets = gsap.utils.toArray("p, h1");
-
-    targets.forEach((target) => {
-      gsap.from(target, {
-        y: "30%",
-        scrollTrigger: {
-          trigger: target,
-          start: "top 80%",
-          end: "bottom 60%",
-          onEnter: () => {
-            gsap.to(target, { y: 0, opacity: 1, filter: "none", duration: 1 });
-          },
-          once: true, // Ensures the animation happens only once
-        },
-      });
-    });
-
     // Animate li elements
     const listItems = gsap.utils.toArray("li");
 
     listItems.forEach((item) => {
       gsap
-        .from(item, {
-          filter: "blur(3px)",
-
+        .timeline({
           scrollTrigger: {
             // markers: true,
             trigger: item,
-            start: "top 30%",
-            end: "center 60%",
-            onEnter: () => {
-              gsap.to(item, { filter: "none", y: 0 });
-            },
+            start: "top 100%",
+            end: "top 20%",
+            scrub: true,
           },
         })
-        .duration(1.2);
+        .from(item, {
+          filter: "blur(15px)",
+        });
     });
 
     timeline.add(
       gsap.to(container.current, {
-        opacity: 0,
         filter: "none",
-        y: 0,
       })
     );
-  }, [timeline]);
+    return () => {
+      listItems.forEach((item) => {
+        gsap.killTweensOf(item);
+      });
+    };
+  }, []);
 
   const router = useRouter();
 

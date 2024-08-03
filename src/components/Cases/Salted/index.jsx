@@ -45,7 +45,7 @@ function Salted({ gallery }) {
       </li>
       <li
         id="gallery-item-3"
-        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw] flex flex-col items-center bg-[length:400%] md:bg-cover bg-[left_5%_top_20%] bg-no-repeat bg-white sticky -top-24"
+        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw] flex flex-col items-center bg-[length:400%] md:bg-cover bg-[left_5%_top_20%] bg-no-repeat bg-white sticky -top-[50%]"
         style={{
           backgroundImage: `url(${gallery[2].caseImg})`,
         }}
@@ -155,7 +155,7 @@ function Salted({ gallery }) {
 
       <li
         id="gallery-item-8"
-        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw]  hidden md:flex flex-col items-center  sticky top-0"
+        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw]  hidden md:flex flex-col items-center  sticky -top-[50%]"
       >
         <div
           className="w-full h-full bg-white 
@@ -224,7 +224,7 @@ function Salted({ gallery }) {
       </li>
       <li
         id="gallery-item-10"
-        className=" w-[100vw] md:w-[100vw] min-h-[100vh] md:h-[71vw]  flex flex-col items-center justify-end md:justify-center bg-cover md:bg-center bg-[left_25%_top_0] bg-no-repeat "
+        className=" w-[100vw] md:w-[100vw] min-h-[100vh] md:h-[71vw]  flex flex-col items-center justify-end md:justify-center bg-cover md:bg-center bg-[left_25%_top_0] bg-no-repeat filter-none sticky -top-24"
         style={{
           backgroundImage: `url(${gallery[9].caseImg})`,
         }}

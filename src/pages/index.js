@@ -15,24 +15,6 @@ const { Element: ScrollElement } = Scroll;
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
 
-  useEffect(() => {
-    const enterAnimationTargets = gsap.utils.toArray(".enterAnimation");
-
-    enterAnimationTargets.forEach((element) => {
-      gsap
-        .to(element, {
-          y: 0,
-          opacity: 1,
-          scrollTrigger: {
-            // markers: true,
-            trigger: element,
-            start: "top 100%",
-          },
-        })
-        .duration(1);
-    });
-  }, []);
-
   const { query } = useRouter();
   //scroll to the selected section based on the url query
   useEffect(() => {

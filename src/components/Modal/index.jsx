@@ -52,11 +52,11 @@ function Modal({ slide }) {
             <div className="relative w-full h-full bg-white flex flex-col justify-center items-center p-4">
               <button
                 type="button"
-                className="absolute top-4 right-4 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 flex justify-center items-center"
+                className="absolute top-4 right-4 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 flex justify-center items-center mt-36"
                 onClick={toggleModal}
               >
                 <svg
-                  className="w-6 h-6"
+                  className="w-10 h-10 p-2"
                   aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

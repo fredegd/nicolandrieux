@@ -3,9 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useRef, useEffect, useContext, use } from "react";
 import { TransitionContext } from "@/context/TransitionContext";
-import gsap from "gsap";
-
-import { useGSAP } from "@gsap/react";
 import { allWorks } from "../../allWorks";
 import ScrambleEffect from "../ScrambleEffect";
 
@@ -19,7 +16,7 @@ export default function SelectedWorks() {
       id="work"
       ref={container}
     >
-      <div className="w-10/12 flex flex-col gap-4 md:gap-8">
+      <div className="w-10/12 h-full flex flex-col gap-4 md:gap-8 justify-between">
         {allWorks
           .sort((a, b) => {
             if (
@@ -33,7 +30,7 @@ export default function SelectedWorks() {
           .map((project) => (
             <Link
               key={project.slug}
-              className="enterAnimation flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105  hover:bg-white hover:text-black  transition duration-120 ease-in-out"
+              className=" flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105  hover:bg-white hover:text-black  transition duration-120 ease-in-out"
               id="work-card"
               href={`/work/${project.slug}`}
             >
