@@ -10,7 +10,7 @@ import About from "../components/About";
 import Scroll from "react-scroll";
 import Footer from "../components/Footer";
 
-const { Element: ScrollElement } = Scroll;
+// const { Element: ScrollElement } = Scroll;
 
 export default function Home() {
   gsap.registerPlugin(ScrollTrigger);
@@ -104,11 +104,11 @@ export default function Home() {
     gsap.set(" #hero-title", { opacity: 1, y: 0 });
   }, []);
   return (
-    <div className="h-[100vh] w-full -mt-24">
+    <>
       <Hero />
       <SelectedWorks />
       <About />
       <Footer />
-    </div>
+    </>
   );
 }

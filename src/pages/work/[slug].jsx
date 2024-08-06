@@ -3,13 +3,12 @@ import { useRouter } from "next/router";
 import { useContext, useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { TransitionContext } from "@/context/TransitionContext";
+
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Salted from "../../components/Cases/Salted";
 import Liebeskind from "../../components/Cases/Liebeskind";
 import Kunstkraftwerk from "../../components/Cases/Kunstkraftwerk";
 import { getData } from "../../utils/readJson";
-
 
 export const getStaticProps = async (context) => {
   const itemID = context.params?.slug;
@@ -44,7 +43,6 @@ export const getStaticPaths = async () => {
 gsap.registerPlugin(ScrollTrigger);
 
 export default function Page(props) {
-  const { timeline } = useContext(TransitionContext);
   const container = useRef(null);
   const image = useRef();
 
@@ -71,11 +69,6 @@ export default function Page(props) {
         });
     });
 
-    timeline.add(
-      gsap.to(container.current, {
-        filter: "none",
-      })
-    );
     return () => {
       listItems.forEach((item) => {
         gsap.killTweensOf(item);

@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import ScrambleEffect from "../../ScrambleEffect";
+import ModalDisplay from "../../ModalDisplay";
 function Salted({ gallery }) {
   return (
     <ul className="    p-0 m-0">
@@ -88,7 +89,6 @@ function Salted({ gallery }) {
           </p>
         </div>
       </li>
-      {console.log(gallery[5].caseImg)}
       <li
         id="gallery-item-6"
         className={`w-[100vw] md:w-[100vw] h-[100vh] md:h-[75vw]    
@@ -202,18 +202,15 @@ function Salted({ gallery }) {
         id="gallery-item-9"
         className="w-[100vw] md:w-[100vw] h-[100vh] md:min-h-[60vw]  flex flex-col items-center m-0 p-0 bg-white sticky -top-48"
       >
-        <div className="p-0 m-0  w-full h-full bg-white flex flex-col justify-start items-start">
-          <iframe
-            src="https://player.vimeo.com/video/840869673?h=0886893cd2&color=ffffff&title=0&byline=0&portrait=0"
-            frameborder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowfullscreen
-            className="w-full h-full"
-          ></iframe>
-        </div>
-        <div className="w-10/12  absolute top-[75vh] sm:top-[80vh] md:top-[83vh] lg:top-[50vh] xl:top-[50vh] ">
+        <ModalDisplay
+          buttonContent={gallery[8].caseImg1}
+          video={gallery[8].caseImg}
+          title={gallery[8].title}
+        />
+
+        <div className="w-10/12  absolute top-[75vh] sm:top-[70vh] md:top-[75vh] lg:top-[60vh] xl:top-[60vh] ">
           <p
-            className="w-full sm:w-1/2 text-black  text-[1.7rem] font-medium leading-none tracking-wide"
+            className="w-full lg:w-[45%] text-black  text-[1.7rem] font-medium leading-none tracking-wide"
             style={{
               fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
             }}

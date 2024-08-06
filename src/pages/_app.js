@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 
-import { TransitionProvider } from "@/context/TransitionContext";
+
+import { NextUIProvider } from "@nextui-org/react";
 import Header from "@/components/Header";
 import Transition from "@/components/Transition";
 
@@ -17,14 +18,14 @@ export default function App({ Component, pageProps, router }) {
     <div
       className={` antialiased max-w-screen max-height-screen m-0  ${ibmMono.className} uppercase selection:bg-slate-200/30 selection:text-slate-600 selection:backdrop:blur-md`}
     >
-      <TransitionProvider>
+      <NextUIProvider>
         <Header />
         <div className=" pt-24 ">
           <Transition>
             <Component key={router.route} {...pageProps} />
           </Transition>
         </div>
-      </TransitionProvider>
+      </NextUIProvider>
     </div>
   );
 }

@@ -9,7 +9,7 @@ export default function Hero() {
 
   return (
     <section
-      className=" min-h-screen w-full  flex justify-center items-center sticky -top-24"
+      className=" min-h-screen w-full  flex justify-center items-center "
       id="hero"
       ref={container}
     >
