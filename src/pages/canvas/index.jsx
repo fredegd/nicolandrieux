@@ -47,83 +47,100 @@ const CanvasPage = () => {
   }, [inputValue, zoomValue, pulseValue, trailValue]);
 
   return (
-    <div className="h-[100vh] min-h-fit w-full bg-black  text-white  pt-36  md:pt-24 flex flex-col items-center">
-      <div
-        className=" w-10/12 md:w-[600px] h-auto max-h-[600px]  aspect-square p-0 m-0  "
-        ref={canvasRef}
-      ></div>
-      <div className="w-10/12 h-full pb-20 fixed bottom-0 " id="canvasGUI">
-        <div className="flex flex-col gap-2 justify-end h-full w-full sm:w-[500px] md:w-[400px]">
-          {!showResetButton && (
-            <label htmlFor="text-input" className="block  ">
-              <ScrambleEffect tInput={"Choose your word"} />
-            </label>
-          )}
-          {showResetButton && (
-            <div>
-              <button
-                className="block  "
-                onClick={() => {
-                  setInputValue("LETITFLOW");
-                  setShowResetButton(false);
-                }}
-              >
-                <ScrambleEffect tInput={"RESET TO ORIGINAL"} />
-              </button>
+    <>
+      <div className="h-[100vh] min-h-fit w-full bg-[#202020]  text-white  pt-36  md:pt-24 flex flex-col  items-center">
+        <div className="w-10/12 flex flex-col lg:flex-row lg:items-center">
+          <div
+            className=" w-full md:w-[600px] h-auto max-h-[600px]  aspect-square p-0 m-0  border border-red-600"
+            ref={canvasRef}
+          >
+            <div className=" fixed top-48 md:top-32 self-start" id="canvasGUI">
+              <div className="flex flex-col gap-1 text-[0.75rem] justify-end h-full  w-[130px]">
+                {!showResetButton && (
+                  <label htmlFor="text-input" className="block  ">
+                    <ScrambleEffect tInput={"Choose your word"} />
+                  </label>
+                )}
+                {showResetButton && (
+                  <div>
+                    <button
+                      className="block  "
+                      onClick={() => {
+                        setInputValue("LETITFLOW");
+                        setShowResetButton(false);
+                      }}
+                    >
+                      <ScrambleEffect tInput={"RESET TO ORIGINAL"} />
+                    </button>
+                  </div>
+                )}
+                <input
+                  type="text"
+                  id="text-input"
+                  defaultValue={inputValue}
+                  value={inputValue}
+                  className="text-black appearance-none block   border border-none rounded-none   focus:outline-none"
+                  aria-label="choose your words"
+                  label="Choose your word"
+                  onChange={handleInputChange}
+                />
+
+                <label htmlFor="dive-control" className="block ">
+                  <ScrambleEffect tInput={"DIVE CONTROL"} />
+                </label>
+                <input
+                  type="range"
+                  className="rounded-none appearance-none outline-none bg-white  w-full h-1 -px-3"
+                  id="dive-control"
+                  value={zoomValue}
+                  min="0"
+                  max="800"
+                  onChange={handleZoomChange}
+                />
+
+                <label htmlFor="pulse-slider" className="block ">
+                  <ScrambleEffect tInput={"PULSE SLIDER"} />
+                </label>
+                <input
+                  type="range"
+                  className="rounded-none appearance-none outline-none bg-white  w-full h-1 -px-3"
+                  id="pulse-slider"
+                  value={pulseValue}
+                  min="0"
+                  max="50"
+                  onChange={handlePulseChange}
+                />
+
+                <label htmlFor="trail-slider" className="block ">
+                  <ScrambleEffect tInput={"TRAIL SLIDER"} />
+                </label>
+                <input
+                  className="rounded-none appearance-none outline-none bg-white  w-full h-1 -px-3"
+                  type="range"
+                  id="trail-slider"
+                  value={trailValue}
+                  min="0"
+                  max="250"
+                  onChange={handleTrailChange}
+                />
+              </div>
             </div>
-          )}
-          <input
-            type="text"
-            id="text-input"
-            defaultValue={inputValue}
-            value={inputValue}
-            className="text-black appearance-none block   border border-none rounded-none   focus:outline-none"
-            aria-label="choose your words"
-            label="Choose your word"
-            onChange={handleInputChange}
-          />
-
-          <label htmlFor="dive-control" className="block ">
-            <ScrambleEffect tInput={"DIVE CONTROL"} />
-          </label>
-          <input
-            type="range"
-            className="rounded-none appearance-none outline-none bg-white  w-full h-1 -px-3"
-            id="dive-control"
-            value={zoomValue}
-            min="0"
-            max="800"
-            onChange={handleZoomChange}
-          />
-
-          <label htmlFor="pulse-slider" className="block ">
-            <ScrambleEffect tInput={"PULSE SLIDER"} />
-          </label>
-          <input
-            type="range"
-            className="rounded-none appearance-none outline-none bg-white  w-full h-1 -px-3"
-            id="pulse-slider"
-            value={pulseValue}
-            min="0"
-            max="50"
-            onChange={handlePulseChange}
-          />
-
-          <label htmlFor="trail-slider" className="block ">
-            <ScrambleEffect tInput={"TRAIL SLIDER"} />
-          </label>
-          <input
-            className="rounded-none appearance-none outline-none bg-white  w-full h-1 -px-3"
-            type="range"
-            id="trail-slider"
-            value={trailValue}
-            min="0"
-            max="250"
-            onChange={handleTrailChange}
-          />
+          </div>
+          <div className="flex flex-col gap-4">
+            <ScrambleEffect
+              tInput={
+                "CREATED IN PROCESSING and then remapped in 8K resolution using Touchdesigner, the whole process was based on a few lines of codes."
+              }
+            />
+            <ScrambleEffect
+              tInput={
+                "to let you enjoy playing with the ballerina, I translated the code in p5js to make it web friendly. have fun!"
+              }
+            />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

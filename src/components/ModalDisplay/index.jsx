@@ -11,7 +11,6 @@ import ScrambleEffect from "../ScrambleEffect";
 
 export default function ModalDisplay({ buttonContent, video, title }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  console.log(title);
   const handleOpen = () => {
     onOpen();
   };

@@ -28,8 +28,6 @@ export const sketch = (
 
   p.setup = () => {
     let canvasSize = calculateCanvasSize();
-
-    console.log(canvasSize);
     let canvas = p.createCanvas(canvasSize, canvasSize, p.WEBGL);
 
     // canvas.context.willReadFrequently = true;
