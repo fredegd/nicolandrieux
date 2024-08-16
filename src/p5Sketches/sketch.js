@@ -1,24 +1,17 @@
 import { ballerinaFrames } from "./ballerinaFrames";
 
-export const sketch = (p) => {
+export const sketch = (
+  p,
+  { inputValue, zoomValue, pulseValue, trailValue }
+) => {
   let tilesX = 70;
   let tilesY = 70;
-  // let count = 0;
-
-  // let x = 500;
-  // let y = 100;
-
   let ts = 400 / tilesX;
   let convertedImg = ballerinaFrames;
   let selector = 0;
-
-  let zoom_Slide;
-  let pulse_Slide;
-  let trail_Slide;
   let exhausted;
   let exhaustedLight;
-  let text_Input;
-  let chars = "LETITFLOW";
+  let chars;
 
   p.preload = () => {
     exhausted = p.loadFont("/data/IBMPlexMono-SemiBold.otf");
@@ -38,7 +31,8 @@ export const sketch = (p) => {
   };
 
   p.setup = () => {
-    let canvas = p.createCanvas(400, 400, p.WEBGL);
+    let canvasSize = Math.min(p.windowWidth, p.windowHeight, 400);
+    let canvas = p.createCanvas(canvasSize, canvasSize, p.WEBGL);
 
     // canvas.context.willReadFrequently = true;
     ts = p.width / tilesX;
@@ -46,32 +40,16 @@ export const sketch = (p) => {
     p.textFont(exhausted);
     p.frameRate(30);
     p.background(0);
+    p.noStroke();
     p.textAlign(p.CENTER, p.CENTER);
     p.textFont(exhausted);
     p.textSize(ts);
-    text_Input = p.createInput("LETITFLOW");
-    text_Input.size(140);
-    text_Input.style("color", "#000");
-    text_Input.position(30, 400);
-
-    zoom_Slide = p.createSlider(0, 800, p.random(0, 800));
-    zoom_Slide.position(30, 440);
-    zoom_Slide.size(200);
-
-    pulse_Slide = p.createSlider(0, 50, p.random(0, 50));
-    pulse_Slide.position(30, 480);
-    pulse_Slide.size(200);
-
-    trail_Slide = p.createSlider(0, 255, p.random(0, 255));
-    trail_Slide.position(30, 500);
-    trail_Slide.size(200);
   };
 
   p.draw = () => {
-    chars = text_Input.value();
+    chars = inputValue;
 
-    p.push();
-    p.fill(0, 255 - trail_Slide.value());
+    p.fill(0, 255 - trailValue);
     p.rect(-p.width / 2, -p.height / 2, p.width, p.height);
 
     if (p.frameCount % 1 === 0) {
@@ -79,18 +57,16 @@ export const sketch = (p) => {
 
       let mag2 = p.width / 2;
 
-      let spread = zoom_Slide.value();
+      let spread = zoomValue;
       let rdmchar = p.map(
-        p.sin(p.radians(p.frameCount * pulse_Slide.value())),
+        p.sin(p.radians(p.frameCount * pulseValue)),
         -1,
         1,
         0.1,
         1
       );
 
-      p.noStroke();
       p.push();
-      // p.translate(0, 0);
       p.translate(p.width / 2, p.height / 2);
       for (let x = 0; x < tilesX; x++) {
         for (let y = 0; y < tilesY; y++) {
@@ -103,7 +79,7 @@ export const sketch = (p) => {
           let posZ = p.map(b, 255, 0, -spread, spread);
 
           let chSelector = (x + y + p.frameCount / 8) % chars.length;
-          if (p.random(0, 1) < rdmchar && b > 40) {
+          if (p.random(0, 1) < rdmchar && b > 10) {
             p.fill(b * 2);
             let ch = chars.charAt(Math.floor(chSelector));
             p.push();
@@ -114,12 +90,9 @@ export const sketch = (p) => {
         }
       }
       p.pop();
-
       selector++;
       selector = selector % convertedImg.length;
     }
-    // count++;
-    p.pop();
   };
 
   // function imageToBrArray(img) {
