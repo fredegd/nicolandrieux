@@ -13,25 +13,23 @@ export const sketch = (
   let exhaustedLight;
   let chars;
 
+  let currentZoomValue = zoomValue;
+  let currentPulseValue = pulseValue;
+  let currentTrailValue = trailValue;
+
   p.preload = () => {
     exhausted = p.loadFont("/data/IBMPlexMono-SemiBold.otf");
     exhaustedLight = p.loadFont("/data/IBMPlexMono-Light.otf");
+  };
 
-    // for (let i = 0; i < 115; i++) {
-    //   imgs[i] = p.loadImage(
-    //     `/data/${i}.jpg`,
-    //     (img) => {
-    //       convertedImg.push(imageToBrArray(img));
-    //     },
-    //     (error) => {
-    //       console.error("Error loading image:", error);
-    //     }
-    //   );
-    // }
+  const calculateCanvasSize = () => {
+    return Math.min(p.windowWidth * (10 / 12), p.windowHeight * (10 / 12), 600);
   };
 
   p.setup = () => {
-    let canvasSize = Math.min(p.windowWidth, p.windowHeight, 400);
+    let canvasSize = calculateCanvasSize();
+
+    console.log(canvasSize);
     let canvas = p.createCanvas(canvasSize, canvasSize, p.WEBGL);
 
     // canvas.context.willReadFrequently = true;
@@ -48,8 +46,9 @@ export const sketch = (
 
   p.draw = () => {
     chars = inputValue;
+    p.textSize(ts);
 
-    p.fill(0, 255 - trailValue);
+    p.fill(0, 255 - currentTrailValue);
     p.rect(-p.width / 2, -p.height / 2, p.width, p.height);
 
     if (p.frameCount % 1 === 0) {
@@ -57,9 +56,9 @@ export const sketch = (
 
       let mag2 = p.width / 2;
 
-      let spread = zoomValue;
+      let spread = currentZoomValue;
       let rdmchar = p.map(
-        p.sin(p.radians(p.frameCount * pulseValue)),
+        p.sin(p.radians(p.frameCount * currentPulseValue)),
         -1,
         1,
         0.1,
@@ -95,37 +94,16 @@ export const sketch = (
     }
   };
 
-  // function imageToBrArray(img) {
-  //   let convertedImg = [];
+  p.changeHandler = (newZoomValue, newPulseValue, newTrailValue) => {
+    currentZoomValue = newZoomValue;
+    currentPulseValue = newPulseValue;
+    currentTrailValue = newTrailValue;
+  };
 
-  //   // Create an offscreen canvas
-  //   let offscreenCanvas = document.createElement("canvas");
-  //   offscreenCanvas.width = tilesX;
-  //   offscreenCanvas.height = tilesY;
-
-  //   // Get the 2D context with 'willReadFrequently' set to true
-  //   let ctx = offscreenCanvas.getContext("2d", { willReadFrequently: true });
-
-  //   // Draw the image on the offscreen canvas
-  //   ctx.drawImage(img.canvas, 0, 0, tilesX, tilesY);
-
-  //   // Get the image data from the offscreen canvas
-  //   let imgData = ctx.getImageData(0, 0, tilesX, tilesY);
-
-  //   // Process the image data to calculate brightness values
-  //   for (let y = 0; y < imgData.height; y++) {
-  //     for (let x = 0; x < imgData.width; x++) {
-  //       let index = (x * imgData.height + y) * 4;
-  //       let r = imgData.data[index];
-  //       let g = imgData.data[index + 1];
-  //       let b = imgData.data[index + 2];
-
-  //       // Calculate the brightness value
-  //       let brightness = (r + g + b) / 3;
-  //       convertedImg.push(brightness);
-  //     }
-  //   }
-
-  //   return convertedImg;
-  // }
+  // Function to handle window resizing
+  p.windowResized = () => {
+    let canvasSize = calculateCanvasSize();
+    p.resizeCanvas(canvasSize, canvasSize);
+    ts = p.width / tilesX;
+  };
 };

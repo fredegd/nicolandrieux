@@ -20,11 +20,9 @@ export default function App({ Component, pageProps, router }) {
     >
       <NextUIProvider>
         <Header />
-        <div className=" pt-24 ">
-          <Transition>
-            <Component key={router.route} {...pageProps} />
-          </Transition>
-        </div>
+        <Transition>
+          <Component key={router.route} {...pageProps} />
+        </Transition>
       </NextUIProvider>
     </div>
   );

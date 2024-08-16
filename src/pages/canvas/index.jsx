@@ -14,7 +14,6 @@ const CanvasPage = () => {
   const [trailValue, setTrailValue] = useState(50);
 
   const handleInputChange = (e) => {
-    console.log(e.target.value);
     setShowResetButton(true);
     setInputValue(e.target.value);
   };
@@ -34,11 +33,12 @@ const CanvasPage = () => {
   useEffect(() => {
     if (typeof window !== "undefined") {
       const p5 = require("p5");
-
       const p5Instance = new p5(
         (p) => sketch(p, { inputValue, zoomValue, pulseValue, trailValue }),
         canvasRef.current
       );
+
+      p5Instance.changeHandler(zoomValue, pulseValue, trailValue);
 
       return () => {
         p5Instance.remove();
@@ -47,13 +47,13 @@ const CanvasPage = () => {
   }, [inputValue, zoomValue, pulseValue, trailValue]);
 
   return (
-    <div className="h-[100vh] w-full bg-black  text-white -mt-48 md:-mt-24 pt-56 md:pt-24 flex flex-col items-center">
+    <div className="h-[100vh] min-h-fit w-full bg-black  text-white  pt-36  md:pt-24 flex flex-col items-center">
       <div
-        className="w-[400px] h-[400px] aspect-square bg-black p-0 m-0 border border-lime-600 z-50"
+        className=" w-10/12 md:w-[600px] h-auto max-h-[600px]  aspect-square p-0 m-0  "
         ref={canvasRef}
       ></div>
-      <div className="w-10/12 h-full border border-red-600 " id="canvasGUI">
-        <div className="flex flex-col gap-2 justify-end h-full w-full md:w-[400px] pb-20">
+      <div className="w-10/12 h-full pb-20 fixed bottom-0 " id="canvasGUI">
+        <div className="flex flex-col gap-2 justify-end h-full w-full sm:w-[500px] md:w-[400px]">
           {!showResetButton && (
             <label htmlFor="text-input" className="block  ">
               <ScrambleEffect tInput={"Choose your word"} />
@@ -88,7 +88,7 @@ const CanvasPage = () => {
           </label>
           <input
             type="range"
-            className="rounded-none appearance-none outline-none bg-white  w-full h-1 -px-1"
+            className="rounded-none appearance-none outline-none bg-white  w-full h-1 -px-3"
             id="dive-control"
             value={zoomValue}
             min="0"
@@ -101,7 +101,7 @@ const CanvasPage = () => {
           </label>
           <input
             type="range"
-            className="rounded-none appearance-none outline-none bg-white  w-full h-1 -px-1"
+            className="rounded-none appearance-none outline-none bg-white  w-full h-1 -px-3"
             id="pulse-slider"
             value={pulseValue}
             min="0"
@@ -113,12 +113,12 @@ const CanvasPage = () => {
             <ScrambleEffect tInput={"TRAIL SLIDER"} />
           </label>
           <input
-            className="rounded-none appearance-none outline-none bg-white  w-full h-1 -px-1"
+            className="rounded-none appearance-none outline-none bg-white  w-full h-1 -px-3"
             type="range"
             id="trail-slider"
             value={trailValue}
             min="0"
-            max="255"
+            max="250"
             onChange={handleTrailChange}
           />
         </div>
