@@ -6,7 +6,7 @@ export const sketch = (
 ) => {
   let tilesX = 70;
   let tilesY = 70;
-  let ts = 400 / tilesX;
+  let ts;
   let convertedImg = ballerinaFrames;
   let selector = 0;
   let exhausted;
@@ -31,11 +31,12 @@ export const sketch = (
     let canvas = p.createCanvas(canvasSize, canvasSize, p.WEBGL);
 
     // canvas.context.willReadFrequently = true;
+    ts = canvasSize / tilesX;
     ts = p.width / tilesX;
     p.smooth();
     p.textFont(exhausted);
     p.frameRate(30);
-    p.background(0);
+    p.background(0, 255 - currentTrailValue);
     p.noStroke();
     p.textAlign(p.CENTER, p.CENTER);
     p.textFont(exhausted);
@@ -63,13 +64,11 @@ export const sketch = (
         1
       );
 
-      p.push();
-      p.translate(p.width / 2, p.height / 2);
+      p.translate(p.width / 2, p.height / 2, p.height);
       for (let x = 0; x < tilesX; x++) {
         for (let y = 0; y < tilesY; y++) {
           let index = y + x * tilesY;
           let b = imgFrame[index];
-          let s = p.map(b, 255, 0, 0, (mag2 * 2) / tilesX);
 
           let posX = p.map(x, 0, tilesX, -mag2 * 1, mag2 * 1);
           let posY = p.map(y, 0, tilesY, -mag2 * 1, mag2 * 1);
@@ -81,15 +80,29 @@ export const sketch = (
             let ch = chars.charAt(Math.floor(chSelector));
             p.push();
             p.translate(posX - p.width / 2, posY - p.width / 2, posZ);
-            p.text(ch, 0, s);
+            p.text(ch, 0, 0);
             p.pop();
           }
         }
       }
-      p.pop();
+
       selector++;
       selector = selector % convertedImg.length;
     }
+
+    p.fill("#fff");
+
+    p.text(
+      "Dissolving the Spin",
+      -p.width + p.textWidth("Dissolving the Spin") / 2 + ts * 2,
+      -ts * 2
+    );
+
+    p.text(
+      "a Creative Coding experiment",
+      -p.width / 2 + p.textWidth("a Creative Coding experiment") / 2 - ts * 2,
+      -ts * 2
+    );
   };
 
   p.changeHandler = (newZoomValue, newPulseValue, newTrailValue) => {

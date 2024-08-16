@@ -48,13 +48,13 @@ const CanvasPage = () => {
 
   return (
     <>
-      <div className="h-[100vh] min-h-fit w-full bg-[#202020]  text-white  pt-36  md:pt-24 flex flex-col  items-center">
-        <div className="w-10/12 flex flex-col lg:flex-row lg:items-center">
+      <div className="h-auto min-h-[100vh] w-full bg-[#202020]  text-white  pt-36  md:pt-24 flex flex-col  items-center">
+        <div className="w-10/12 h-fit flex flex-col lg:flex-row lg:items-center">
           <div
-            className=" w-full md:w-[600px] h-auto max-h-[600px]  aspect-square p-0 m-0  border border-red-600"
+            className=" w-full md:w-[600px] h-auto max-h-[600px]  aspect-square p-0 m-0  border-black bg-black"
             ref={canvasRef}
           >
-            <div className=" fixed top-48 md:top-32 self-start" id="canvasGUI">
+            <div className=" relative top-0 self-start" id="canvasGUI">
               <div className="flex flex-col gap-1 text-[0.75rem] justify-end h-full  w-[130px]">
                 {!showResetButton && (
                   <label htmlFor="text-input" className="block  ">
@@ -120,13 +120,13 @@ const CanvasPage = () => {
                   id="trail-slider"
                   value={trailValue}
                   min="0"
-                  max="250"
+                  max="240"
                   onChange={handleTrailChange}
                 />
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex flex-col gap-4 py-32 lg:pl-5">
             <ScrambleEffect
               tInput={
                 "CREATED IN PROCESSING and then remapped in 8K resolution using Touchdesigner, the whole process was based on a few lines of codes."
