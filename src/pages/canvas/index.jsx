@@ -18,10 +18,12 @@ const CanvasPage = () => {
   }, []);
 
   return (
-    <div
-      className="w-full  bg-black text-white -mt-48 md:-mt-24 pt-48 md:pt-24"
-      ref={canvasRef}
-    ></div>
+    <div className="h-[100vh] w-full bg-black">
+      <div
+        className="w-full  flex items-center justify-center bg-black text-white -mt-48 md:-mt-24 pt-48 md:pt-24"
+        ref={canvasRef}
+      ></div>
+    </div>
   );
 };
 
