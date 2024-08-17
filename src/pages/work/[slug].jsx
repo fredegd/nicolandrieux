@@ -44,7 +44,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Page(props) {
   const container = useRef(null);
-  const image = useRef();
 
   const gallery = props.specificCaseData.metadata.slides;
 
@@ -60,12 +59,15 @@ export default function Page(props) {
             // markers: true,
             trigger: item,
             start: "top 100%",
-            end: "top 20%",
+            end: "top 30%",
             scrub: true,
           },
         })
         .from(item, {
           filter: "blur(15px)",
+        })
+        .to(item, {
+          filter: "blur(0px)",
         });
     });
 
