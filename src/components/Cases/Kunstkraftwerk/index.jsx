@@ -30,7 +30,7 @@ function Kunstkraftwerk({ gallery }) {
           </p>
         </div>
         {/* mobile */}
-        <div className="flex flex-col md:hidden items-start  justify-end w-10/12 h-full pb-24">
+        <div className="flex flex-col md:hidden items-start  justify-end w-10/12 h-full pb-60 md:pb-32">
           <h1 className=" tracking-normal text-[11vw] sm:text[11vw]  leading-none font-semibold my-4">
             <ScrambleEffect tInput={gallery[0].title} />
           </h1>
@@ -60,7 +60,7 @@ function Kunstkraftwerk({ gallery }) {
         </div>
       </li>
 
-      <li className="w-[100vw] md:w-[100vw]   h-[100vh] flex flex-col items-center justify-center bg-black ">
+      <li className="w-[100vw] md:w-[100vw]   h-[120vh] md:h-[80vw] flex flex-col items-center justify-center bg-zinc-800 ">
         <CanvasSection />
       </li>
       <li
