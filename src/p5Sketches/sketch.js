@@ -55,7 +55,7 @@ export const sketch = (p) => {
     currentPulseValue = pulse_slider.value();
     currentTrailValue = trail_slider.value();
     currentGridSize = grid_slider.value();
-    let step = p.floor(70 / grid_slider.value()); // 70 is the default grid size
+    let step = Math.floor(70 / grid_slider.value()); // 70 is the default grid size
     ts = (p.width / tilesX) * step;
 
     // p.background(0, 255 - currentTrailValue);
@@ -72,33 +72,35 @@ export const sketch = (p) => {
 
       let spread = currentZoomValue;
       let rdmchar = p.map(
-        p.sin(p.radians(p.frameCount * currentPulseValue)),
+        Math.sin(p.radians(p.frameCount * currentPulseValue)),
         -1,
         1,
-        0.1,
+        0.01,
         1
       );
 
       p.translate(p.width / 2, p.height / 2);
       for (let x = 0; x < tilesX; x += step) {
         for (let y = 0; y < tilesY; y += step) {
-          let index = y + x * tilesY;
-          let b = imgFrame[index];
-
           let posX = p.map(x, 0, tilesX, -mag2 * 1, mag2 * 1) - p.width / 2;
           let posY =
             p.map(y, 0, tilesY, -mag2 * 1, mag2 * 1) - p.width / 2 + ts / 4;
-          let posZ = p.map(b, 255, 0, -spread, spread);
+          // let posZ = p.map(b, 255, 0, -spread, spread);
+          // let index = y + x * tilesY;
+          // let b = imgFrame[index];
 
-          let chSelector = (x + y + p.frameCount / 8) % chars.length;
-          if (p.random(0, 1) < rdmchar && b > 10) {
-            p.fill(b * 2);
-            let ch = chars.charAt(Math.floor(chSelector));
-            p.push();
-            p.translate(posX, posY, posZ);
-            p.text(ch, 0, 0);
-            p.pop();
-          }
+          // let chSelector = (x + y + p.frameCount / 8) % chars.length;
+          // if (p.random(0, 1) < rdmchar && b > 10) {
+          //   p.fill(b * 2);
+          //   let ch = chars.charAt(Math.floor(chSelector));
+          //   p.push();
+          //   p.translate(posX, posY, posZ);
+          //   p.text(ch, 0, 0);
+          //   p.pop();
+          // }
+          p.stroke(255);
+          p.noFill();
+          p.rect(posX, posY, ts, ts);
         }
       }
 
