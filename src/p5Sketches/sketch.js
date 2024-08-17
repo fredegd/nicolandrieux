@@ -1,3 +1,4 @@
+import { random } from "gsap";
 import { ballerinaFrames } from "./ballerinaFrames";
 
 export const sketch = (p) => {
@@ -18,7 +19,7 @@ export const sketch = (p) => {
 
   let currentZoomValue = 0; // Initialize with a default value
   let currentPulseValue = 0; // Initialize with a default value
-  let currentTrailValue = 0; // Initialize with a default value
+  let currentTrailValue = 20; // Initialize with a default value
   let currentGridSize = 70; // Initialize with a default value
 
   let tilesX = currentGridSize;
@@ -79,6 +80,15 @@ export const sketch = (p) => {
       for (let y = 0; y < tilesY; y += step) {
         let index = y + x * tilesY;
         let b = imgFrame[index];
+
+        // let yPulse = p.map(
+        //   Math.sin(p.radians(p.frameCount * currentPulseValue * 2)),
+        //   -1,
+        //   1,
+        //   0.01,
+        //   1
+        // );
+
         let zoomFactor = p.map(
           b,
           10,
@@ -94,21 +104,31 @@ export const sketch = (p) => {
             -mag2 * Math.pow(zoomFactor, 2),
             mag2 * Math.pow(zoomFactor, 2)
           ) +
-          p.width / 2;
+          p.width / 2 +
+          p.width / 16;
+
+        let yPulse =
+          p.noise(
+            Math.cos(
+              p.radians(posX * Math.pow(currentPulseValue, 2) + p.frameCount)
+            )
+          ) *
+          currentPulseValue *
+          2;
         let posY =
           p.map(
             y,
             0,
             tilesY,
-            -mag2 * Math.pow(zoomFactor, 2),
-            mag2 * Math.pow(zoomFactor, 2)
+            -mag2 * Math.pow(zoomFactor, 2) - yPulse,
+            mag2 * Math.pow(zoomFactor, 2) + yPulse
           ) +
           p.height / 2 +
           ts / 4;
 
         let chSelector = (x + y + p.frameCount / 8) % chars.length;
         if (p.random(0, 1) < rdmchar && b > 10) {
-          p.fill(b * 2);
+          p.fill(b * 1.5 + 100);
           let ch = chars.charAt(Math.floor(chSelector));
           p.push();
           p.translate(posX, posY);
@@ -145,7 +165,7 @@ export const sketch = (p) => {
     gui.id("gui");
     gui.parent("canvas");
     gui.class(
-      "gui  flex flex-col gap-1  absolute top-0 left-0 z-50 w-[180px] text-[0.8rem] p-2 "
+      "gui  flex flex-col gap-1  absolute top-0 left-0 z-50 w-[180px] text-[0.8rem] p-4 "
     );
 
     let textInputContainer = p.createDiv();
@@ -154,6 +174,7 @@ export const sketch = (p) => {
 
     text_input = p.createInput("LETITFLOW");
     text_input.parent(textInputContainer);
+    text_input.class("focus:outline-none");
     text_input.style("color", "#000");
     text_input.style("width", "100%");
     text_input.changed(() => {
@@ -170,11 +191,19 @@ export const sketch = (p) => {
       resetTextButton.style("display", "none");
     });
 
-    zoom_slider = p.createSlider(0, 1, 0, 0.05);
+    let textInputLabel = p.createP("choose your word");
+    textInputLabel.parent(gui);
+    textInputLabel.class("text-[0.75rem] normal-case pb-2 px-1 -mt-2");
+
+    zoom_slider = p.createSlider(0, 1, currentZoomValue, 0.05);
     zoom_slider.parent(gui);
     zoom_slider.changed(() => {
       currentZoomValue = zoom_slider.value();
     });
+
+    let zoomLabel = p.createP("Dive Control");
+    zoomLabel.parent(gui);
+    zoomLabel.class("text-[0.75rem] normal-case pb-2 px-1 -mt-2");
 
     pulse_slider = p.createSlider(0, 50, currentPulseValue, 1);
     pulse_slider.parent(gui);
@@ -182,17 +211,29 @@ export const sketch = (p) => {
       currentPulseValue = pulse_slider.value();
     });
 
+    let pulseLabel = p.createP("Pulse Frequency");
+    pulseLabel.parent(gui);
+    pulseLabel.class("text-[0.75rem] normal-case pb-2 px-1 -mt-2");
+
     trail_slider = p.createSlider(0, 245, currentTrailValue, 1);
     trail_slider.parent(gui);
     trail_slider.changed(() => {
       currentTrailValue = trail_slider.value();
     });
 
-    grid_slider = p.createSlider(3, 70, 32, 1);
+    let trailControlLabel = p.createP("Trail Control");
+    trailControlLabel.parent(gui);
+    trailControlLabel.class("text-[0.75rem] normal-case pb-2 px-1 -mt-2");
+
+    grid_slider = p.createSlider(5, 70, currentGridSize, 1);
     grid_slider.parent(gui);
     grid_slider.changed(() => {
       currentGridSize = grid_slider.value();
     });
+
+    let gridSizeLabel = p.createP("Grid Size");
+    gridSizeLabel.parent(gui);
+    gridSizeLabel.class("text-[0.75rem] normal-case pb-2 px-1 -mt-2");
 
     let buttonsContainer = p.createDiv();
     buttonsContainer.parent(gui);
@@ -201,6 +242,7 @@ export const sketch = (p) => {
 
     cleanValuesButton = p.createButton("Clean");
     cleanValuesButton.parent(buttonsContainer);
+    cleanValuesButton.class("hover:bg-white hover:text-black p-1");
     cleanValuesButton.mousePressed(() => {
       zoom_slider.value(0);
       pulse_slider.value(0);
@@ -210,12 +252,14 @@ export const sketch = (p) => {
 
     maxPulseButton = p.createButton("PULSE");
     maxPulseButton.parent(buttonsContainer);
+    maxPulseButton.class("hover:bg-white hover:text-black p-1");
     maxPulseButton.mousePressed(() => {
       pulse_slider.value(50);
     });
 
     randomValuesButton = p.createButton("WILD");
     randomValuesButton.parent(buttonsContainer);
+    randomValuesButton.class("hover:bg-white hover:text-black p-1");
     randomValuesButton.mousePressed(() => {
       zoom_slider.value(p.random(0, 1));
       pulse_slider.value(p.random(0, 50));
