@@ -16,14 +16,15 @@ export const sketch = (p) => {
   let randomValuesButton;
   let zoom_slider, pulse_slider, trail_slider, grid_slider;
 
-  let currentZoomValue = 0; // Initialisiere mit einem Standardwert
-  let currentPulseValue = 0; // Initialisiere mit einem Standardwert
-  let currentTrailValue = 0; // Initialisiere mit einem Standardwert
-  let currentGridSize = 70; // Initialisiere mit einem Standardwert
+  let currentZoomValue = 0; // Initialize with a default value
+  let currentPulseValue = 0; // Initialize with a default value
+  let currentTrailValue = 0; // Initialize with a default value
+  let currentGridSize = 70; // Initialize with a default value
 
   let tilesX = currentGridSize;
   let tilesY = currentGridSize;
   let ts;
+
   p.preload = () => {
     exhausted = p.loadFont("/data/IBMPlexMono-SemiBold.otf");
     exhaustedLight = p.loadFont("/data/IBMPlexMono-Light.otf");
@@ -35,7 +36,7 @@ export const sketch = (p) => {
 
   p.setup = () => {
     let canvasSize = calculateCanvasSize();
-    let canvas = p.createCanvas(canvasSize, canvasSize, p.WEBGL);
+    let canvas = p.createCanvas(canvasSize, canvasSize);
 
     p.smooth();
     p.textFont(exhausted);
@@ -44,7 +45,6 @@ export const sketch = (p) => {
     p.noStroke();
     p.textAlign(p.CENTER, p.CENTER);
     p.textFont(exhausted);
-    p.textSize(ts);
 
     p.createGUI();
   };
@@ -58,55 +58,71 @@ export const sketch = (p) => {
     let step = Math.floor(70 / grid_slider.value()); // 70 is the default grid size
     ts = (p.width / tilesX) * step;
 
-    // p.background(0, 255 - currentTrailValue);
-
+    p.fill(0, 255 - currentTrailValue);
+    p.rect(0, 0, p.width, p.height);
     p.textSize(ts);
 
-    p.fill(0, 255 - currentTrailValue);
-    p.rect(-p.width / 2, -p.height / 2, p.width, p.height);
+    p.push();
 
-    if (p.frameCount % 1 === 0) {
-      let imgFrame = convertedImg[selector];
+    let imgFrame = convertedImg[selector];
+    let mag2 = p.width / 2;
 
-      let mag2 = p.width / 2;
+    let rdmchar = p.map(
+      Math.sin(p.radians(p.frameCount * currentPulseValue)),
+      -1,
+      1,
+      0.01,
+      1
+    );
 
-      let spread = currentZoomValue;
-      let rdmchar = p.map(
-        Math.sin(p.radians(p.frameCount * currentPulseValue)),
-        -1,
-        1,
-        0.01,
-        1
-      );
+    for (let x = 0; x < tilesX; x += step) {
+      for (let y = 0; y < tilesY; y += step) {
+        let index = y + x * tilesY;
+        let b = imgFrame[index];
+        let zoomFactor = p.map(
+          b,
+          10,
+          255,
+          1 - currentZoomValue,
+          1 + currentZoomValue
+        );
+        let posX =
+          p.map(
+            x,
+            0,
+            tilesX,
+            -mag2 * Math.pow(zoomFactor, 2),
+            mag2 * Math.pow(zoomFactor, 2)
+          ) +
+          p.width / 2;
+        let posY =
+          p.map(
+            y,
+            0,
+            tilesY,
+            -mag2 * Math.pow(zoomFactor, 2),
+            mag2 * Math.pow(zoomFactor, 2)
+          ) +
+          p.height / 2 +
+          ts / 4;
 
-      p.translate(p.width / 2, p.height / 2);
-      for (let x = 0; x < tilesX; x += step) {
-        for (let y = 0; y < tilesY; y += step) {
-          let posX = p.map(x, 0, tilesX, -mag2 * 1, mag2 * 1) - p.width / 2;
-          let posY =
-            p.map(y, 0, tilesY, -mag2 * 1, mag2 * 1) - p.width / 2 + ts / 4;
-          // let posZ = p.map(b, 255, 0, -spread, spread);
-          // let index = y + x * tilesY;
-          // let b = imgFrame[index];
-
-          // let chSelector = (x + y + p.frameCount / 8) % chars.length;
-          // if (p.random(0, 1) < rdmchar && b > 10) {
-          //   p.fill(b * 2);
-          //   let ch = chars.charAt(Math.floor(chSelector));
-          //   p.push();
-          //   p.translate(posX, posY, posZ);
-          //   p.text(ch, 0, 0);
-          //   p.pop();
-          // }
-          p.stroke(255);
-          p.noFill();
-          p.rect(posX, posY, ts, ts);
+        let chSelector = (x + y + p.frameCount / 8) % chars.length;
+        if (p.random(0, 1) < rdmchar && b > 10) {
+          p.fill(b * 2);
+          let ch = chars.charAt(Math.floor(chSelector));
+          p.push();
+          p.translate(posX, posY);
+          p.scale(zoomFactor);
+          p.text(ch, 0, 0);
+          p.pop();
         }
       }
-
-      selector++;
-      selector = selector % convertedImg.length;
     }
+
+    p.pop();
+
+    selector++;
+    selector = selector % convertedImg.length;
 
     p.textFont(exhaustedLight);
     p.textSize(p.height / 70);
@@ -154,7 +170,7 @@ export const sketch = (p) => {
       resetTextButton.style("display", "none");
     });
 
-    zoom_slider = p.createSlider(0, 800, currentZoomValue, 1);
+    zoom_slider = p.createSlider(0, 1, 0, 0.05);
     zoom_slider.parent(gui);
     zoom_slider.changed(() => {
       currentZoomValue = zoom_slider.value();
@@ -166,13 +182,13 @@ export const sketch = (p) => {
       currentPulseValue = pulse_slider.value();
     });
 
-    trail_slider = p.createSlider(0, 255, currentTrailValue, 1);
+    trail_slider = p.createSlider(0, 245, currentTrailValue, 1);
     trail_slider.parent(gui);
     trail_slider.changed(() => {
       currentTrailValue = trail_slider.value();
     });
 
-    grid_slider = p.createSlider(3, 70, 64, 1);
+    grid_slider = p.createSlider(3, 70, 32, 1);
     grid_slider.parent(gui);
     grid_slider.changed(() => {
       currentGridSize = grid_slider.value();
@@ -201,9 +217,9 @@ export const sketch = (p) => {
     randomValuesButton = p.createButton("WILD");
     randomValuesButton.parent(buttonsContainer);
     randomValuesButton.mousePressed(() => {
-      zoom_slider.value(p.random(0, 800));
+      zoom_slider.value(p.random(0, 1));
       pulse_slider.value(p.random(0, 50));
-      trail_slider.value(p.random(0, 255));
+      trail_slider.value(p.random(0, 245));
       grid_slider.value(p.random(3, 70));
     });
   };

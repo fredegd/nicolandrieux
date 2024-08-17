@@ -33,7 +33,7 @@ export default function ModalDisplay({ buttonContent, video, title }) {
             <circle
               cx="40"
               cy="40"
-              r="40"
+              r="38"
               stroke="#fff"
               stroke-width="1"
               fill="#cccccc22"
@@ -47,13 +47,17 @@ export default function ModalDisplay({ buttonContent, video, title }) {
           </svg>
         </button>
       </div>
-      <Modal size={"full"} isOpen={isOpen} onClose={onClose}>
+      <Modal
+        size={"full"}
+        isOpen={isOpen}
+        onClose={onClose}
+        className="font-mono text-blue-600"
+      >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1 font-mono   text-black">
-                <ScrambleEffect tInput={title} />
-              </ModalHeader>
+              {/* <ModalHeader className="flex flex-col gap-1 !font-mono  "></ModalHeader> */}
+
               <ModalBody className="pb-4">
                 <iframe
                   src={video}

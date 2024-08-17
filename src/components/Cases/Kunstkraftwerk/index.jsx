@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import ScrambleEffect from "../../ScrambleEffect";
 import ModalDisplay from "../../ModalDisplay";
+import CanvasSection from "../../CanvasSection";
+import Link from "next/link";
 
 function Kunstkraftwerk({ gallery }) {
   return (
@@ -38,6 +40,7 @@ function Kunstkraftwerk({ gallery }) {
           </p>
         </div>
       </li>
+
       <li className="w-[100vw] md:w-[100vw] min-h-[100vh] h-[100vh] md:h-[71vw] flex flex-col items-center justify-center  sticky top-0 sm:-top-48">
         <ModalDisplay
           buttonContent={gallery[1].caseImg1}
@@ -53,6 +56,12 @@ function Kunstkraftwerk({ gallery }) {
             <ScrambleEffect tInput={gallery[1].subtitle1} />
           </p>
         </div>
+      </li>
+
+      <li className="w-[100vw] md:w-[100vw] min-h-[100vh] h-[100vh] md:h-[71vw] flex flex-col items-center justify-center  sticky top-0 sm:-top-48">
+        <Link href="/canvas">
+          <Image src={gallery[2].caseImg} alt="Let it flow" />
+        </Link>
       </li>
       <li className="w-[100vw] md:w-[100vw] min-h-[100vh] h-[100vh] md:h-[71vw] flex flex-col items-center justify-center  sticky top-0 sm:-top-48 bg-white">
         <ModalDisplay
