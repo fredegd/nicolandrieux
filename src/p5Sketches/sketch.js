@@ -163,7 +163,7 @@ export const sketch = (p) => {
     gui.id("gui");
     gui.parent("canvas");
     gui.class(
-      " flex flex-row-reverse w-full justify-between items-start gui  absolute top-0 left-0 z-50  text-[0.8rem] p-4 "
+      " flex flex-row-reverse w-full justify-between items-start gui  absolute top-0 left-0 z-50  text-[0.75rem] md:text-[0.8rem] p-4 "
     );
 
     let toggleGUIButton = p.createButton("CLOSE GUI");
