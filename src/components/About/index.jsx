@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React, { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,10 +9,10 @@ const About = () => {
   let portrait = "https://ik.imagekit.io/3vlhcozis/Nicolandrieux/portrait.png";
   return (
     <section
-      className=" min-h-screen w-full  pt-32   flex flex-col justify-center items-center md:pt-32"
+      className=" min-h-screen  w-full  pt-40 md:pt-24 lg:pt-0   flex flex-col justify-center items-center "
       id="about"
     >
-      <div className=" w-10/12 flex flex-col lg:flex-row items-center gap-8 text-sm md:text-md lg:text-[1.12vw] ">
+      <div className=" w-10/12 h-[100vh] flex flex-col lg:flex-row items-center sm:items-start lg:items-center gap-8 text-sm md:text-md lg:text-[1.12vw] ">
         <div
           ref={image}
           className=" w-full  sm:w-10/12 md:w-8/12 lg:w-4/12 xl:w-3/12 "
