@@ -105,6 +105,10 @@ export default function Page(props) {
           property="og:url"
           content={`https://www.landrieux.design/work/${slug}`}
         />
+        <link
+          rel="canonical"
+          href={`https://www.landrieux.design/work/${slug}`}
+        />
       </Head>
       <section className="w-[100vw] h-[71vw]  -mt-24 " ref={container}>
         {slug == "salted" ? (

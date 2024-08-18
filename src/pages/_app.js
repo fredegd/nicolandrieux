@@ -71,6 +71,11 @@ export default function App({ Component, pageProps, router }) {
           name="twitter:image"
           content="https://ik.imagekit.io/3vlhcozis/Nicolandrieux/SEO/preview.png?tr=w-1200,h-630,fo-auto"
         />
+        <link rel="canonical" href="https://landrieux.design/" />
+        <link rel="canonical" href="https://landrieux.design/about" />
+        <link rel="canonical" href="https://landrieux.design/work" />
+        <link rel="canonical" href="https://landrieux.design/ballerina" />
+        <link rel="canonical" href="https://fredegd.dev" />
       </Head>
       <div
         className={` antialiased max-w-screen max-height-screen m-0  ${ibmMono.className} uppercase selection:bg-slate-200/30 selection:text-yellow-600 selection:backdrop:blur-md`}

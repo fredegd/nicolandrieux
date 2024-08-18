@@ -1,0 +1,15 @@
+# *
+User-agent: *
+Allow: /
+
+# test-bot
+User-agent: test-bot
+Allow: /work
+Allow: /about
+Allow: /ballerina
+
+# Host
+Host: https://landrieux.design
+
+# Sitemaps
+Sitemap: https://landrieux.design/sitemap.xml
