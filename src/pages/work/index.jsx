@@ -12,7 +12,7 @@ export default function Index() {
       <Head>
         <title>Work –– Nicolas Landrieux</title>
       </Head>
-      <div ref={container} className=" w-full flex bg-black text-white -mt-24">
+      <div ref={container} className=" w-full flex bg-black text-white">
         <SelectedWorks />
       </div>
     </>
