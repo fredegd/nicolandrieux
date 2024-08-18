@@ -35,13 +35,13 @@ export default function ModalDisplay({ buttonContent, video, title }) {
               cy="40"
               r="38"
               stroke="#fff"
-              stroke-width="1"
+              strokeWidth="1"
               fill="#cccccc22"
             ></circle>
             <polygon
               fill="#ffffff"
               stroke="#fff"
-              stroke-width="1"
+              strokeWidth="1"
               points="32,25 32,58 60,42"
             ></polygon>
           </svg>

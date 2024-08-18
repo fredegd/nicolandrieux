@@ -1,10 +1,11 @@
 "use client";
+import Head from "next/head";
 import { useRouter } from "next/router";
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 import Salted from "../../components/Cases/Salted";
 import Liebeskind from "../../components/Cases/Liebeskind";
 import Kunstkraftwerk from "../../components/Cases/Kunstkraftwerk";
@@ -46,6 +47,8 @@ export default function Page(props) {
   const container = useRef(null);
 
   const gallery = props.specificCaseData.metadata.slides;
+
+  const metadata = props.specificCaseData.metadata;
 
   const slug = props.specificCaseData.slug;
   useGSAP(() => {
@@ -89,15 +92,30 @@ export default function Page(props) {
   }
 
   return (
-    <section className="w-[100vw] h-[71vw]  -mt-24 " ref={container}>
-      {slug == "salted" ? (
-        <Salted gallery={gallery} />
-      ) : slug == "liebeskind" ? (
-        <Liebeskind gallery={gallery} />
-      ) : slug == "kunstkraftwerk" ? (
-        <Kunstkraftwerk gallery={gallery} />
-      ) : null}
-    </section>
+    <>
+      <Head>
+        <title>{slug.toUpperCase()} —— NICOLAS LANDRIEUX</title>
+        <meta name="description" content={metadata.description} />
+        <meta property="og:title" content={slug.toUpperCase()} />
+        <meta property="og:description" content={metadata.description} />
+        <meta property="og:image" content={metadata.image} />
+        <meta property="og:image:alt" content={metadata.title} />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:url"
+          content={`https://www.landrieux.design/work/${slug}`}
+        />
+      </Head>
+      <section className="w-[100vw] h-[71vw]  -mt-24 " ref={container}>
+        {slug == "salted" ? (
+          <Salted gallery={gallery} />
+        ) : slug == "liebeskind" ? (
+          <Liebeskind gallery={gallery} />
+        ) : slug == "kunstkraftwerk" ? (
+          <Kunstkraftwerk gallery={gallery} />
+        ) : null}
+      </section>
+    </>
   );
 }
 
