@@ -10,6 +10,8 @@ export const sketch = (p) => {
   let gui;
   let chars;
 
+  let toggleGUIButton;
+  let guiContainer;
   let text_input;
   let resetTextButton;
   let cleanValuesButton;
@@ -48,6 +50,7 @@ export const sketch = (p) => {
     p.textFont(exhausted);
 
     p.createGUI();
+    p.createDescription();
   };
 
   p.draw = () => {
@@ -56,6 +59,7 @@ export const sketch = (p) => {
     currentPulseValue = pulse_slider.value();
     currentTrailValue = trail_slider.value();
     currentGridSize = grid_slider.value();
+    guiContainer.class(`${displayGUI ? "flex" : "hidden"} flex-col gap-2`);
     let step = Math.floor(70 / grid_slider.value()); // 70 is the default grid size
     ts = (p.width / tilesX) * step;
 
@@ -81,14 +85,6 @@ export const sketch = (p) => {
         let index = y + x * tilesY;
         let b = imgFrame[index];
 
-        // let yPulse = p.map(
-        //   Math.sin(p.radians(p.frameCount * currentPulseValue * 2)),
-        //   -1,
-        //   1,
-        //   0.01,
-        //   1
-        // );
-
         let zoomFactor = p.map(
           b,
           10,
@@ -96,6 +92,7 @@ export const sketch = (p) => {
           1 - currentZoomValue,
           1 + currentZoomValue
         );
+        let xOffset_GUI = displayGUI ? p.width / 16 : 0;
         let posX =
           p.map(
             x,
@@ -105,16 +102,13 @@ export const sketch = (p) => {
             mag2 * Math.pow(zoomFactor, 2)
           ) +
           p.width / 2 +
-          p.width / 16;
+          xOffset_GUI;
 
         let yPulse =
-          p.noise(
-            Math.cos(
-              p.radians(posX * Math.pow(currentPulseValue, 2) + p.frameCount)
-            )
-          ) *
-          currentPulseValue *
-          2;
+          p.random(1.0) > 0.9
+            ? p.noise(x * Math.pow(currentPulseValue, 2), p.frameCount * 5) *
+              currentPulseValue
+            : 0;
         let posY =
           p.map(
             y,
@@ -143,33 +137,52 @@ export const sketch = (p) => {
 
     selector++;
     selector = selector % convertedImg.length;
-
-    p.textFont(exhaustedLight);
-    p.textSize(p.height / 70);
-    p.fill("#fff");
-    p.text(
-      "Dissolving the Spin",
-      -p.width + p.textWidth("Dissolving the Spin") / 2 + 20,
-      -20
-    );
-
-    p.text(
-      "a Creative Coding experiment",
-      -p.textWidth("a Creative Coding experiment") / 2 - 20,
-      -20
-    );
   };
+
+  p.createDescription = () => {
+    let description = p.createDiv();
+    description.id("description");
+    description.parent("canvas");
+    description.class(
+      "flex justify-between description absolute bottom-0 left-0 z-50 w-full text-[0.75rem] p-4 text-white"
+    );
+
+    let descriptionText_1 = p.createP("Dissolving the Spin");
+    descriptionText_1.parent(description);
+    descriptionText_1.class("text-[0.75rem] normal-case	");
+
+    let descriptionText_2 = p.createP("a Creative Coding experiment");
+    descriptionText_2.parent(description);
+    descriptionText_2.class("text-[0.75rem] normal-case	");
+  };
+
+  let displayGUI = true;
 
   p.createGUI = () => {
     gui = p.createDiv();
     gui.id("gui");
     gui.parent("canvas");
     gui.class(
-      "gui  flex flex-col gap-1  absolute top-0 left-0 z-50 w-[180px] text-[0.8rem] p-4 "
+      " flex flex-row-reverse w-full justify-between items-start gui  absolute top-0 left-0 z-50  text-[0.8rem] p-4 "
     );
 
+    let toggleGUIButton = p.createButton("CLOSE GUI");
+    toggleGUIButton.parent(gui);
+    toggleGUIButton.class(
+      "toggleGUIButton hover:bg-white hover:text-black p-1"
+    );
+    toggleGUIButton.mousePressed(() => {
+      displayGUI = !displayGUI;
+      toggleGUIButton.html(displayGUI ? "CLOSE GUI" : "OPEN GUI");
+    });
+
+    guiContainer = p.createDiv();
+    guiContainer.id("guiContainer");
+    guiContainer.parent(gui);
+    guiContainer.class(`${displayGUI ? "flex" : "hidden"} flex-col gap-2`);
+
     let textInputContainer = p.createDiv();
-    textInputContainer.parent(gui);
+    textInputContainer.parent(guiContainer);
     textInputContainer.class("flex gap-1 items-center justify-between w-full");
 
     text_input = p.createInput("LETITFLOW");
@@ -192,51 +205,51 @@ export const sketch = (p) => {
     });
 
     let textInputLabel = p.createP("choose your word");
-    textInputLabel.parent(gui);
+    textInputLabel.parent(guiContainer);
     textInputLabel.class("text-[0.75rem] normal-case pb-2 px-1 -mt-2");
 
     zoom_slider = p.createSlider(0, 1, currentZoomValue, 0.05);
-    zoom_slider.parent(gui);
+    zoom_slider.parent(guiContainer);
     zoom_slider.changed(() => {
       currentZoomValue = zoom_slider.value();
     });
 
     let zoomLabel = p.createP("Dive Control");
-    zoomLabel.parent(gui);
+    zoomLabel.parent(guiContainer);
     zoomLabel.class("text-[0.75rem] normal-case pb-2 px-1 -mt-2");
 
     pulse_slider = p.createSlider(0, 50, currentPulseValue, 1);
-    pulse_slider.parent(gui);
+    pulse_slider.parent(guiContainer);
     pulse_slider.changed(() => {
       currentPulseValue = pulse_slider.value();
     });
 
     let pulseLabel = p.createP("Pulse Frequency");
-    pulseLabel.parent(gui);
+    pulseLabel.parent(guiContainer);
     pulseLabel.class("text-[0.75rem] normal-case pb-2 px-1 -mt-2");
 
     trail_slider = p.createSlider(0, 245, currentTrailValue, 1);
-    trail_slider.parent(gui);
+    trail_slider.parent(guiContainer);
     trail_slider.changed(() => {
       currentTrailValue = trail_slider.value();
     });
 
     let trailControlLabel = p.createP("Trail Control");
-    trailControlLabel.parent(gui);
+    trailControlLabel.parent(guiContainer);
     trailControlLabel.class("text-[0.75rem] normal-case pb-2 px-1 -mt-2");
 
     grid_slider = p.createSlider(5, 70, currentGridSize, 1);
-    grid_slider.parent(gui);
+    grid_slider.parent(guiContainer);
     grid_slider.changed(() => {
       currentGridSize = grid_slider.value();
     });
 
     let gridSizeLabel = p.createP("Grid Size");
-    gridSizeLabel.parent(gui);
+    gridSizeLabel.parent(guiContainer);
     gridSizeLabel.class("text-[0.75rem] normal-case pb-2 px-1 -mt-2");
 
     let buttonsContainer = p.createDiv();
-    buttonsContainer.parent(gui);
+    buttonsContainer.parent(guiContainer);
     buttonsContainer.id("buttonsContainer");
     buttonsContainer.class("flex flex gap-2 items-center justify-between");
 
