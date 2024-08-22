@@ -69,7 +69,7 @@ function Kunstkraftwerk({ gallery }) {
           title={gallery[3].title}
         />
 
-        <div className="w-full h-auto  md:w-6/12 flex flex-col gap-4 items-center md:items-start justify-center   mix-blend-difference  text-slate-500 absolute bottom-0 md:bottom-32 lg:bottom-48 pb-8">
+        <div className="w-full h-auto  md:w-4/12 flex flex-col  items-center md:items-start justify-center   text-black absolute bottom-0 md:bottom-32 lg:bottom-48 pb-8">
           <p className="w-10/12    text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem] ">
             <ScrambleEffect tInput={gallery[3].subtitle} />
           </p>
