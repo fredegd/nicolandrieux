@@ -10,7 +10,7 @@ function Liebeskind({ gallery }) {
         id="gallery-item-1"
         className="w-[100vw] md:w-[100vw] h-[100vh]  flex flex-col md:flex-col-reverse lg:flex-col items-center md:items-start lg:items-center md:justify-center
                     bg-[length:170%] md:bg-[length:70%] lg:bg-[length:50%] bg-[right_35%_top_100%]  
-                    md:bg-right bg-no-repeat sticky top-0 bg-white"
+                    md:bg-right bg-no-repeat sticky top-0 mb-24 bg-white"
         style={{
           backgroundImage: `url(${gallery[0].caseImg})`,
         }}
@@ -54,7 +54,7 @@ function Liebeskind({ gallery }) {
       </li>
       <li
         id="gallery-item-2"
-        className="w-[100vw]   md:h-[120vh] flex flex-col items-center bg-white pt-40 sm:pt-24 pb-12 sm:pb-4 sticky top-0 sm:relative"
+        className="w-[100vw]    min-h-[100vw] flex flex-col items-center bg-white pt-40 sm:pt-24 pb-12 sm:pb-4 sticky top-0 sm:relative"
       >
         <div className="w-10/12 h-[56vw] flex flex-col md:flex-col-reverse gap-4 justify-end items-center  ">
           <div className="m-0 p-0 border border-black w-full h-full">
@@ -64,7 +64,7 @@ function Liebeskind({ gallery }) {
               title={gallery[1].title}
             />
           </div>
-          <p className="hidden md:block    text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]  mt-24  sticky top-24 mix-blend-difference  text-slate-500 ">
+          <p className="hidden md:block    text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]  mt-24 text-black ">
             <ScrambleEffect tInput={gallery[1].subtitle} />
           </p>
           <p className="block md:hidden self-start    w-3/5 text-sm leading-[1.5rem] mix-blend-difference  text-slate-500 ">
@@ -84,7 +84,7 @@ function Liebeskind({ gallery }) {
 
       <li
         id="gallery-item-4"
-        className="w-[100vw] h-auto md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 bg-white "
+        className="w-[100vw] h-auto md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 md:-top-[302%] bg-white "
       >
         <div className="flex w-full">
           <Image
@@ -103,10 +103,10 @@ function Liebeskind({ gallery }) {
             className="hidden md:block w-1/2 h-full object-cover object-center"
           />
         </div>
-        <p className="hidden md:block rotate-90 text-left   pt-24 pl-96 fixed top-24 ">
+        <p className="hidden md:block rotate-90 text-left   pt-12 pl-96 fixed top-[20%] ">
           <ScrambleEffect tInput={gallery[3].subtitle} />
         </p>
-        <p className="hidden md:block -rotate-90 pt-24 pr-96 text-end fixed top-24">
+        <p className="hidden md:block -rotate-90 pt-12 pr-96 text-end fixed top-[20%] ">
           <ScrambleEffect tInput={gallery[3].subtitle} />
         </p>
       </li>
@@ -195,7 +195,7 @@ function Liebeskind({ gallery }) {
         id="gallery-item-7"
         className="w-[100vw] h-[100vh] md:h-[100vh] flex flex-col items-center bg-white filter-none sticky -top-48 pb-24"
       >
-        <div className="w-10/12 h-full md:h-[56vw] flex flex-col-reverse gap-6 justify-center items-center">
+        <div className="w-10/12 h-full md:h-[75vw] flex flex-col-reverse gap-6 justify-center items-center">
           <Image
             src={gallery[6].caseImg2}
             alt="Liebeskind Berlin"
@@ -209,7 +209,7 @@ function Liebeskind({ gallery }) {
             video={gallery[6].caseImg}
             title={gallery[6].title}
           />
-          <p className=" text-black  w-full text-sm  lg:text-[1.12vw] leading-5 tracking-normal  mt-24  sticky top-24">
+          <p className=" text-black  w-full text-sm  lg:text-[1.12vw] leading-5 tracking-normal  mt-40 md:mt-24">
             <ScrambleEffect tInput={gallery[6].subtitle} />
           </p>
         </div>
