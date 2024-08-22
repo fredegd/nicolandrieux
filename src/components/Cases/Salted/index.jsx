@@ -219,7 +219,7 @@ function Salted({ gallery }) {
 
         <div className="w-10/12  absolute top-[75vh] sm:top-[70vh] md:top-[75vh] lg:top-[60vh] xl:top-[60vh] ">
           <p
-            className="w-full lg:w-[45%] text-black  text-[1.7rem] font-medium leading-none tracking-wide"
+            className="w-full lg:w-[45%] text-black  text-[1.7rem] font-normal leading-none tracking-wide"
             style={{
               fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
             }}
@@ -236,7 +236,7 @@ function Salted({ gallery }) {
         }}
       >
         <p
-          className="w-10/12 pb-[25vh]  text-white md:text-black  text-[1.7rem] font-medium leading-none tracking-wide"
+          className="w-10/12 pb-[25vh]  text-white md:text-black  text-[1.7rem] font-normal leading-none tracking-wide"
           style={{
             fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
           }}
