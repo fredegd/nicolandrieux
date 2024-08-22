@@ -4,10 +4,11 @@ import ScrambleEffect from "../../ScrambleEffect";
 import ModalDisplay from "../../ModalDisplay";
 function Salted({ gallery }) {
   return (
-    <ul className="    p-0 m-0">
+    <ul className="p-0 m-0">
       <li
         id="gallery-item-1"
-        className="w-[100vw] md:w-[100vw] h-[100vh]  flex flex-col items-center bg-[length:530%] md:bg-cover bg-[left_40%_top_0rem]  md:bg-center bg-no-repeat sticky top-0"
+        className="w-[100vw]  h-[100vh]  flex flex-col items-center 
+        bg-[length:530%] md:bg-cover bg-[left_40%_top_0rem]  md:bg-center bg-no-repeat sticky top-0 mb-24"
         style={{
           backgroundImage: `url(${gallery[0].caseImg})`,
         }}
@@ -26,7 +27,8 @@ function Salted({ gallery }) {
       </li>
       <li
         id="gallery-item-2"
-        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw] flex flex-col-reverse md:flex-row  items-center md:bg-cover bg-center bg-no-repeat sticky top-0 md:-top-24"
+        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw] 
+        flex flex-col-reverse md:flex-row  items-center md:bg-cover bg-center bg-no-repeat sticky top-0 md:-top-24"
       >
         <Image
           className="w-full md:w-8/12  h-full aspect-[400/400]  object-cover"
@@ -155,20 +157,27 @@ function Salted({ gallery }) {
 
       <li
         id="gallery-item-8"
-        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw]  hidden md:flex flex-col items-center  sticky -top-[50%]"
+        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[85vw]  hidden md:flex flex-col items-center  sticky -top-[50%]"
       >
         <div
           className="w-full h-full bg-white 
         flex justify-between"
         >
-          <div
-            className="w-5/12 h-full   bg-no-repeat relative"
-            style={{
-              backgroundImage: `url(${gallery[7].caseImg})`,
-              backgroundPosition: "60% 30%",
-              backgroundSize: "200%",
-            }}
-          >
+          <div className="w-5/12 h-full  flex items-center justify-center  relative">
+            <Image
+              className=""
+              width={300}
+              height={810}
+              src={gallery[7].caseImg}
+              alt={gallery[7].subtitle1}
+            />
+            <Image
+              className=""
+              width={300}
+              height={810}
+              src={gallery[7].caseImg1}
+              alt={gallery[7].subtitle1}
+            />
             <p
               className="text-black  absolute  origin-top-left -right-4 lg:-right-10 top-8 lg:top-28 writing-vertical-rl"
               style={{
@@ -182,8 +191,8 @@ function Salted({ gallery }) {
           <div
             className="w-6/12 self-end h-full  bg-no-repeat relative"
             style={{
-              backgroundImage: `url(${gallery[7].caseImg1})`,
-              backgroundPosition: "50% 0%",
+              backgroundImage: `url(${gallery[7].caseImg2})`,
+              backgroundPosition: "50% 40%",
               backgroundSize: "100%",
             }}
           >
