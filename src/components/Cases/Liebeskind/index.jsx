@@ -36,7 +36,7 @@ function Liebeskind({ gallery }) {
           <h1 className="my-4 w-[90%] text-white tracking-normal text-[11vw] md:text-[4.2vw] leading-none font-semibold ">
             <ScrambleEffect tInput={gallery[0].title.replace(/——/g, "")} />
           </h1>
-          <p className="md:hidden text-black   max-w-[10em] md:w-full text-base lg:text-[1.12vw] font-medium">
+          <p className="md:hidden text-black   max-w-[12em] md:w-full text-base lg:text-[1.12vw] font-medium">
             <ScrambleEffect tInput={gallery[0].subtitle.replace(/\|/g, "")} />
           </p>
         </div>
@@ -102,13 +102,17 @@ function Liebeskind({ gallery }) {
             className="md:w-1/2 h-full object-cover object-center"
           />
 
-          <Image
+          {/* <Image
             src={gallery[3].caseImg1}
             alt="Liebeskind Berlin"
             width={800}
             height={570}
-            className="hidden md:block w-1/2 h-full object-cover object-center"
-          />
+            className="hidden md:block   object-fill w-[180%] h-[180%] object-center            "
+          /> */}
+          <div
+            className="w-1/2 h-full bg-center bg-[length:145%] bg-no-repeat"
+            style={{ backgroundImage: `url(${gallery[3].caseImg1})` }}
+          ></div>
         </div>
         <p className="hidden md:block rotate-90 text-left   pt-12 pl-96 fixed top-[20%] ">
           <ScrambleEffect tInput={gallery[3].subtitle} />
@@ -120,7 +124,7 @@ function Liebeskind({ gallery }) {
 
       <li
         id="gallery-item-5"
-        className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 md:-top-[50%] bg-white "
+        className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 md:-top-[90%] bg-white "
       >
         <div className="flex w-full  gap-12">
           <Image
@@ -128,9 +132,9 @@ function Liebeskind({ gallery }) {
             alt="Liebeskind Berlin"
             width={1600}
             height={1140}
-            className="w-full md:w-1/2 h-[140%] md-h-full object-cover object-center"
+            className="w-full md:w-1/2 h-[140%] md-h-full object-cover object-center relative"
           />
-          <p className="hidden md:block text-left   fixed left-[6%] xl:left-[33%] top-[30%]">
+          <p className="hidden lg:block text-left   absolute  lg:left-[35%] top-[40%] text-black">
             <ScrambleEffect tInput={gallery[3].subtitle} />
           </p>
           <div className="hidden md:w-1/2  md:flex flex-col gap-8">
@@ -153,7 +157,7 @@ function Liebeskind({ gallery }) {
       </li>
       <li
         id="gallery-item-6"
-        className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0  bg-white"
+        className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky -top-36  bg-white"
       >
         <div className="flex  gap-12">
           <Image

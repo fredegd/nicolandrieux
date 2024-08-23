@@ -31,17 +31,17 @@ function Salted({ gallery }) {
       <li
         id="gallery-item-2"
         className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw] 
-        flex flex-col-reverse md:flex-row  items-center md:bg-cover bg-center bg-no-repeat sticky top-0 md:-top-24"
+        flex flex-col-reverse md:flex-row  md:items-start items-center md:bg-cover bg-center bg-no-repeat sticky -top-2 md:-top-48 pb-20 bg-white"
       >
         <Image
-          className="w-full md:w-8/12  h-full aspect-[400/400]  object-cover"
+          className="w-full md:w-8/12  h-auto aspect-[400/400]  object-fill"
           src={gallery[1].caseImg || ""}
           alt={gallery[1].content}
           width={1600}
           height={1600}
         />{" "}
-        <div className="w-full h-full bg-white flex flex-col items-center justify-center pt-28 md:pt-4">
-          <p className="w-10/12 md:w-11/12 text-black  text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem] font-semibold mb-4">
+        <div className="w-full md:w-4/12 h-full bg-white flex flex-col items-center justify-center pt-28 md:pt-4">
+          <p className="w-10/12 md:w-11/12 text-black  text-sm md:text-md lg:text-[1.12vw] leading-tight font-semibold mb-4">
             <ScrambleEffect tInput={gallery[1].title} />
           </p>
           <p className="w-10/12 md:w-11/12 text-black  text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]">
@@ -163,26 +163,26 @@ function Salted({ gallery }) {
         className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[85vw]  hidden md:flex flex-col items-center  sticky -top-[50%]"
       >
         <div
-          className="w-full h-full bg-white 
-        flex justify-between"
+          className="w-full h-full 
+        flex justify-between bg-white"
         >
-          <div className="w-5/12 h-full  flex items-center justify-center  relative">
+          <div className="w-[47%] h-full  flex items-center   relative  ">
             <Image
-              className=""
+              className="w-full h-auto object-cover"
               width={300}
               height={810}
               src={gallery[7].caseImg}
               alt={gallery[7].subtitle1}
             />
             <Image
-              className=""
+              className="w-full h-auto object-cover"
               width={300}
               height={810}
               src={gallery[7].caseImg1}
               alt={gallery[7].subtitle1}
             />
             <p
-              className="text-black  absolute  origin-top-left -right-4 lg:-right-10 top-8 lg:top-28 writing-vertical-rl"
+              className="text-black  absolute  origin-top-left -right-8 top-8 lg:top-44 writing-vertical-rl"
               style={{
                 fontSize: "1.0rem" && "clamp(0.6rem, 1.07vw, 1.15rem)",
               }}
@@ -191,16 +191,16 @@ function Salted({ gallery }) {
             </p>
           </div>
 
-          <div
-            className="w-6/12 self-end h-full  bg-no-repeat relative"
-            style={{
-              backgroundImage: `url(${gallery[7].caseImg2})`,
-              backgroundPosition: "50% 40%",
-              backgroundSize: "100%",
-            }}
-          >
+          <div className="w-[45%] flex items-center h-full  relative">
+            <Image
+              className="w-full h-auto object-cover"
+              width={600}
+              height={810}
+              src={gallery[7].caseImg2}
+              alt={gallery[7].subtitle2}
+            />
             <p
-              className="text-black  absolute  bottom-3 lg:bottom-24 -left-4 lg:-left-12  writing-vertical-rl rotate-180 lg:max-h-[30%] "
+              className="text-black  h-[22rem] absolute  origin-bottom-left -left-2 top-[35vh]  writing-vertical-rl rotate-180"
               style={{
                 fontSize: "1.0rem" && "clamp(0.6rem, 1.07vw, 1.15rem)",
               }}
@@ -215,7 +215,13 @@ function Salted({ gallery }) {
         className="w-[100vw] md:w-[100vw] h-[100vh] md:min-h-[60vw]  flex flex-col items-center m-0 p-0 bg-white sticky -top-48"
       >
         <ModalDisplay
-          buttonContent={gallery[8].caseImg1}
+          buttonBgStyle={{
+            backgroundImage: `url(${gallery[8].caseImg1})`,
+          }}
+          classNames={
+            "w-full h-full rounded-none p-0  cursor-default flex items-center justify-center relative, bg-cover  bg-center bg-no-repeat"
+          }
+          buttonColor={"white"}
           video={gallery[8].caseImg}
           title={gallery[8].title}
         />
