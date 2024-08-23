@@ -1,15 +1,19 @@
 import {
   Modal,
   ModalContent,
-  ModalHeader,
   ModalBody,
-  Button,
   useDisclosure,
+  button,
 } from "@nextui-org/react";
 import React, { useState } from "react";
-import ScrambleEffect from "../ScrambleEffect";
 
-export default function ModalDisplay({ buttonContent, video, title }) {
+export default function ModalDisplay({
+  classNames,
+  buttonBgStyle,
+  buttonColor,
+  video,
+}) {
+  console.log(buttonColor);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const handleOpen = () => {
     onOpen();
@@ -17,30 +21,24 @@ export default function ModalDisplay({ buttonContent, video, title }) {
 
   return (
     <>
-      <div
-        className=" w-full h-full    rounded-none p-0 
-        bg-center bg-no-repeat bg-cover
-        cursor-default flex items-center justify-center relative
-        "
-        style={{ backgroundImage: `url(${buttonContent})` }}
-      >
+      <div className={classNames} style={buttonBgStyle}>
         <button
           onClick={() => handleOpen()}
           type="button"
-          className="   rounded-none"
+          className="   rounded-none text-black"
         >
           <svg className="w-20 h-20 origin">
             <circle
               cx="40"
               cy="40"
               r="38"
-              stroke="#fff"
               strokeWidth="1"
-              fill="#cccccc22"
+              stroke={buttonColor}
+              fill="none"
             ></circle>
             <polygon
-              fill="#ffffff"
-              stroke="#fff"
+              fill={buttonColor}
+              stroke={buttonColor}
               strokeWidth="1"
               points="32,25 32,58 60,42"
             ></polygon>

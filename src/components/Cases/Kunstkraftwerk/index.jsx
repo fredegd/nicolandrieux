@@ -40,15 +40,20 @@ function Kunstkraftwerk({ gallery }) {
       </li>
 
       <li
-        className="w-[100vw] md:w-[100vw] min-h-[100vh] h-[100vh] md:h-[71vw] flex flex-col items-center justify-center  sticky top-0 sm:-top-48"
+        className="w-[100vw] md:w-[100vw] min-h-[100vh] h-[100vh] md:h-[71vw] flex flex-col items-center justify-center  sticky -top-[60%]"
         id="gallery-item-2"
       >
         <ModalDisplay
-          buttonContent={gallery[1].caseImg1}
+          buttonBgStyle={{
+            backgroundImage: `url(${gallery[1].caseImg1})`,
+          }}
+          classNames={
+            "w-full h-full rounded-none p-0  cursor-default flex items-center justify-center relative, bg-cover  bg-center bg-no-repeat"
+          }
+          buttonColor={"white"}
           video={gallery[1].caseImg}
           title={gallery[1].title}
         />
-
         <div className="w-full h-auto flex flex-col gap-4 items-center justify-center text-white absolute bottom-0 md:bottom-32 lg:bottom-48 pb-8">
           <p className="w-10/12    text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]">
             <ScrambleEffect tInput={gallery[1].subtitle} />
@@ -60,20 +65,31 @@ function Kunstkraftwerk({ gallery }) {
       </li>
 
       <li
-        className="w-[100vw] md:w-[100vw] min-h-[100vh] h-[100vh] md:h-[71vw] flex flex-col items-center justify-center  sticky top-0 sm:-top-48 bg-white"
+        className="w-[100vw] md:w-[100vw] min-h-[100vh] h-[100vh] md:min-h-[71vw] 
+        flex flex-col items-center justify-center  sticky top-0 sm:-top-48 bg-[#f2f2f2]
+        pt-0 md:pt-24"
         id="gallery-item-4"
       >
         <ModalDisplay
-          buttonContent={gallery[3].caseImg1}
+          buttonBgStyle={{
+            backgroundImage: `url(${gallery[3].caseImg1})`,
+          }}
+          classNames={
+            "w-full h-full rounded-none p-0 bg-center bg-no-repeat bg-cover cursor-default flex items-center justify-center relative, bg-[length:260%]  sm:bg-[length:180vw] md:bg-[length:100%]  bg-[right_0%_bottom_20vh] md:bg-[left_0%_top_0%] bg-no-repeat"
+          }
+          buttonColor={"black"}
           video={gallery[3].caseImg}
           title={gallery[3].title}
         />
 
-        <div className="w-full h-auto  md:w-[35%] flex flex-col  items-center md:items-start justify-center   text-black absolute bottom-0 md:bottom-32 lg:bottom-48 pb-8">
-          <p className="w-10/12    text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem] ">
+        <div
+          className="w-full h-auto  md:w-[75%] lg:w-[33%] flex flex-col  items-center md:items-start justify-center   text-black 
+                        absolute bottom-0 md:bottom-32 lg:bottom-48 lg:left-[25vw]  pb-8 md:pb-0  "
+        >
+          <p className="w-10/12 md:w-full   text-sm md:text-md lg:text-[1.12vw] leading-tight">
             <ScrambleEffect tInput={gallery[3].subtitle} />
           </p>
-          <p className="w-10/12    text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]">
+          <p className="w-10/12 md:w-full   text-sm md:text-md lg:text-[1.12vw] leading-tight">
             <ScrambleEffect tInput={gallery[3].subtitle1} />
           </p>
         </div>
