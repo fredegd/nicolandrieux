@@ -57,10 +57,16 @@ function Liebeskind({ gallery }) {
         id="gallery-item-2"
         className="w-[100vw]    min-h-[100vw] flex flex-col items-center bg-white pt-40 sm:pt-24 pb-12 sm:pb-4 sticky top-0 sm:relative"
       >
-        <div className="w-10/12 h-[56vw] flex flex-col md:flex-col-reverse gap-4 justify-end items-center  ">
+        <div className="w-10/12 h-[70vw] flex flex-col md:flex-col-reverse gap-4 justify-end items-center  ">
           <div className="m-0 p-0 border border-black w-full h-full">
             <ModalDisplay
-              buttonContent={gallery[1].caseImg1}
+              buttonBgStyle={{
+                backgroundImage: `url(${gallery[1].caseImg1})`,
+              }}
+              classNames={
+                "w-full h-full rounded-none p-0  cursor-default flex items-center justify-center relative, bg-cover  bg-center bg-no-repeat"
+              }
+              buttonColor={"white"}
               video={gallery[1].caseImg}
               title={gallery[1].title}
             />
@@ -127,7 +133,7 @@ function Liebeskind({ gallery }) {
           <p className="hidden md:block text-left   fixed left-[6%] xl:left-[33%] top-[30%]">
             <ScrambleEffect tInput={gallery[3].subtitle} />
           </p>
-          <div className="hidden md:flex flex-col gap-8">
+          <div className="hidden md:w-1/2  md:flex flex-col gap-8">
             <Image
               src={gallery[4].caseImg1}
               alt="Liebeskind Berlin"
@@ -194,9 +200,9 @@ function Liebeskind({ gallery }) {
 
       <li
         id="gallery-item-7"
-        className="w-[100vw] h-[100vh] md:h-[100vh] flex flex-col items-center bg-white filter-none sticky -top-48 pb-24"
+        className="w-[100vw] h-[100vh] sm:h-[120vh] md:h-[130vh] min-h-fit flex flex-col items-center bg-white filter-none sticky -top-48 "
       >
-        <div className="w-10/12 h-full md:h-[75vw] flex flex-col-reverse gap-6 justify-center items-center">
+        <div className="w-10/12 flex flex-col-reverse gap-4 justify-end items-center  ">
           <Image
             src={gallery[6].caseImg2}
             alt="Liebeskind Berlin"
@@ -206,7 +212,13 @@ function Liebeskind({ gallery }) {
           />
 
           <ModalDisplay
-            buttonContent={gallery[6].caseImg1}
+            buttonBgStyle={{
+              backgroundImage: `url(${gallery[6].caseImg1})`,
+            }}
+            classNames={
+              "w-full h-[50vw]  rounded-none p-0  cursor-default flex items-center justify-center relative, bg-cover  bg-center bg-no-repeat"
+            }
+            buttonColor={"white"}
             video={gallery[6].caseImg}
             title={gallery[6].title}
           />
