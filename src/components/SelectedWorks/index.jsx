@@ -30,7 +30,7 @@ export default function SelectedWorks() {
           .map((project) => (
             <Link
               key={project.slug}
-              className=" flex flex-col space-y-1 mb-6 brightness-90  hover:brightness-105  hover:bg-white hover:text-black  transition duration-120 ease-in-out"
+              className=" flex flex-col space-y-1 mb-6 brightness-90  md:hover:brightness-105  md:hover:bg-white md:hover:text-black  transition duration-120 ease-in-out"
               id="work-card"
               href={`/work/${project.slug}`}
             >
