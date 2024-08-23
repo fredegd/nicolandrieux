@@ -14,8 +14,11 @@ function Salted({ gallery }) {
         }}
       >
         <div className="flex flex-col items-start  justify-center w-10/12 h-full">
-          <h1 className="text-white tracking-normal text-[11vw] md:text-[4.2vw] leading-none font-semibold mb-4">
+          <h1 className="hidden md:block text-white tracking-normal text-[11vw] md:text-[4.2vw] leading-none font-semibold mb-4">
             <ScrambleEffect tInput={gallery[0].title} />
+          </h1>
+          <h1 className="md:hidden w-[90%] text-white tracking-normal text-[11vw] md:text-[4.2vw] leading-none font-semibold mb-4">
+            <ScrambleEffect tInput={gallery[0].title.replace(/——/g, "")} />
           </h1>
           <p className="hidden md:inline text-end text-black   md:w-full text-sm md:text-md lg:text-[1.12vw]">
             <ScrambleEffect tInput={gallery[0].subtitle} />
