@@ -9,6 +9,7 @@ function Liebeskind({ gallery }) {
       <li
         id="gallery-item-1"
         className="w-[100vw] md:w-[100vw] h-[100vh]  flex flex-col md:flex-col-reverse lg:flex-col items-center md:items-start lg:items-center md:justify-center
+        md:px-12 lg:px-0
                     bg-[length:170%] md:bg-[length:70%] lg:bg-[length:50%] bg-[right_35%_top_100%]  
                     md:bg-right bg-no-repeat sticky top-0 mb-24 bg-white"
         style={{
@@ -17,7 +18,7 @@ function Liebeskind({ gallery }) {
       >
         {/* desktop */}
 
-        <div className="hidden md:flex flex-col gap-8 text-[3.3vw] w-[46vw]  lg:-rotate-90">
+        <div className="hidden md:flex flex-col gap-8 text-[3.3vw] w-[46vw]  lg:-rotate-90 ">
           <h1 className=" text-black tracking-normal   font-semibold  h-5 w-[100vw]">
             <ScrambleEffect tInput={"LIEBESKIND BERLIN"} />
           </h1>
@@ -32,10 +33,10 @@ function Liebeskind({ gallery }) {
         </div>
         {/* mobile */}
         <div className="flex flex-col md:hidden items-start  justify-center w-10/12 h-full pt-24">
-          <h1 className="text-white tracking-normal text-[11vw] md:text-[4.2vw] leading-none font-semibold my-4">
-            <ScrambleEffect tInput={gallery[0].title} />
+          <h1 className="my-4 w-[90%] text-white tracking-normal text-[11vw] md:text-[4.2vw] leading-none font-semibold ">
+            <ScrambleEffect tInput={gallery[0].title.replace(/——/g, "")} />
           </h1>
-          <p className="md:hidden text-black   w-5/12 md:w-full text-sm md:text-base lg:text-[1.12vw] font-medium">
+          <p className="md:hidden text-black   max-w-[10em] md:w-full text-base lg:text-[1.12vw] font-medium">
             <ScrambleEffect tInput={gallery[0].subtitle.replace(/\|/g, "")} />
           </p>
         </div>
