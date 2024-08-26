@@ -1,12 +1,20 @@
-import Head from "next/head";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import ScrambleEffect from "@/components/ScrambleEffect";
 
 const About = () => {
   const image = useRef();
+  const [isPopoverVisible, setIsPopoverVisible] = useState(false);
+  const [isCopied, setIsCopied] = useState(false);
   let portrait = "https://ik.imagekit.io/3vlhcozis/Nicolandrieux/portrait.png";
+  const email = "nico@landrieux.design";
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(email).then(() => {
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000); // Hide the copied message after 2 seconds
+    });
+  };
   return (
     <section
       className=" min-h-screen  w-full  pt-40 md:pt-24 lg:pt-0   flex flex-col justify-center items-center "
@@ -47,11 +55,21 @@ const About = () => {
             />
           </p>
 
-          <p className="lowercase">
-            <Link href={"mailto:nico@landrieux.design"} target="_blank">
-              <ScrambleEffect tInput={"   nico@landrieux.design"} />
-            </Link>
-          </p>
+          <div
+            className="relative flex"
+            onMouseEnter={() => setIsPopoverVisible(true)}
+            onMouseLeave={() => setIsPopoverVisible(false)}
+            onTouchStart={() => setIsPopoverVisible(true)}
+            onTouchEnd={() => setIsPopoverVisible(false)}
+            onClick={handleCopy}
+          >
+            <p className="lowercase cursor-pointer p-1">{email}</p>
+            {isPopoverVisible && (
+              <div className=" w-fit p-1 bg-slate-800 text-white text-xs ">
+                {isCopied ? "Address Copied!" : "Copy address"}
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>
