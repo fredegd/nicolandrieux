@@ -127,52 +127,65 @@ function Liebeskind({ gallery }) {
         className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 md:-top-[90%] bg-white "
       >
         <div className="flex w-full  gap-12">
-          <Image
-            src={gallery[4].caseImg}
-            alt="Liebeskind Berlin"
-            width={1600}
-            height={1140}
-            className="w-full md:w-1/2 h-[140%] md-h-full object-cover object-center relative"
-          />
-          <p className="hidden lg:block text-left   absolute  lg:left-[35%] top-[40%] text-black">
-            <ScrambleEffect tInput={gallery[3].subtitle} />
-          </p>
-          <div className="hidden md:w-1/2  md:flex flex-col gap-8">
+          <div className="w-full md:w-1/2 h-[140%] md:h-full relative ">
+            <Image
+              src={gallery[4].caseImg}
+              alt="Liebeskind Berlin"
+              width={1600}
+              height={1140}
+              className="w-full h-full object-cover object-center "
+            />
+            <p className="hidden lg:block absolute  lg:right-[-2.5%] top-[31%] text-black text-sm  lg:text-[1.12vw]">
+              <ScrambleEffect tInput={gallery[4].title} />
+            </p>
+          </div>
+          <div className="hidden md:w-1/2  md:flex flex-col ">
             <Image
               src={gallery[4].caseImg1}
               alt="Liebeskind Berlin"
               width={800}
               height={570}
-              className="w-full h-full object-cover object-center"
+              className="w-[95%] h-full object-cover object-center"
             />
-            <Image
-              src={gallery[4].caseImg2}
-              alt="Liebeskind Berlin"
-              width={800}
-              height={570}
-              className="object-cover object-center"
-            />
+            <div className="w-full relative flex flex-col items-center">
+              <p className="text-black text-sm  lg:text-[1.12vw]  -rotate-90 absolute top-[40%] -left-[19%]">
+                <ScrambleEffect tInput={gallery[4].subtitle} />
+              </p>
+              <Image
+                src={gallery[4].caseImg2}
+                alt="Liebeskind Berlin"
+                width={800}
+                height={570}
+                className="object-cover object-center w-[90%]"
+              />
+            </div>
           </div>
         </div>
       </li>
       <li
         id="gallery-item-6"
-        className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky -top-36  bg-white"
+        className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center  bg-no-repeat sticky -top-48  bg-white"
       >
-        <div className="flex  gap-12">
+        <div className="flex w-full justify-between md:px-8 gap-12 relative md:mt-36 text-sm  lg:text-[1.12vw]">
+          <p className="hidden md:block absolute top-36 left-[33%]">
+            <ScrambleEffect tInput={gallery[5].subtitle} />
+          </p>
+          <p className="hidden md:block absolute top-36 right-[25%]">
+            <ScrambleEffect tInput={gallery[5].subtitle1} />
+          </p>
           <Image
             src={gallery[5].caseImg}
             alt="Liebeskind Berlin"
             width={800}
             height={570}
-            className="hidden md:block  w-1/2 h-full object-cover object-center"
+            className="hidden md:block  w-1/2 h-full  object-center object-cover"
           />
           <Image
             src={gallery[5].caseImg1}
             alt="Liebeskind Berlin"
-            width={1600}
-            height={1140}
-            className="w-full h-[140%] md:w-1/2 md:h-full object-cover object-center"
+            width={800}
+            height={570}
+            className="w-full  md:w-1/2 md:h-full object-cover object-bottom"
           />
         </div>
       </li>
