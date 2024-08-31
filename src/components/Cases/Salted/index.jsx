@@ -30,11 +30,11 @@ function Salted({ gallery }) {
       </li>
       <li
         id="gallery-item-2"
-        className="w-[100vw] md:w-[100vw] h-[100vh] md:h-[71vw] 
+        className="w-[100vw] md:w-[100vw] h-[108vh] md:h-[71vw] 
         flex flex-col-reverse md:flex-row  md:items-start items-center md:bg-cover bg-center bg-no-repeat sticky -top-2 md:-top-48 pb-20 bg-white"
       >
         <Image
-          className="w-full md:w-8/12  h-auto aspect-[400/400]  object-fill"
+          className="w-full md:w-8/12  h-auto aspect-[400/400]  object-[right_30%] object-cover"
           src={gallery[1].caseImg || ""}
           alt={gallery[1].content}
           width={1600}
