@@ -69,7 +69,7 @@ function Kunstkraftwerk({ gallery }) {
 
       <li
         className="w-[100vw] md:w-[100vw] min-h-[100vh] h-[100vh] md:min-h-[71vw] 
-        flex flex-col items-center justify-center  sticky top-0 sm:-top-48 bg-[#f2f2f2]
+        flex flex-col items-center justify-center  sticky top-0 sm:-top-48 bg-[#f2f2f2] md:bg-white
         pt-0 md:pt-24"
         id="gallery-item-4"
       >
@@ -78,7 +78,7 @@ function Kunstkraftwerk({ gallery }) {
             backgroundImage: `url(${gallery[3].caseImg1})`,
           }}
           classNames={
-            "w-full h-full rounded-none p-0 bg-center bg-no-repeat bg-cover cursor-default flex items-center justify-center relative, bg-[length:260%]  sm:bg-[length:180vw] md:bg-[length:100%]  bg-[right_0%_bottom_20vh] md:bg-[left_0%_top_0%] bg-no-repeat"
+            "w-full h-full rounded-none p-0 bg-center bg-no-repeat bg-cover cursor-default flex items-center justify-center pb-52 md:p-0 relative, bg-[length:250%] bg-right-top  sm:bg-[length:180vw] md:bg-[length:100%] md:bg-[left_top_5rem] bg-no-repeat"
           }
           buttonColor={"black"}
           video={gallery[3].caseImg}
@@ -86,8 +86,8 @@ function Kunstkraftwerk({ gallery }) {
         />
 
         <div
-          className="w-full h-auto  md:w-[75%] lg:w-[33%] flex flex-col  items-center md:items-start justify-center   text-black 
-                        absolute bottom-0 md:bottom-32 lg:bottom-48 lg:left-[25vw]  pb-8 md:pb-0  "
+          className="w-full h-auto  md:w-10/12 lg:w-[33%] flex flex-col  items-center md:items-start justify-center  bg-white lg:bg-transparent text-black 
+                        absolute bottom-0 md:bottom-32 lg:bottom-48 lg:left-[25vw]  py-8 md:p-0  "
         >
           <p className="w-10/12 md:w-full   text-sm md:text-md lg:text-[1.12vw] leading-tight">
             <ScrambleEffect tInput={gallery[3].subtitle} />
