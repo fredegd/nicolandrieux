@@ -62,7 +62,7 @@ const About = () => {
           >
             <p className="lowercase cursor-pointer p-1">{email}</p>
             {isPopoverVisible && (
-              <div className=" w-fit p-1 bg-slate-800 text-white text-xs ">
+              <div className=" w-fit p-1 bg-slate-800 text-white text-xs flex items-center">
                 {isCopied ? "Address Copied!" : "Copy address"}
               </div>
             )}
