@@ -8,10 +8,10 @@ function Liebeskind({ gallery }) {
     <ul className="p-0 m-0">
       <li
         id="gallery-item-1"
-        className="w-[100vw] md:w-[100vw] h-[100vh]  flex flex-col md:flex-col-reverse lg:flex-col items-center md:items-start lg:items-center md:justify-center
-        md:px-12 lg:px-0
-                    bg-[length:170%] md:bg-[length:70%] lg:bg-[length:50%] bg-[right_35%_top_100%]  
-                    md:bg-right bg-no-repeat sticky top-0 mb-24 bg-white"
+        className="w-[100vw] md:w-[100vw] h-[100vh]  md:px-12 lg:px-0
+        flex flex-col md:flex-col-reverse lg:flex-col items-center md:items-start lg:items-center md:justify-center
+        bg-[length:170%] md:bg-[length:70%] lg:bg-[length:50%] bg-[right_35%_top_100%] md:bg-right bg-no-repeat 
+        sticky top-0 mb-48 bg-white"
         style={{
           backgroundImage: `url(${gallery[0].caseImg})`,
         }}
@@ -43,8 +43,8 @@ function Liebeskind({ gallery }) {
       </li>
       <li
         id="gallery-item-2-mobile"
-        className="w-[100vw] md:w-[100vw] h-[150vh] md:h-[71vw] flex flex-col md:hidden items-center 
-                   bg-[length:120%]  bg-[left_60%_top_12rem]  bg-no-repeat sticky top-[-30rem] bg-white"
+        className="md:hidden w-[100vw] md:w-[100vw] h-[119vh] sm:h-[150vh] flex flex-col  items-center 
+                   bg-[length:135%]  bg-[left_60%_top_10rem]  bg-no-repeat sticky -top-[10rem] sm:-top-[50%] bg-white"
         style={{ backgroundImage: `url(${gallery[3].caseImg1})` }}
       >
         <div className="w-10/12 pt-56 sticky top-0">
@@ -74,14 +74,14 @@ function Liebeskind({ gallery }) {
           <p className="hidden md:block    text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]  mt-24 text-black ">
             <ScrambleEffect tInput={gallery[1].subtitle} />
           </p>
-          <p className="block md:hidden self-start    w-3/5 text-sm leading-[1.5rem] mix-blend-difference  text-slate-500 ">
+          <p className="block md:hidden self-start    w-[14em] text-sm leading-[1.5rem] mix-blend-difference  text-slate-500 border border-green-400 ">
             <ScrambleEffect tInput={gallery[1].subtitle1} />
           </p>
         </div>
       </li>
       <li
         id="gallery-item-3"
-        className=" w-[100vw] h-[70vw] hidden  md:flex flex-col items-center bg-[length:100%] bg-center bg-no-repeat bg-white sticky -top-48 "
+        className=" w-[100vw] h-[55vw] hidden  md:block bg-[length:100%] bg-center bg-no-repeat bg-white sticky -top-48"
         style={{
           backgroundImage: `url(${gallery[2].caseImg})`,
         }}
@@ -91,42 +91,40 @@ function Liebeskind({ gallery }) {
 
       <li
         id="gallery-item-4"
-        className="w-[100vw] h-auto md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 md:-top-[302%] bg-white "
+        className="w-[100vw] h-auto md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat 
+        sticky top-0 md:-top-[302%] bg-white "
       >
-        <div className="flex w-full">
-          <Image
-            src={gallery[3].caseImg}
-            alt="Liebeskind Berlin"
-            width={800}
-            height={570}
-            className="md:w-1/2 h-full object-cover object-center"
-          />
-
-          {/* <Image
-            src={gallery[3].caseImg1}
-            alt="Liebeskind Berlin"
-            width={800}
-            height={570}
-            className="hidden md:block   object-fill w-[180%] h-[180%] object-center            "
-          /> */}
+        <div className="flex w-full h-full">
           <div
-            className="w-1/2 h-full bg-center bg-[length:145%] bg-no-repeat"
+            className="md:w-1/2 h-full bg-center bg-cover bg-no-repeat relative p-0 m-0"
+            style={{ backgroundImage: `url(${gallery[3].caseImg})` }}
+          >
+            <p
+              className="hidden md:block -rotate-90 origin-right
+            absolute top-[25%] right-5"
+            >
+              <ScrambleEffect tInput={gallery[3].subtitle} />
+            </p>
+          </div>
+          <div
+            className="w-1/2 h-full bg-[center_top_55%] bg-[length:150%] bg-no-repeat relative"
             style={{ backgroundImage: `url(${gallery[3].caseImg1})` }}
-          ></div>
+          >
+            <p
+              className="hidden md:block rotate-90 origin-left
+            absolute top-[25%] left-5"
+            >
+              <ScrambleEffect tInput={gallery[3].subtitle} />
+            </p>
+          </div>
         </div>
-        <p className="hidden md:block rotate-90 text-left   pt-12 pl-96 fixed top-[20%] ">
-          <ScrambleEffect tInput={gallery[3].subtitle} />
-        </p>
-        <p className="hidden md:block -rotate-90 pt-12 pr-96 text-end fixed top-[20%] ">
-          <ScrambleEffect tInput={gallery[3].subtitle} />
-        </p>
       </li>
 
       <li
         id="gallery-item-5"
         className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat sticky top-0 md:-top-[90%] bg-white "
       >
-        <div className="flex w-full  gap-12">
+        <div className="flex w-full  gap-6">
           <div className="w-full md:w-1/2 h-[140%] md:h-full relative ">
             <Image
               src={gallery[4].caseImg}
@@ -148,7 +146,10 @@ function Liebeskind({ gallery }) {
               className="w-[95%] h-full object-cover object-center"
             />
             <div className="w-full relative flex flex-col items-center">
-              <p className="text-black text-sm  lg:text-[1.12vw]  -rotate-90 absolute top-[40%] -left-[19%]">
+              <p
+                className="hidden md:block origin-top-left 
+              absolute top-[75%] left-0  text-black text-sm  md:text-[1.12vw]  -rotate-90 "
+              >
                 <ScrambleEffect tInput={gallery[4].subtitle} />
               </p>
               <Image
@@ -156,7 +157,7 @@ function Liebeskind({ gallery }) {
                 alt="Liebeskind Berlin"
                 width={800}
                 height={570}
-                className="object-cover object-center w-[90%]"
+                className="object-cover object-center w-[85%]"
               />
             </div>
           </div>
@@ -164,60 +165,64 @@ function Liebeskind({ gallery }) {
       </li>
       <li
         id="gallery-item-6"
-        className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center  bg-no-repeat sticky -top-48  bg-white"
+        className="w-[100vw] h-[100vh] md:h-[75vw]   flex flex-col items-center  bg-no-repeat sticky -top-48  bg-white text-black"
       >
-        <div className="flex w-full justify-between md:px-8 gap-12 relative md:mt-36 text-sm  lg:text-[1.12vw]">
-          <p className="hidden md:block absolute top-36 left-[33%]">
-            <ScrambleEffect tInput={gallery[5].subtitle} />
-          </p>
-          <p className="hidden md:block absolute top-36 right-[25%]">
-            <ScrambleEffect tInput={gallery[5].subtitle1} />
-          </p>
-          <Image
-            src={gallery[5].caseImg}
-            alt="Liebeskind Berlin"
-            width={800}
-            height={570}
-            className="hidden md:block  w-1/2 h-full  object-center object-cover"
-          />
-          <Image
-            src={gallery[5].caseImg1}
-            alt="Liebeskind Berlin"
-            width={800}
-            height={570}
-            className="w-full  md:w-1/2 md:h-full object-cover object-bottom"
-          />
+        <div className="flex w-full h-full md:pt-24 md:px-6 md:gap-6">
+          <div
+            className="md:w-1/2 h-full bg-center bg-cover bg-no-repeat relative"
+            style={{ backgroundImage: `url(${gallery[5].caseImg})` }}
+          >
+            <p
+              className="hidden md:block  origin-right
+            absolute top-[23%] right-5 text-sm  md:text-[1.12vw] "
+            >
+              <ScrambleEffect tInput={gallery[5].subtitle} />
+            </p>
+          </div>
+          <div
+            className="w-full  md:w-1/2 h-full bg-center bg-cover bg-no-repeat relative"
+            style={{ backgroundImage: `url(${gallery[5].caseImg1})` }}
+          >
+            <p
+              className="hidden md:block  origin-left
+            absolute top-[23%] left-5 text-sm  md:text-[1.12vw] "
+            >
+              <ScrambleEffect tInput={gallery[5].subtitle1} />
+            </p>
+          </div>
         </div>
       </li>
 
       <li
         id="gallery-item-6-Mobile"
-        className="w-[100vw] flex md:hidden items-center bg-white pt-36 sticky top-0"
+        className="md:hidden w-[100vw]  flex flex-col items-center
+         bg-white text-black py-36 
+        border border-purple-500"
       >
-        <div className="flex flex-col gap-4 items-center">
-          <Image
-            src={gallery[4].caseImg1}
-            alt="Liebeskind Berlin"
-            width={800}
-            height={570}
-            className="w-full h-full object-cover object-center"
-          />
-          <Image
-            src={gallery[4].caseImg2}
-            alt="Liebeskind Berlin"
-            width={800}
-            height={570}
-            className="object-cover object-center"
-          />
+        <Image
+          src={gallery[4].caseImg1}
+          alt="Liebeskind Berlin"
+          width={800}
+          height={570}
+          className="w-full h-full object-cover object-center"
+        />
+        <Image
+          src={gallery[4].caseImg2}
+          alt="Liebeskind Berlin"
+          width={800}
+          height={570}
+          className="object-cover object-center"
+        />
+        <div className="w-10/12">
           <p className="w-10/12">
-            <ScrambleEffect tInput={gallery[4].subtitle} />
+            <ScrambleEffect tInput={gallery[4].subtitle1} />
           </p>
         </div>
       </li>
 
       <li
         id="gallery-item-7"
-        className="w-[100vw] h-[100vh] sm:h-[120vh] md:h-[130vh] min-h-fit flex flex-col items-center bg-white filter-none sticky -top-48 "
+        className="w-[100vw] h-[130vh] md:h-[130vh] min-h-fit flex flex-col items-center bg-white filter-none sticky -top-48 "
       >
         <div className="w-10/12 flex flex-col-reverse gap-4 justify-end items-center  ">
           <Image
