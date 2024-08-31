@@ -74,7 +74,7 @@ function Liebeskind({ gallery }) {
           <p className="hidden md:block    text-sm md:text-md lg:text-[1.12vw] leading-[1.5rem]  mt-24 text-black ">
             <ScrambleEffect tInput={gallery[1].subtitle} />
           </p>
-          <p className="block md:hidden self-start    w-[14em] text-sm leading-[1.5rem] mix-blend-difference  text-slate-500 border border-green-400 ">
+          <p className="block md:hidden self-start    w-[14em] text-sm leading-[1.5rem] mix-blend-difference  text-slate-500  ">
             <ScrambleEffect tInput={gallery[1].subtitle1} />
           </p>
         </div>
@@ -92,7 +92,7 @@ function Liebeskind({ gallery }) {
       <li
         id="gallery-item-4"
         className="w-[100vw] h-auto md:h-[75vw]   flex flex-col items-center bg-cover bg-center bg-no-repeat 
-        sticky top-0 md:-top-[302%] bg-white "
+        sticky top-0 md:-top-[80%] bg-white "
       >
         <div className="flex w-full h-full">
           <div
@@ -196,8 +196,7 @@ function Liebeskind({ gallery }) {
       <li
         id="gallery-item-6-Mobile"
         className="md:hidden w-[100vw]  flex flex-col items-center
-         bg-white text-black py-36 
-        border border-purple-500"
+         bg-white text-black py-36 sticky top-36"
       >
         <Image
           src={gallery[4].caseImg1}
