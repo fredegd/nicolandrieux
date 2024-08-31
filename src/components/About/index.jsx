@@ -21,10 +21,7 @@ const About = () => {
       id="about"
     >
       <div className=" w-10/12 h-[100vh] flex flex-col lg:flex-row items-center sm:items-start lg:items-center gap-8 text-sm md:text-md lg:text-[1.12vw] ">
-        <div
-          ref={image}
-          className=" w-full  sm:w-10/12 md:w-8/12 lg:w-4/12 xl:w-3/12 "
-        >
+        <div className=" w-full  sm:w-10/12 md:w-8/12 lg:w-4/12 xl:w-3/12 ">
           <Image
             className="w-full h-auto aspect-[400/400] lg:aspect-[400/545]"
             src={portrait}
@@ -32,11 +29,11 @@ const About = () => {
             placeholder="blur"
             blurDataURL={portrait}
             style={{ objectFit: "cover" }}
-            width={400}
-            height={545}
+            width={800}
+            height={1090}
           />
         </div>
-        <div className=" w-full lg:w-[460px] flex flex-col gap-4  tracking-tight leading-[1.1rem]">
+        <div className=" w-full md:w-8/12 lg:w-5/12 flex flex-col gap-4  text-sm md:text-md lg:text-[1.12vw] lg:leading-[1.4vw] tracking-tight">
           <p className=" uppercase font-medium ">
             <ScrambleEffect tInput={"NICOLAS LANDRIEUX"} />
           </p>
