@@ -239,13 +239,17 @@ function Salted({ gallery }) {
       </li>
       <li
         id="gallery-item-10"
-        className=" w-[100vw] md:w-[100vw] min-h-[100vh] md:h-[71vw]  flex flex-col items-center justify-end md:justify-center bg-cover md:bg-center bg-[left_25%_top_0] bg-no-repeat filter-none sticky -top-24"
+        className=" w-[100vw] md:w-[100vw] min-h-[100vh] md:h-[73vw]  
+        flex flex-col items-center
+        bg-cover md:bg-center bg-[left_25%_top_0] bg-no-repeat filter-none sticky -top-24"
         style={{
           backgroundImage: `url(${gallery[9].caseImg})`,
         }}
       >
         <p
-          className="w-10/12 pb-[25vh]  text-white md:text-black  text-[1.7rem] font-normal leading-none tracking-wide"
+          className="w-10/12 pb-[25vh] md:pb-0 
+          absolute top-[40%] md:top-[53%] 
+           text-white md:text-black  text-[1.7rem] font-normal leading-none tracking-wide"
           style={{
             fontSize: "1.0rem" && "clamp(0.85rem, 1.07vw, 1.15rem)",
           }}
