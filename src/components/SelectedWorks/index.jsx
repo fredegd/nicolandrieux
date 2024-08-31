@@ -12,7 +12,7 @@ export default function SelectedWorks() {
 
   return (
     <section
-      className=" min-h-screen w-full   pt-36 md:pt-24 mb-24 flex flex-col justify-center items-center bg-transparent"
+      className=" min-h-screen overflow-auto h-[100vh] w-full   pt-36 md:pt-24 mb-24 flex flex-col justify-center items-center bg-transparent"
       id="work"
       ref={container}
     >

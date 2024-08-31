@@ -78,7 +78,7 @@ function Kunstkraftwerk({ gallery }) {
             backgroundImage: `url(${gallery[3].caseImg1})`,
           }}
           classNames={
-            "w-full h-full rounded-none p-0 bg-center bg-no-repeat bg-cover cursor-default flex items-center justify-center pb-52 md:p-0 relative, bg-[length:250%] bg-right-top  sm:bg-[length:180vw] md:bg-[length:100%] md:bg-[left_top_5rem] bg-no-repeat"
+            "w-full h-full rounded-none p-0 bg-center bg-no-repeat bg-cover cursor-default flex items-center justify-center pb-52 md:p-0 relative, bg-[length:250%] bg-right-top  sm:bg-[length:180vw] md:bg-[length:100%] md:bg-[left_top_5rem] lg:bg-[left_top_0rem] bg-no-repeat"
           }
           buttonColor={"black"}
           video={gallery[3].caseImg}
